@@ -35,4 +35,8 @@ class bankSystem {
     textSize(12);
     text("Spiller " +bankNum + " bank", x+2, 15 + offset*num);
   }
+  
+  void addToBalance(int money){
+    balance += money;
+  }
 }
