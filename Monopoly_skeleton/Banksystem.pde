@@ -1,9 +1,16 @@
 class bankSystem {
-
-  float x = 10, y = 10;
   int balance = 0;
   int startBalance = int(random(100, 200));
-  int offset = 70;
+  int offset = 95;
+  int bankNum;
+
+  float x = 10, y =20 ;
+
+
+  bankSystem(int num) {
+    bankNum=num+1;
+  }
+
 
   void bankSetup() {
     balance = balance + startBalance;
@@ -16,14 +23,20 @@ class bankSystem {
     rect(x, y, 250, 70);
     fill(0);
     textSize(32);
-    text("$ " + balance + " Kr.", x, y + 50);
+    text("$" + balance + " Kr.", x, y + 50);
+    fill(255);
+    textSize(12);
+    text("Spiller " +bankNum + " bank", x+2, 15);
   }
-  
-  void dropDownDisplay(int num){
+
+  void dropDownDisplay(int num) {
     fill(200);
     rect(x, y+offset*num, 250, 70);
     fill(0);
     textSize(32);
-    text("$ " + balance + " Kr.", x, y + 50);
+    text("$"  + balance + " Kr.", x, y + 50 + offset*num);
+    fill(255);
+    textSize(12);
+    text("Spiller " +bankNum + " bank", x+2, 15 + offset*num);
   }
 }
