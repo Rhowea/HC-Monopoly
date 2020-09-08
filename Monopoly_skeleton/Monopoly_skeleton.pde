@@ -1,54 +1,40 @@
+ArrayList <bankSystem> banks  = new ArrayList();
+
 import controlP5.*;
 ControlP5 cp5session1;
 
-float consumption = 0;
-float Savings = 100;
-float x = 10, y = 10;
+bankSystem b;
 
-CheckBox checkbox;
+int numPl = 4;
+int playerTurn = 1;
 
 void setup() {
   cp5session1 = new ControlP5(this);
-
-  size (800, 800);
-  
+  size (1000, 800);
   background(0);
+
+  for (int i = 0; i < numPl; i++) {
+    banks.add(new bankSystem());
+  }
+  for (int j = 0; j < banks.size(); j++) {
+    bankSystem b = banks.get(j);
+    b.bankSetup();
+  }
 }
 
 void draw() {
-  background(0);
-  fill(255);
-  textSize(32);
-  text("Welcome to our ATM", 5, 40);
-  fill(200);
-  rect(x, y, 250, 70);
-  fill(0);
-  textSize(32);
-  text(consumption + " KR", x, y + 50);
-  textSize(12);
-  fill(255);
-  text("Consumption Account", x, y-5);
-
-  fill(200);
-  rect(x, y+100, 250, 70);
-  fill(0);
-  textSize(32);
-  text(Savings + "KR", x, y + 150);
-  textSize(12);
-  fill(255);
-  text("Savings Account", x, y+95);
+  bankSystem b = banks.get(playerTurn-1);
+  b.display();
+  
+  if(mousePressed){
+    nextTurn();
+  }
 }
-void Deposit() {
-  boolean DepositConsumption = checkbox.getState("Deposit_Consumption");
-  boolean DepositSavings = checkbox.getState("Deposit_Savings");
-  String amount = cp5session1.get(Textfield.class, "Enter_amount").getText();
 
-  if (DepositConsumption) {
-    consumption = consumption + Float.parseFloat(amount);
+void nextTurn() {
+  if (playerTurn == 4) {
+    playerTurn = 1;
+  } else {
+    playerTurn++;
   }
-  if (DepositSavings) {
-    Savings = Savings + Float.parseFloat(amount);
-  }
-  cp5session1.get(Textfield.class, "Enter_amount").clear();
-  checkbox.deactivateAll();
 }
