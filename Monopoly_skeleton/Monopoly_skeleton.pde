@@ -6,7 +6,7 @@ ControlP5 cp5banks;
 bankSystem b;
 
 int numPl = 4;
-int playerTurn = 1;
+int playerTurn = 2;
 
 PImage Arrow;
 boolean showDropDown = false;
@@ -19,7 +19,7 @@ void setup() {
   Arrow = loadImage("dropDownArrow.png");
 
   for (int i = 0; i < numPl; i++) {
-    banks.add(new bankSystem());
+    banks.add(new bankSystem(i));
   }
   for (int j = 0; j < banks.size(); j++) {
     bankSystem b = banks.get(j);
@@ -27,7 +27,7 @@ void setup() {
   }
 
   cp5banks.addButton("dropDown")
-    .setPosition(260, 10)
+    .setPosition(260, 20)
     .setSize(20, 70)
     .setLabelVisible(false);
   ;
@@ -41,6 +41,37 @@ void draw() {
 
   cp5banks.draw();
   image(Arrow, 260, 35, 20, 20);
+  if (showDropDown && playerTurn == 1) {
+    bankSystem a = banks.get(playerTurn);
+    bankSystem d = banks.get(playerTurn+1);
+    bankSystem c = banks.get(playerTurn+2);
+    a.dropDownDisplay(1);
+    c.dropDownDisplay(2);
+    d.dropDownDisplay(3);
+  } else if (showDropDown && playerTurn == 2) {
+    bankSystem a = banks.get(playerTurn);
+    bankSystem d = banks.get(playerTurn+1);
+    bankSystem c = banks.get(playerTurn-2);
+    a.dropDownDisplay(1);
+    c.dropDownDisplay(2);
+    d.dropDownDisplay(3);
+  }
+  else if (showDropDown && playerTurn == 3) {
+    bankSystem a = banks.get(playerTurn);
+    bankSystem d = banks.get(playerTurn-2);
+    bankSystem c = banks.get(playerTurn-3);
+    a.dropDownDisplay(1);
+    c.dropDownDisplay(2);
+    d.dropDownDisplay(3);
+  }
+  else if (showDropDown && playerTurn == 4) {
+    bankSystem a = banks.get(playerTurn-4);
+    bankSystem d = banks.get(playerTurn-3);
+    bankSystem c = banks.get(playerTurn-2);
+    a.dropDownDisplay(1);
+    c.dropDownDisplay(2);
+    d.dropDownDisplay(3);
+  }
 }
 
 void nextTurn() {
@@ -51,11 +82,5 @@ void nextTurn() {
   }
 }  
 void dropDown() {
-  //nextTurn();
   showDropDown  ^= true;
-}
-void ShowDropDown() {
-  if (showDropDown) {
-   
-  }
 }
