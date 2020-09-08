@@ -1,9 +1,9 @@
 class bankSystem {
 
   float x = 10, y = 10;
-
   int balance = 0;
-  int startBalance = int(random(100,200));
+  int startBalance = int(random(100, 200));
+
 
   void bankSetup() {
     balance = balance + startBalance;
@@ -19,4 +19,6 @@ class bankSystem {
     textSize(32);
     text("$ " + balance + " Kr.", x, y + 50);
   }
+
+
 }
