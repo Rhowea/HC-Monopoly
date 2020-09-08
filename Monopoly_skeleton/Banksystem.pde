@@ -6,19 +6,15 @@ class bankSystem {
 
   float x = 10, y =20 ;
 
-
   bankSystem(int num) {
     bankNum=num+1;
   }
-
 
   void bankSetup() {
     balance = balance + startBalance;
   }
 
-
   void display() {
-
     fill(200);
     rect(x, y, 250, 70);
     fill(0);
