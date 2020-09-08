@@ -9,6 +9,8 @@ int numPl = 4;
 int playerTurn = 1;
 
 PImage Arrow;
+boolean showDropDown = false;
+
 
 void setup() {
   cp5banks = new ControlP5(this);
@@ -33,9 +35,10 @@ void setup() {
 }
 
 void draw() {
+  background(0);
   bankSystem b = banks.get(playerTurn-1);
   b.display();
-  
+
   cp5banks.draw();
   image(Arrow, 260, 35, 20, 20);
 }
@@ -48,5 +51,11 @@ void nextTurn() {
   }
 }  
 void dropDown() {
-  nextTurn();
+  //nextTurn();
+  showDropDown  ^= true;
+}
+void ShowDropDown() {
+  if (showDropDown) {
+   
+  }
 }
