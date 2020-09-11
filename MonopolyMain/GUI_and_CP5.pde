@@ -76,7 +76,9 @@ void guiSetup() {
 public void Start() {
   cp5Main.show();
   cp5Menu.hide();
-
+  for (int i=0; i < numPl; i++){
+    names.add(cp5Menu.get(Textfield.class, "Pl"+(i+1)).getText());
+  }
   onMenu = false;
   setup();
 }

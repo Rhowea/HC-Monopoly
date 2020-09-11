@@ -1,4 +1,5 @@
 ArrayList <bankSystem> banks  = new ArrayList();
+ArrayList <String> names  = new ArrayList();
 import controlP5.*;
 
 //Laver 2D-Array med den mængde rows og collums
@@ -25,6 +26,7 @@ void setup() {
     Arrow = requestImage("dropDownArrow.png");
     Board = requestImage("Board.png");
   }
+  
   if (!onMenu) {
     for (int i = 0; i < numPl; i++) {
       banks.add(new bankSystem(i));
@@ -35,6 +37,7 @@ void setup() {
     }
   }
 }
+
 void settings() {
   size (1100, 750);
 
