@@ -55,7 +55,7 @@ void guiSetup() {
     .setValue("")
     ;
   cp5Main.addButton("backToMenu")
-    .setPosition(width-110, height-55)
+    .setPosition(5, height-55)
     .setSize(100, 50)
     .setCaptionLabel("Back to Menu")
     .setColorForeground(color(#CB0000))
