@@ -3,6 +3,7 @@ class bankSystem {
   int startBalance = int(random(100, 200));
   int offset = 95;
   int bankNum;
+ 
   PFont BankFont; 
 
   float x = 10, y =20 ;
