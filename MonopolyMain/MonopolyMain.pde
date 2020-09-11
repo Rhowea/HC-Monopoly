@@ -1,5 +1,8 @@
 ArrayList <bankSystem> banks  = new ArrayList();
-
+//Laver 2D-Array med den mængde rows og collums
+Space[][] grid;
+int sCols = 11;
+int sRows = 11;
 import controlP5.*;
 
 int numPl;
@@ -23,6 +26,10 @@ void setup() {
   if (onMenu && !initialized) {
     guiSetup();
   }
+
+  for (int i = 0; i < numPl; i++) {
+    banks.add(new bankSystem(i));
+  }
   if (!onMenu) {
     for (int i = 0; i < numPl; i++) {
       banks.add(new bankSystem(i));
@@ -35,6 +42,21 @@ void setup() {
 }
 void settings() {
   size (1100, 750);
+}
+
+  cp5banks.addButton("dropDown")
+    .setPosition(260, 20)
+    .setSize(20, 70)
+    .setLabelVisible(false);
+  ;
+  cp5banks.setAutoDraw(false);
+  //initialiser arrayet og fylder den med spaces
+  grid = new Space[sCols][sRows];
+  for (int i = 0; i < sCols; i++) {
+    for (int j = 0; j < sRows; j++) {
+      grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
+    }
+  }
 }
 
 void draw() {
@@ -60,6 +82,13 @@ void draw() {
     }
     counter = 0;
   }
+  counter = 0;
+  //kalder display() for alle spaces i arrayet
+  /*for (int i = 0; i < sCols; i++) {
+   for (int j = 0; j < sRows; j++) {
+   grid[i][j].display();
+   }
+   }*/
 }
 
 void nextTurn() {
