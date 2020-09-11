@@ -20,15 +20,12 @@ void setup() {
   background(0);
   banks.clear();
 
-  Arrow = requestImage("dropDownArrow.png");
-  Board = requestImage("Board.png");
 
+  //første gang vi er i setup laver vi de initialisere vi en masse så det senere bare kan loades
   if (onMenu && !initialized) {
     guiSetup();
-  }
-
-  for (int i = 0; i < numPl; i++) {
-    banks.add(new bankSystem(i));
+    Arrow = requestImage("dropDownArrow.png");
+    Board = requestImage("Board.png");
   }
   if (!onMenu) {
     for (int i = 0; i < numPl; i++) {
