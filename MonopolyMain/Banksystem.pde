@@ -3,6 +3,7 @@ class bankSystem {
   int startBalance = int(random(100, 200));
   int offset = 95;
   int bankNum;
+  PFont BankFont; 
 
   float x = 10, y =20 ;
 
@@ -12,9 +13,11 @@ class bankSystem {
 
   void bankSetup() {
     balance = balance + startBalance;
+    BankFont = createFont("arial", 20);
   }
 
   void display() {
+    textFont(BankFont);
     fill(200);
     rect(x, y, 250, 70);
     fill(0);
@@ -26,6 +29,7 @@ class bankSystem {
   }
 
   void dropDownDisplay(int num) {
+    textFont(BankFont);
     fill(200);
     rect(x, y+offset*num, 250, 70);
     fill(0);
