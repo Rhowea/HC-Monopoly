@@ -19,10 +19,10 @@ boolean initialized = false;
 void setup() {
   background(0);
   banks.clear();
-  
+
   Arrow = loadImage("dropDownArrow.png");
   Board = loadImage("Board.png");
-  
+
   if (onMenu && !initialized) {
     guiSetup();
   }
@@ -42,14 +42,8 @@ void setup() {
 }
 void settings() {
   size (1100, 750);
-}
 
-  cp5banks.addButton("dropDown")
-    .setPosition(260, 20)
-    .setSize(20, 70)
-    .setLabelVisible(false);
-  ;
-  cp5banks.setAutoDraw(false);
+
   //initialiser arrayet og fylder den med spaces
   grid = new Space[sCols][sRows];
   for (int i = 0; i < sCols; i++) {
@@ -82,13 +76,14 @@ void draw() {
     }
     counter = 0;
   }
-  counter = 0;
   //kalder display() for alle spaces i arrayet
-  /*for (int i = 0; i < sCols; i++) {
-   for (int j = 0; j < sRows; j++) {
-   grid[i][j].display();
-   }
-   }*/
+  if (!onMenu) {
+    for (int i = 0; i < sCols; i++) {
+      for (int j = 0; j < sRows; j++) {
+        grid[i][j].display();
+      }
+    }
+  }
 }
 
 void nextTurn() {
