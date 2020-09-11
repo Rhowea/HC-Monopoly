@@ -62,6 +62,11 @@ void guiSetup() {
     .setColorBackground(color(#FF5252))
     .setColorActive(color(#FFAAAA))
     ;
+  cp5Main.addButton("Roll")
+    .setPosition(110, height-55)
+    .setSize(100, 50)
+    .setCaptionLabel("Rul med terningen")
+    ;
   cp5banks.addButton("dropDown")
     .setPosition(260, 20)
     .setSize(20, 70)
@@ -106,4 +111,12 @@ public void plSelect() {
     cp5Menu.getController("Pl"+i).hide();
   }
   setup();
+}
+
+public void roll(){
+  /*/
+  playDiceAnimation
+  int roll = int(random(1,7);
+  playerPos.add(roll);
+  /*/
 }
