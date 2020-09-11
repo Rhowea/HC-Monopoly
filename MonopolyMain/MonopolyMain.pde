@@ -20,8 +20,8 @@ void setup() {
   background(0);
   banks.clear();
 
-  Arrow = loadImage("dropDownArrow.png");
-  Board = loadImage("Board.png");
+  Arrow = requestImage("dropDownArrow.png");
+  Board = requestImage("Board.png");
 
   if (onMenu && !initialized) {
     guiSetup();
