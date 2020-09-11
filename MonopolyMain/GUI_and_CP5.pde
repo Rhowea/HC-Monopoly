@@ -77,7 +77,11 @@ public void Start() {
   cp5Main.show();
   cp5Menu.hide();
   for (int i=0; i < numPl; i++){
-    names.add(cp5Menu.get(Textfield.class, "Pl"+(i+1)).getText());
+    String temp = cp5Menu.get(Textfield.class, "Pl"+(i+1)).getText();
+    if (temp.length() < 1){
+      temp = "Elev #" +(i+1);
+    }
+    names.add(temp);
   }
   onMenu = false;
   setup();
