@@ -9,15 +9,17 @@ int numPl = 4;
 int playerTurn = 2;
 
 PImage Arrow;
+PImage Board;
 boolean showDropDown = false;
 
 
 void setup() {
   cp5banks = new ControlP5(this);
-  size (1000, 800);
+  size (1100, 750);
   background(0);
   Arrow = loadImage("dropDownArrow.png");
-
+  Board = loadImage("Board.png");
+  
   for (int i = 0; i < numPl; i++) {
     banks.add(new bankSystem(i));
   }
@@ -41,6 +43,7 @@ void draw() {
 
   cp5banks.draw();
   image(Arrow, 260, 35, 20, 20);
+  image(Board, 350, 0);
 
   int counter = 1;
   if (showDropDown) {
