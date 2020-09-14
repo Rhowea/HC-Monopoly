@@ -1,12 +1,12 @@
 [
     {
-    "Color":"rgb(2,22,60)",
+    "Color":"#0249C9",
     "Name":"Fraværskort",
     "Trukket":false,
     "Flavortext":"Du vælger at få skrevet din opgave gennem skivminopgave.dk, betal 100 kr.",
     "balanceUpdates":-100
   }, {
-  "Color":"rgb(2,22,60)",
+  "Color":"#0249C9",
     "Name":"Fraværskort",
     "Trukket":false,
     "Flavortext":"Du har fået aflyst det sidste modul, derfor kan du komme på arbejde hurtigere, modtag 100 kr",
