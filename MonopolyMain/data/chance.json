@@ -1,0 +1,21 @@
+[
+    {
+    "Color":"rgb(220,24,28)",
+    "Name":"Chance?",
+    "Trukket":false,
+    "Flavortext":"Du har stadig 0% fravær, tag en flødebolle, et klap på skulderen. Næste gang du skal til ledelsen kan du bruge dette kort til at komme fri.",
+    "Jail":true,
+    "BalanceUpdates":0,
+    "MoveToSpace":null,
+
+
+  }, {
+    "Color":"rgb(220,24,28)",
+    "Name":"Chance?",
+    "Trukket":false,
+    "Flavortext":"Du bliver kørt i skole, ryk til start og modtag 200 kr.",
+    "Jail":false,
+    "BalanceUpdates":200,
+    "MoveToSpace":0,
+  }
+]
