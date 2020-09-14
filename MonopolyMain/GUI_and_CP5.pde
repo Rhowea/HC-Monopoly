@@ -93,7 +93,7 @@ void guiSetup() {
     ;
 
   buyFieldButton = cp5Cards.addButton("buy")
-    .setPosition(width/2+75, height/2+90)
+    .setPosition(width/2-5, height/2+90)
     .setSize(350, 50)
     .setCaptionLabel("Invester")
     .setColorForeground(color(#02CE18))
@@ -101,7 +101,7 @@ void guiSetup() {
     .setColorActive(color(0, 255, 0))
     ;
   dontBuyFieldButton = cp5Cards.addButton("dontBuy")
-    .setPosition(width/2+75, height/2+145)
+    .setPosition(width/2-5, height/2+145)
     .setSize(350, 50)
     .setCaptionLabel("Invester ikke")
     .setColorForeground(color(#DE0000))
@@ -109,7 +109,7 @@ void guiSetup() {
     .setColorActive(color(255, 0, 0))
     ;
   dismissCardButton = cp5Cards.addButton("dismiss")
-    .setPosition(width/2+75, height/2+145)
+    .setPosition(width/2-5, height/2+145)
     .setSize(350, 50)
     .setCaptionLabel("Okay")
     .setColorForeground(color(#DE0000))
