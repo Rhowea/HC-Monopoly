@@ -23,6 +23,7 @@ void setup() {
   //første gang vi er i setup laver vi de initialisere vi en masse så det senere bare kan loades
   if (onMenu && !initialized) {
     guiSetup();
+    loadJSONS();
     Arrow = requestImage("dropDownArrow.png");
     Board = requestImage("Board.png");
   }
@@ -95,6 +96,6 @@ void dropDown() {
   showDropDown  ^= true;
 }
 
-//void mouseReleased() {
-//  nextTurn();
-//}
+void mouseReleased() {
+ getSpace(1);
+}
