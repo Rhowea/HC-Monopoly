@@ -2,8 +2,8 @@
     {
     "color":"#8B4513",
     "Name":"Lokale 1.101",
-    "Trukket":false,
-    "Flavortext":"Det koldeste lokale på skolen",
+    "Drawn":false,
+    "Flavortext":"Det koldeste lokale på skolen, og tilmed også selveste 3.C's stamlokale. Dette er det koldeste lokale i det altid befinder sig i skyggen, det nyder 3.c meget da det betyde de kan holde kulden ud.",
     "Owner":null,
     "Price":300,
     "Rent":50,
@@ -11,7 +11,7 @@
   }, {
     "color":"#8B4513",
     "Name":"Lokale 1.102",
-    "Trukket":false,
+    "Drawn":false,
     "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
     "Price":200,

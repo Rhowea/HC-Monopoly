@@ -2,6 +2,12 @@ ControlP5 cp5Menu;
 ControlP5 cp5PlayerSelect;
 ControlP5 cp5Main;
 ControlP5 cp5banks;
+ControlP5 cp5Cards;
+
+Textarea cardTextarea;
+Button buyFieldButton;
+Button dontBuyFieldButton;
+Button dismissCardButton;
 
 void guiSetup() {
   cp5Menu = new ControlP5(this);
@@ -58,9 +64,9 @@ void guiSetup() {
     .setPosition(5, height-55)
     .setSize(100, 50)
     .setCaptionLabel("Back to Menu")
-    .setColorForeground(color(#CB0000))
-    .setColorBackground(color(#FF5252))
-    .setColorActive(color(#FFAAAA))
+    .setColorForeground(color(#DE0000))
+    .setColorBackground(color(#AF0000))
+    .setColorActive(color(255, 0, 0))
     ;
   cp5Main.addButton("Roll")
     .setPosition(110, height-55)
@@ -73,6 +79,44 @@ void guiSetup() {
     .setLabelVisible(false)
     ;
   cp5banks.setAutoDraw(false);
+  cp5Cards = new ControlP5(this);
+
+  cardTextarea = cp5Cards.addTextarea("txt")
+    .setPosition(width/2+75, height/2-150)
+    .setSize(350, 100)
+    .setFont(createFont("arial", 20))
+    .setLineHeight(22)
+    .setColor(color(0))
+    .setColorBackground(color(255, 0))
+    .setColorForeground(color(255, 0))
+    .hideScrollbar()
+    ;
+
+  buyFieldButton = cp5Cards.addButton("buy")
+    .setPosition(width/2+75, height/2+90)
+    .setSize(350, 50)
+    .setCaptionLabel("Invester")
+    .setColorForeground(color(#02CE18))
+    .setColorBackground(color(#009D11))
+    .setColorActive(color(0, 255, 0))
+    ;
+  dontBuyFieldButton = cp5Cards.addButton("dontBuy")
+    .setPosition(width/2+75, height/2+145)
+    .setSize(350, 50)
+    .setCaptionLabel("Invester ikke")
+    .setColorForeground(color(#DE0000))
+    .setColorBackground(color(#AF0000))
+    .setColorActive(color(255, 0, 0))
+    ;
+  dismissCardButton = cp5Cards.addButton("dismiss")
+    .setPosition(width/2+75, height/2+145)
+    .setSize(350, 50)
+    .setCaptionLabel("Okay")
+    .setColorForeground(color(#DE0000))
+    .setColorBackground(color(#AF0000))
+    .setColorActive(color(255, 0, 0))
+    ;
+  cp5Cards.setAutoDraw(false);
 
   initialized = true;
   cp5Main.hide();

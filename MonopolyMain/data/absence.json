@@ -1,15 +1,82 @@
 [
     {
-    "Color":"#0249C9",
+    "color":"#0249C9",
     "Name":"Fraværskort",
-    "Trukket":false,
+    "Drawn":false,
     "Flavortext":"Du vælger at få skrevet din opgave gennem skivminopgave.dk, betal 100 kr.",
     "balanceUpdates":-100
   }, {
-  "Color":"#0249C9",
+  "color":"#0249C9",
     "Name":"Fraværskort",
-    "Trukket":false,
+    "Drawn":false,
     "Flavortext":"Du har fået aflyst det sidste modul, derfor kan du komme på arbejde hurtigere, modtag 100 kr",
+    "balanceUpdates":200
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Der er sket en fejl i Lectio, det har slettet en time i dit skema. Modtag 200 kr.",
+    "balanceUpdates":200
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du har lige meldt dig til en elevfest på skolen, betal 50 kr.",
+    "balanceUpdates":-50
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du har fået 12 i en matematikopgave, modtag 50 kr. i karakterpenge.",
+    "balanceUpdates":50
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Din lære har lagt mærke til at du er begyndt at deltage mere aktivt i timerne, din standpunkt er derfor steget. Nyd 150 kr. ekstra mester.",
+    "balanceUpdates":150
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Klassen har pantet alle deres dåser og flasker, modtag 100 kr. #RedMiljøet #KlimaAktivist",
     "balanceUpdates":100
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du fandt 20 kr. på vej til skole, det bliver vidst en god dag i dag.",
+    "balanceUpdates":20
+  }
+, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du fik lavet alle dine opgaver i opgaveværkstedet, det fortjener et bolsje og 100 kr. til banken",
+    "balanceUpdates":100
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Det var en vild bytur her i weekenden, men det var heller ikke gratis. Betal 100 kr. til banken for de der øller du købte i baren.",
+    "balanceUpdates":-100
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du skal betale til den 2. rate til jeres studentervogn, du derfor nødt til at overføre 100 kr. til banken. ",
+    "balanceUpdates":-100
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du har lige meldt dig til galla, årets fest! Men det jo heller ikke gratis, betal 100 kr.",
+    "balanceUpdates":-150
+  }, {
+  "color":"#0249C9",
+    "Name":"Fraværskort",
+    "Drawn":false,
+    "Flavortext":"Du købte et beerpongsæt til dig og hende den lækre tøs under fredagscaféen, betal 75 kr. til EventCrew.",
+    "balanceUpdates":-75
   }
 ]

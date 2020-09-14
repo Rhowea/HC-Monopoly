@@ -18,6 +18,8 @@ class bankSystem {
   }
 
   void display() {
+    textAlign(CORNER);
+    rectMode(CORNER);
     textFont(BankFont);
     fill(200);
     rect(x, y, 250, 70);
@@ -30,6 +32,8 @@ class bankSystem {
   }
 
   void dropDownDisplay(int num) {
+    textAlign(CORNER);
+    rectMode(CORNER);
     textFont(BankFont);
     fill(200);
     rect(x, y+offset*num, 250, 70);
