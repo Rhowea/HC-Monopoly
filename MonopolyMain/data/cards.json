@@ -1,0 +1,21 @@
+[
+    {
+    "Color":"rgb(139,69,19)",
+    "Name":"Lokale 1.101",
+    "Trukket":false,
+    "Flavortext":"Det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":300,
+    "Rent":50,
+    "Value":100,
+  }, {
+    "Color":"rgb(139,69,19)",
+    "Name":"Lokale 1.102",
+    "Trukket":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":200,
+    "Rent":25,
+    "Value":75,
+  }
+]
