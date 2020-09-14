@@ -116,7 +116,9 @@ public void plSelect() {
 
 public void Roll() {
   println("rolling");
-  //playDiceAnimation
+  for (Dice d : dices) {
+    d.animate();
+  }
   int roll = (int(random(1, 7) + random(1, 7)));
   println("You rolled a " + roll);
   boolean skip = false;

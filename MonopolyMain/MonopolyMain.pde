@@ -1,5 +1,6 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
+ArrayList <Dice> dices = new ArrayList();
 
 import controlP5.*;
 
@@ -31,10 +32,12 @@ void setup() {
 
 
   //initialiser arrayet og fylder den med spaces
-  grid = new Space[sCols][sRows];
-  for (int i = 0; i < sCols; i++) {
-    for (int j = 0; j < sRows; j++) {
-      grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
+  if (!onMenu) {
+    grid = new Space[sCols][sRows];
+    for (int i = 0; i < sCols; i++) {
+      for (int j = 0; j < sRows; j++) {
+        grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
+      }
     }
   }
   //laver banksystemer og spillebrikker
@@ -48,6 +51,12 @@ void setup() {
     for (int j = 0; j < banks.size(); j++) {
       bankSystem b = banks.get(j);
       b.bankSetup();
+    }
+  }
+  //laver to terninger
+  if (!onMenu) {
+    for (int i = 0; i < 2; i++) {
+      dices.add(new Dice());
     }
   }
 }
@@ -76,9 +85,7 @@ void draw() {
         }
       }
     }
-
     counter = 0;
-
     //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
       for (int j = 0; j < sRows; j++) {
@@ -88,6 +95,14 @@ void draw() {
          }*/
       }
     }
+    pushMatrix();
+    translate(460, 110);
+    fill(255);
+    for (Dice d : dices) {
+      d.move();
+      d.display();
+    }
+    popMatrix();
   }
 }
 
