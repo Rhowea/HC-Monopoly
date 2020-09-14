@@ -18,7 +18,6 @@ class bankSystem {
   }
 
   void display() {
-    BankFont = createFont("arial", 20);
     textFont(BankFont);
     fill(200);
     rect(x, y, 250, 70);
@@ -31,7 +30,6 @@ class bankSystem {
   }
 
   void dropDownDisplay(int num) {
-    BankFont = createFont("arial", 20);
     textFont(BankFont);
     fill(200);
     rect(x, y+offset*num, 250, 70);
