@@ -148,8 +148,8 @@ void moveXAxis(Player p, int distance, int x, int y) {
   grid[x + distance][y].container.add(p); 
   grid[x][y].container.remove(p); 
   grid[x + distance][y].display();
-  if (p.gridpos == 39) {
-    p.gridpos = 0;
+  if (p.gridPos == 39) {
+    p.gridPos = 0;
   }
   p.gridPos++;
 }
@@ -158,8 +158,8 @@ void moveYAxis(Player p, int distance, int x, int y) {
   grid[x][y + distance].container.add(p); 
   grid[x][y].container.remove(p); 
   grid[x][y + distance].display();
-  if (p.gridpos == 39) {
-    p.gridpos = 0;
+  if (p.gridPos == 39) {
+    p.gridPos = 0;
   }
   p.gridPos++;
 }
