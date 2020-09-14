@@ -38,16 +38,16 @@ void setup() {
       }
     }
     for (int i = 0; i <= 9; i++) {
-      grid[10 - i][10].spaceNr = i;
+      grid[9 - i][10].spaceNr = i;
     }
     for (int i = 10; i <= 19; i++) {
-      grid[0][10 - (i - 10)].spaceNr = i;
+      grid[0][10 - (i - 9)].spaceNr = i;
     }
     for (int i = 20; i <= 29; i++) {
-      grid[i - 20][0].spaceNr = i;
+      grid[i - 19][0].spaceNr = i;
     }
     for (int i = 30; i <= 39; i++) {
-      grid[10][i - 30].spaceNr = i;
+      grid[10][i - 29].spaceNr = i;
     }
   }
   //laver banksystemer og spillebrikker

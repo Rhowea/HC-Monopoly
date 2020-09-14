@@ -5,7 +5,7 @@ class Dice {
   int wide = 50;
   boolean anim = false;
   int side = 0;
-  
+
   void move() {
     vel.add(acc);
     acc.mult(0);
@@ -28,7 +28,7 @@ class Dice {
       vel.y *= -1;
     }
   }
-  
+
   void display() {
     fill(255);
     rect(pos.x, pos.y, wide, wide, wide/5);
@@ -51,7 +51,7 @@ class Dice {
     }
     popMatrix();
   }
-  
+
   void animate() {
     acc.x = random(-50, 50);
     acc.y = random(-50, 50);
