@@ -103,48 +103,20 @@ void dropDown() {
 
 void mouseReleased() {
   //nextTurn();
-  if (!onMenu) {
-    boolean skip = false;
-    for (int i = 10; i > 0; i--) {
-      for (int k = 0; k < grid[i][10].container.size(); k++) {
-        if (grid[i][10].container.get(k).name == playerTurn && skip == false) {
-          moveXAxis(grid[i][10].container.get(k), -1, i, 10);
-          skip = true;
-        }
-      }
-      for (int k = 0; k < grid[0][i].container.size(); k++) {
-        if (grid[0][i].container.get(k).name == playerTurn && skip == false) {
-          moveYAxis(grid[0][i].container.get(k), -1, 0, i);
-          skip = true;
-        }
-      }
-    }
-    for (int i = 0; i < 11; i++) {
-      for (int k = 0; k < grid[i][0].container.size(); k++) {
-        if (grid[i][0].container.get(k).name == playerTurn && skip == false) {
-          moveXAxis(grid[i][0].container.get(k), 1, i, 0);
-          skip = true;
-        }
-      }
-      for (int k = 0; k < grid[10][i].container.size(); k++) {
-        if (grid[10][i].container.get(k).name == playerTurn && skip == false) {
-          moveYAxis(grid[10][i].container.get(k), 1, 10, i);
-          skip = true;
-        }
-      }
-    }
-    skip = false;
-  }
+  //if (!onMenu) {
+  //}
 }
 
 void moveXAxis(Player p, int distance, int x, int y) {
   grid[x + distance][y].container.add(p);
   grid[x][y].container.remove(p);
+  grid[x + distance][y].display();
 }
 
 void moveYAxis(Player p, int distance, int x, int y) {
   grid[x][y + distance].container.add(p);
   grid[x][y].container.remove(p);
+  grid[x][y + distance].display();
 }
 
 void keyPressed() {

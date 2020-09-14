@@ -3,7 +3,7 @@ class bankSystem {
   int startBalance = int(random(100, 200));
   int offset = 95;
   int bankNum;
- 
+
   PFont BankFont; 
 
   float x = 10, y =20 ;
@@ -18,6 +18,7 @@ class bankSystem {
   }
 
   void display() {
+    BankFont = createFont("arial", 20);
     textFont(BankFont);
     fill(200);
     rect(x, y, 250, 70);
@@ -30,6 +31,7 @@ class bankSystem {
   }
 
   void dropDownDisplay(int num) {
+    BankFont = createFont("arial", 20);
     textFont(BankFont);
     fill(200);
     rect(x, y+offset*num, 250, 70);
@@ -40,8 +42,8 @@ class bankSystem {
     textSize(12);
     text(names.get(bankNum-1)+"'s"+ " bank", x+2, 15 + offset*num);
   }
-  
-  void addToBalance(int money){
+
+  void addToBalance(int money) {
     balance += money;
   }
 }
