@@ -29,8 +29,6 @@ void setup() {
     Arrow = requestImage("dropDownArrow.png");
     Board = requestImage("Board.png");
   } 
-
-
   //initialiser arrayet og fylder den med spaces
   if (!onMenu) {
     grid = new Space[sCols][sRows];
@@ -39,24 +37,36 @@ void setup() {
         grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
       }
     }
+    for (int i = 0; i <= 9; i++) {
+      grid[10 - i][10].spaceNr = i;
+    }
+    for (int i = 10; i <= 19; i++) {
+      grid[0][10 - (i - 10)].spaceNr = i;
+    }
+    for (int i = 20; i <= 29; i++) {
+      grid[i - 20][0].spaceNr = i;
+    }
+    for (int i = 30; i <= 39; i++) {
+      grid[10][i - 30].spaceNr = i;
+    }
   }
   //laver banksystemer og spillebrikker
   for (int i = 0; i < numPl; i++) {
-    banks.add(new bankSystem(i));
-    Player playerToken = new Player(i + 1, 10, 10);
-    println("PLAYER " + playerToken.name);
+    banks.add(new bankSystem(i)); 
+    Player playerToken = new Player(i + 1, 10, 10); 
+    println("PLAYER " + playerToken.name); 
     grid[10][10].container.add(playerToken);
   }
   if (!onMenu) {
     for (int j = 0; j < banks.size(); j++) {
-      bankSystem b = banks.get(j);
+      bankSystem b = banks.get(j); 
       b.bankSetup();
     }
   }
   //laver to terninger
   if (!onMenu) {
     for (int i = 0; i < 2; i++) {
-      dices.add(new Dice());
+      dices.add(new Dice()); 
       println("Dice");
     }
   }
@@ -73,41 +83,38 @@ void draw() {
     b.display();
     
 
-    cp5banks.draw();
-    image(Arrow, 260, 35, 20, 20);
-    image(Board, 350, 0);
+    cp5banks.draw(); 
+    image(Arrow, 260, 35, 20, 20); 
+    image(Board, 350, 0); 
 
-    int counter = 1;
+    int counter = 1; 
     if (showDropDown) {
       for (int i = 0; i < numPl; i++) {
         if (i != playerTurn-1) {
-          bankSystem d = banks.get(i);
-          d.dropDownDisplay(counter);
+          bankSystem d = banks.get(i); 
+          d.dropDownDisplay(counter); 
           counter++;
         }
       }
     }
-    counter = 0;
+    counter = 0; 
     //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
       for (int j = 0; j < sRows; j++) {
-        grid[i][j].display();
-        /*for (int k = 0; j < grid[i][j].container.size(); k++) {
-         grid[i][j].container.get(k).Pdisplay();
-         }*/
+        grid[i][j].display(); 
       }
     }
-    pushMatrix();
-    translate(460, 110);
-    fill(255);
+    pushMatrix(); 
+    translate(460, 110); 
+    fill(255); 
     for (Dice d : dices) {
-      d.move();
-      d.display();
+      d.move(); 
+      d.display(); 
       if (d.vel.mag() < 0.5) {
         d.vel.mult(0);
       }
       if (d.vel.mag() == 0 && d.anim == true) {
-        diceResult(d);
+        diceResult(d); 
         d.anim = false;
       }
     }
@@ -138,14 +145,14 @@ void mouseReleased() {
 }
 
 void moveXAxis(Player p, int distance, int x, int y) {
-  grid[x + distance][y].container.add(p);
-  grid[x][y].container.remove(p);
+  grid[x + distance][y].container.add(p); 
+  grid[x][y].container.remove(p); 
   grid[x + distance][y].display();
 }
 
 void moveYAxis(Player p, int distance, int x, int y) {
-  grid[x][y + distance].container.add(p);
-  grid[x][y].container.remove(p);
+  grid[x][y + distance].container.add(p); 
+  grid[x][y].container.remove(p); 
   grid[x][y + distance].display();
 }
 
@@ -162,22 +169,22 @@ void keyPressed() {
 }
 
 void diceResult(Dice d) {
-  int roll = 0;
-  d.side = int(random(1, 7));
-  roll += d.side;
-  println("You rolled a " + roll);
-  boolean skip = false;
+  int roll = 0; 
+  d.side = int(random(1, 7)); 
+  roll += d.side; 
+  println("You rolled a " + roll); 
+  boolean skip = false; 
   for (int r = 0; r < roll; r++) {
     for (int i = 10; i > 0; i--) {
       for (int k = 0; k < grid[i][10].container.size(); k++) {
         if (grid[i][10].container.get(k).name == playerTurn && skip == false) {
-          moveXAxis(grid[i][10].container.get(k), -1, i, 10);
+          moveXAxis(grid[i][10].container.get(k), -1, i, 10); 
           skip = true;
         }
       }
       for (int k = 0; k < grid[0][i].container.size(); k++) {
         if (grid[0][i].container.get(k).name == playerTurn && skip == false) {
-          moveYAxis(grid[0][i].container.get(k), -1, 0, i);
+          moveYAxis(grid[0][i].container.get(k), -1, 0, i); 
           skip = true;
         }
       }
@@ -185,13 +192,13 @@ void diceResult(Dice d) {
     for (int i = 0; i < 11; i++) {
       for (int k = 0; k < grid[i][0].container.size(); k++) {
         if (grid[i][0].container.get(k).name == playerTurn && skip == false) {
-          moveXAxis(grid[i][0].container.get(k), 1, i, 0);
+          moveXAxis(grid[i][0].container.get(k), 1, i, 0); 
           skip = true;
         }
       }
       for (int k = 0; k < grid[10][i].container.size(); k++) {
         if (grid[10][i].container.get(k).name == playerTurn && skip == false) {
-          moveYAxis(grid[10][i].container.get(k), 1, 10, i);
+          moveYAxis(grid[10][i].container.get(k), 1, 10, i); 
           skip = true;
         }
       }
