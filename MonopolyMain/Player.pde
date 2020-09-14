@@ -3,8 +3,8 @@ class Player {
   int gridPosX;
   int gridPosY;
   void Pdisplay() {
-    fill(255, 0, 0);
-    circle(0,0,50);
+    fill(255);
+    circle(0, 0, 50);
   }
   Player(int playerNr, int gridx, int gridy) {
     name = playerNr;
