@@ -10,7 +10,8 @@ class Space {
   void display() {
     fill(255);
     //rect(x, y, w, h);
-    for (Player p : container) {
+    for (int i = 0; i < container.size(); i++) {
+      Player p = container.get(i);
       pushMatrix();
       translate(x + w/2, y + h/2);
       p.Pdisplay();
