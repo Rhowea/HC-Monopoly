@@ -116,39 +116,7 @@ public void plSelect() {
 
 public void Roll() {
   println("rolling");
-  //playDiceAnimation
-  int roll = (int(random(1, 7) + random(1, 7)));
-  println("You rolled a " + roll);
-  boolean skip = false;
-  for (int r = 0; r < roll; r++) {
-    for (int i = 10; i > 0; i--) {
-      for (int k = 0; k < grid[i][10].container.size(); k++) {
-        if (grid[i][10].container.get(k).name == playerTurn && skip == false) {
-          moveXAxis(grid[i][10].container.get(k), -1, i, 10);
-          skip = true;
-        }
-      }
-      for (int k = 0; k < grid[0][i].container.size(); k++) {
-        if (grid[0][i].container.get(k).name == playerTurn && skip == false) {
-          moveYAxis(grid[0][i].container.get(k), -1, 0, i);
-          skip = true;
-        }
-      }
-    }
-    for (int i = 0; i < 11; i++) {
-      for (int k = 0; k < grid[i][0].container.size(); k++) {
-        if (grid[i][0].container.get(k).name == playerTurn && skip == false) {
-          moveXAxis(grid[i][0].container.get(k), 1, i, 0);
-          skip = true;
-        }
-      }
-      for (int k = 0; k < grid[10][i].container.size(); k++) {
-        if (grid[10][i].container.get(k).name == playerTurn && skip == false) {
-          moveYAxis(grid[10][i].container.get(k), 1, 10, i);
-          skip = true;
-        }
-      }
-    }
-    skip = false;
+  for (Dice d : dices) {
+    d.animate();
   }
 }

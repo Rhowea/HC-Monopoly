@@ -1,5 +1,6 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
+ArrayList <Dice> dices = new ArrayList();
 
 import controlP5.*;
 
@@ -31,10 +32,12 @@ void setup() {
 
 
   //initialiser arrayet og fylder den med spaces
-  grid = new Space[sCols][sRows];
-  for (int i = 0; i < sCols; i++) {
-    for (int j = 0; j < sRows; j++) {
-      grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
+  if (!onMenu) {
+    grid = new Space[sCols][sRows];
+    for (int i = 0; i < sCols; i++) {
+      for (int j = 0; j < sRows; j++) {
+        grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
+      }
     }
   }
   //laver banksystemer og spillebrikker
@@ -48,6 +51,13 @@ void setup() {
     for (int j = 0; j < banks.size(); j++) {
       bankSystem b = banks.get(j);
       b.bankSetup();
+    }
+  }
+  //laver to terninger
+  if (!onMenu) {
+    for (int i = 0; i < 2; i++) {
+      dices.add(new Dice());
+      println("Dice");
     }
   }
 }
@@ -76,9 +86,7 @@ void draw() {
         }
       }
     }
-
     counter = 0;
-
     //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
       for (int j = 0; j < sRows; j++) {
@@ -88,6 +96,21 @@ void draw() {
          }*/
       }
     }
+    pushMatrix();
+    translate(460, 110);
+    fill(255);
+    for (Dice d : dices) {
+      d.move();
+      d.display();
+      if (d.vel.mag() < 0.5) {
+        d.vel.mult(0);
+      }
+      if (d.vel.mag() == 0 && d.anim == true) {
+        diceResult(d);
+        d.anim = false;
+      }
+    }
+    popMatrix();
   }
 }
 
@@ -126,4 +149,44 @@ void keyPressed() {
     nextTurn();
   }
   getSpace(1);
+}
+
+void diceResult(Dice d) {
+  int roll = 0;
+  d.side = int(random(1, 7));
+  roll += d.side;
+  println("You rolled a " + roll);
+  boolean skip = false;
+  for (int r = 0; r < roll; r++) {
+    for (int i = 10; i > 0; i--) {
+      for (int k = 0; k < grid[i][10].container.size(); k++) {
+        if (grid[i][10].container.get(k).name == playerTurn && skip == false) {
+          moveXAxis(grid[i][10].container.get(k), -1, i, 10);
+          skip = true;
+        }
+      }
+      for (int k = 0; k < grid[0][i].container.size(); k++) {
+        if (grid[0][i].container.get(k).name == playerTurn && skip == false) {
+          moveYAxis(grid[0][i].container.get(k), -1, 0, i);
+          skip = true;
+        }
+      }
+    }
+    for (int i = 0; i < 11; i++) {
+      for (int k = 0; k < grid[i][0].container.size(); k++) {
+        if (grid[i][0].container.get(k).name == playerTurn && skip == false) {
+          moveXAxis(grid[i][0].container.get(k), 1, i, 0);
+          skip = true;
+        }
+      }
+      for (int k = 0; k < grid[10][i].container.size(); k++) {
+        if (grid[10][i].container.get(k).name == playerTurn && skip == false) {
+          moveYAxis(grid[10][i].container.get(k), 1, 10, i);
+          skip = true;
+        }
+      }
+    }
+    skip = false;
+  }
+  roll = 0;
 }
