@@ -1,14 +1,12 @@
 class Player {
   int name = 0;
-  int gridPosX;
-  int gridPosY;
+  int gridPos;
   void Pdisplay() {
     fill(255);
     circle(0, 0, 50);
   }
-  Player(int playerNr, int gridx, int gridy) {
+  Player(int playerNr, int gridNr) {
     name = playerNr;
-    gridPosX = gridx;
-    gridPosY = gridy;
+    gridPos = gridNr;
   }
 }
