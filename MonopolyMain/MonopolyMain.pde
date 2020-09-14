@@ -1,10 +1,11 @@
 ArrayList <bankSystem> banks  = new ArrayList();
+ArrayList <String> names  = new ArrayList();
+import controlP5.*;
+
 //Laver 2D-Array med den mængde rows og collums
 Space[][] grid;
 int sCols = 11;
 int sRows = 11;
-import controlP5.*;
-
 int numPl;
 int playerTurn = 1;
 
@@ -15,21 +16,18 @@ boolean showDropDown = false;
 boolean onMenu = true;
 boolean initialized = false;
 
-
 void setup() {
   background(0);
   banks.clear();
 
-  Arrow = requestImage("dropDownArrow.png");
-  Board = requestImage("Board.png");
-
+  //første gang vi er i setup laver vi de initialisere vi en masse så det senere bare kan loades
   if (onMenu && !initialized) {
     guiSetup();
+    loadJSONS();
+    Arrow = requestImage("dropDownArrow.png");
+    Board = requestImage("Board.png");
   }
-
-  for (int i = 0; i < numPl; i++) {
-    banks.add(new bankSystem(i));
-  }
+  
   if (!onMenu) {
     for (int j = 0; j < banks.size(); j++) {
       bankSystem b = banks.get(j);
@@ -51,12 +49,13 @@ void setup() {
     }
   }
 }
+
 void settings() {
   size (1100, 750);
 }
 
 void draw() {
-  if (!onMenu) {
+  if (!onMenu) { // Draw for alt der skal være imens der spilles
     background(0);
     bankSystem b = banks.get(playerTurn-1);
     b.display();
@@ -72,14 +71,13 @@ void draw() {
           bankSystem d = banks.get(i);
           d.dropDownDisplay(counter);
           counter++;
-        } else {
         }
       }
     }
+
     counter = 0;
-  }
-  //kalder display() for alle spaces i arrayet
-  if (!onMenu) {
+
+    //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
       for (int j = 0; j < sRows; j++) {
         grid[i][j].display();
@@ -98,6 +96,7 @@ void nextTurn() {
     playerTurn++;
   }
 }  
+
 void dropDown() {
   showDropDown  ^= true;
 }
@@ -152,4 +151,5 @@ void keyPressed() {
   if (keyCode == 32) {
     nextTurn();
   }
+ getSpace(1);
 }

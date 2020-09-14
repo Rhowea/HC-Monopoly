@@ -62,6 +62,11 @@ void guiSetup() {
     .setColorBackground(color(#FF5252))
     .setColorActive(color(#FFAAAA))
     ;
+  cp5Main.addButton("Roll")
+    .setPosition(110, height-55)
+    .setSize(100, 50)
+    .setCaptionLabel("Rul med terningen")
+    ;
   cp5banks.addButton("dropDown")
     .setPosition(260, 20)
     .setSize(20, 70)
@@ -76,7 +81,13 @@ void guiSetup() {
 public void Start() {
   cp5Main.show();
   cp5Menu.hide();
-
+  for (int i=0; i < numPl; i++){
+    String temp = cp5Menu.get(Textfield.class, "Pl"+(i+1)).getText();
+    if (temp.length() < 1){
+      temp = "Elev #" +(i+1);
+    }
+    names.add(temp);
+  }
   onMenu = false;
   setup();
 }
@@ -101,4 +112,12 @@ public void plSelect() {
   }
   
   setup();
+}
+
+public void roll(){
+  /*/
+  playDiceAnimation
+  int roll = int(random(1,7);
+  playerPos.add(roll);
+  /*/
 }

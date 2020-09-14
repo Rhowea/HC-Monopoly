@@ -3,6 +3,7 @@ class bankSystem {
   int startBalance = int(random(100, 200));
   int offset = 95;
   int bankNum;
+ 
   PFont BankFont; 
 
   float x = 10, y =20 ;
@@ -25,7 +26,7 @@ class bankSystem {
     text("$" + balance + " Kr.", x, y + 50);
     fill(255);
     textSize(12);
-    text("Spiller " +bankNum + " bank", x+2, 15);
+    text(names.get(bankNum-1)+"'s" + " bank", x+2, 15);
   }
 
   void dropDownDisplay(int num) {
@@ -37,7 +38,7 @@ class bankSystem {
     text("$"  + balance + " Kr.", x, y + 50 + offset*num);
     fill(255);
     textSize(12);
-    text("Spiller " +bankNum + " bank", x+2, 15 + offset*num);
+    text(names.get(bankNum-1)+"'s"+ " bank", x+2, 15 + offset*num);
   }
   
   void addToBalance(int money){
