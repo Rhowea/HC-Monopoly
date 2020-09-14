@@ -84,6 +84,8 @@ void createCard(int t, color c, String h, String f, int p, int r, int v, int b, 
   getOutOfJail = GOOJ;
 }
 void displayCard() {
+  pushMatrix();
+  translate(-80,0);
   cp5Cards.show();
   rectMode(CENTER);
   fill(#FFF3D6);
@@ -116,6 +118,7 @@ void displayCard() {
   }
   textAlign(CORNER);
   rectMode(CORNER);
+  popMatrix();
 }
 
 void dismiss() {
