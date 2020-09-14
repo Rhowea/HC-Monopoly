@@ -99,5 +99,6 @@ public void plSelect() {
   for (int i = 4; i > numPl; i--) {
     cp5Menu.getController("Pl"+i).hide();
   }
+  
   setup();
 }
