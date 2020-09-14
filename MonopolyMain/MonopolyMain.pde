@@ -71,6 +71,7 @@ void draw() {
     background(0);
     bankSystem b = banks.get(playerTurn-1);
     b.display();
+    
 
     cp5banks.draw();
     image(Arrow, 260, 35, 20, 20);
@@ -111,6 +112,10 @@ void draw() {
       }
     }
     popMatrix();
+    if (showingCard) {
+    displayCard();
+    cp5Cards.draw();
+  } 
   }
 }
 
@@ -147,8 +152,13 @@ void moveYAxis(Player p, int distance, int x, int y) {
 void keyPressed() {
   if (keyCode == 32) {
     nextTurn();
+  } else if (key == '1'){
+  getAbsence();
+  } else if (key == '2'){
+  getChance();
+  } else if (key == '3'){
+    getSpace(int(random(0,numSpaces)));
   }
-  getSpace(1);
 }
 
 void diceResult(Dice d) {
