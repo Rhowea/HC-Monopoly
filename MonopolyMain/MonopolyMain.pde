@@ -1,5 +1,6 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
+
 import controlP5.*;
 
 //Laver 2D-Array med den mængde rows og collums
@@ -26,26 +27,27 @@ void setup() {
     loadJSONS();
     Arrow = requestImage("dropDownArrow.png");
     Board = requestImage("Board.png");
+  } 
+
+
+  //initialiser arrayet og fylder den med spaces
+  grid = new Space[sCols][sRows];
+  for (int i = 0; i < sCols; i++) {
+    for (int j = 0; j < sRows; j++) {
+      grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
+    }
   }
-  
+  //laver banksystemer og spillebrikker
+  for (int i = 0; i < numPl; i++) {
+    banks.add(new bankSystem(i));
+    Player playerToken = new Player(i + 1, 10, 10);
+    println("PLAYER " + playerToken.name);
+    grid[10][10].container.add(playerToken);
+  }
   if (!onMenu) {
     for (int j = 0; j < banks.size(); j++) {
       bankSystem b = banks.get(j);
       b.bankSetup();
-    }
-    //initialiser arrayet og fylder den med spaces
-    grid = new Space[sCols][sRows];
-    for (int i = 0; i < sCols; i++) {
-      for (int j = 0; j < sRows; j++) {
-        grid[i][j] = new Space(i*60 + 395, j*60 + 45, 60, 60);
-      }
-    }
-    //laver banksystemer og spillebrikker
-    for (int i = 0; i < numPl; i++) {
-      banks.add(new bankSystem(i));
-      Player playerToken = new Player(i + 1, 10, 10);
-      println("PLAYER " + playerToken.name);
-      grid[10][10].container.add(playerToken);
     }
   }
 }
@@ -123,5 +125,5 @@ void keyPressed() {
   if (keyCode == 32) {
     nextTurn();
   }
- getSpace(1);
+  getSpace(1);
 }
