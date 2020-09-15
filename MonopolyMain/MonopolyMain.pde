@@ -1,6 +1,8 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
 ArrayList <Dice> dices = new ArrayList();
+int SpecialFields []= {2, 7, 17, 22, 33, 36};
+
 
 import controlP5.*;
 
@@ -223,7 +225,12 @@ void drawCard() {
     for (int j = 0; j <= 10; j++) {
       for (int k = 0; k < grid[i][j].container.size(); k++) {
         if (grid[i][j].container.get(k).name == playerTurn) {
-          //Fetch.jsonFil(index = grid[i][j].container.get(k).gridPos)
+          /*/
+           Hvis det ikke er et specielt kort
+           hent spaces
+           //container.get(k).gridPos)
+           ellers hent specielt kort.
+          /*/
         }
       }
     }
