@@ -82,7 +82,7 @@ void guiSetup() {
   cp5Cards = new ControlP5(this);
 
   cardTextarea = cp5Cards.addTextarea("txt")
-    .setPosition(width/2+75, height/2-150)
+    .setPosition(width/2, height/2-150)
     .setSize(350, 100)
     .setFont(createFont("arial", 20))
     .setLineHeight(22)
