@@ -133,10 +133,9 @@ void dontBuy() {
   showingCard = false;
   cp5Main.show();
 }
-void buy(){
+void buy() {
   bankSystem b = banks.get(playerTurn-1); 
   b.addToBalance(-price);
   cp5Main.show();
   showingCard = false;
-  
 }
