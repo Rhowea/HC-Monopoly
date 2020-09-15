@@ -5,7 +5,7 @@ int rent;
 int value;
 int balanceUpdates;
 int numChanceCards = 2;
-int numSpaces = 2;
+int numSpaces = 39;
 int numAbsenceCards = 13;
 
 JSONArray Spaces;
@@ -127,15 +127,24 @@ void dismiss() {
   b.addToBalance(balanceUpdates);
   showingCard =false;
   cp5Main.show();
+  nextTurn();
 }
 
 void dontBuy() {
   showingCard = false;
   cp5Main.show();
+  nextTurn();
 }
 void buy() {
   bankSystem b = banks.get(playerTurn-1); 
-  b.addToBalance(-price);
-  cp5Main.show();
-  showingCard = false;
+  int haveFunds = b.balance - price;
+  if (haveFunds >= 0) {
+    b.addToBalance(-price);
+    Player p = Players.get(playerTurn-1);
+    p.ownedSpaces.append(p.gridPos);
+    showingCard = false;
+    cp5Main.show();
+    nextTurn();
+  }
+  
 }

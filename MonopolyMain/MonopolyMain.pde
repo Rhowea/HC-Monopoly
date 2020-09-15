@@ -173,18 +173,6 @@ void moveYAxis(Player p, int distance, int x, int y) {
   p.gridPos++;
 }
 
-void keyPressed() {
-  if (keyCode == 32) {
-    nextTurn();
-  } else if (key == '1') {
-    getAbsence();
-  } else if (key == '2') {
-    getChance();
-  } else if (key == '3') {
-    getSpace(int(random(0, numSpaces)));
-  }
-}
-
 void diceResult(Dice d) {
   int roll = 0; 
   d.side = int(random(1, 7)); 
