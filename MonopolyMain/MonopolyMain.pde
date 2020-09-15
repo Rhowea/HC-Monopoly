@@ -1,6 +1,9 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
 ArrayList <Dice> dices = new ArrayList();
+int ChanceFields [] = {7, 22, 36};
+int AbsenceFields [] = {2, 17, 33};
+
 
 import controlP5.*;
 
@@ -223,7 +226,16 @@ void drawCard() {
     for (int j = 0; j <= 10; j++) {
       for (int k = 0; k < grid[i][j].container.size(); k++) {
         if (grid[i][j].container.get(k).name == playerTurn) {
-          //Fetch.jsonFil(index = grid[i][j].container.get(k).gridPos)
+          for(int l = 0; l < 2; l++){
+            int temp = grid[i][j].container.get(k).gridPos;
+            if (temp == ChanceFields[l]){
+              getChance();
+            } else if (temp == AbsenceFields[l]){
+              getAbsence();
+            }
+            if(temp != ChanceFields[l] &&grid[i][j].container.get(k).gridPos != AbsenceFields[l]){
+            getSpace(temp);
+          }}
         }
       }
     }
