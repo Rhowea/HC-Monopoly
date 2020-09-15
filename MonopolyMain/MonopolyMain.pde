@@ -16,6 +16,7 @@ int sRows = 11;
 int numPl;
 int playerTurn = 1;
 int counter  = 0;
+int roll = 0; 
 
 PImage Arrow;
 PImage Board;
@@ -35,6 +36,12 @@ void setup() {
     Arrow = requestImage("dropDownArrow.png");
     Board = requestImage("Board.png");
   } 
+  //laver banksystemer og spillebrikker
+  for (int i = 0; i < numPl; i++) {
+    banks.add(new bankSystem(i)); 
+    Players.add(new Player(i + 1, 39));
+  }
+  
   //initialiser arrayet og fylder den med spaces
   if (!onMenu) {
     grid = new Space[sCols][sRows];
@@ -55,23 +62,12 @@ void setup() {
     for (int i = 30; i <= 39; i++) {
       grid[10][i - 29].spaceNr = i;
     }
-  }
-  //laver banksystemer og spillebrikker
-  for (int i = 0; i < numPl; i++) {
-    banks.add(new bankSystem(i)); 
-    Players.add(new Player(i + 1, 39));
-  }
-
-  if (!onMenu) {
     for (int j = 0; j < banks.size(); j++) {
       bankSystem b = banks.get(j); 
       b.bankSetup();
       Player p = Players.get(j);
       grid[10][10].container.add(p);
     }
-  }
-  //laver to terninger
-  if (!onMenu) {
     for (int i = 0; i < 2; i++) {
       dices.add(new Dice());
     }
@@ -89,7 +85,6 @@ void draw() {
     bankSystem b = banks.get(playerTurn-1);
     b.display();
 
-
     cp5banks.draw(); 
     image(Arrow, 260, 35, 20, 20); 
     image(Board, 350, 0); 
@@ -104,6 +99,7 @@ void draw() {
         }
       }
     }
+
     counter = 0; 
     //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
@@ -111,6 +107,7 @@ void draw() {
         grid[i][j].display();
       }
     }
+
     pushMatrix(); 
     translate(460, 110); 
     fill(255); 
@@ -127,6 +124,7 @@ void draw() {
     }
     popMatrix();
   }
+
   if (showingCard) {
     displayCard();
     cp5Cards.draw();
@@ -145,35 +143,7 @@ void dropDown() {
   showDropDown  ^= true;
 }
 
-void mouseReleased() {
-  //nextTurn();
-  //if (!onMenu) {
-  //}
-}
 
-void moveXAxis(Player p, int distance, int x, int y) {
-  grid[x + distance][y].container.add(p); 
-  grid[x][y].container.remove(p); 
-  grid[x + distance][y].display();
-  if (p.gridPos < 39) {
-    p.gridPos++;
-  } else if (p.gridPos == 39) {
-    p.gridPos = 0;
-  }
-}
-
-void moveYAxis(Player p, int distance, int x, int y) {
-  grid[x][y + distance].container.add(p); 
-  grid[x][y].container.remove(p); 
-  grid[x][y + distance].display();
-
-  if (p.gridPos == 39) {
-    p.gridPos = 0;
-  }
-  p.gridPos++;
-}
-
-int roll = 0; 
 void diceResult(Dice d) {
   d.side = int(random(1, 7)); 
   roll += d.side; 

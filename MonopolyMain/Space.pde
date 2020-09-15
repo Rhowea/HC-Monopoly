@@ -24,9 +24,6 @@ class Space {
 }
 
 void moveTo(int distance) {
-  int pi = 0;
-  int pj = 0;
-  boolean remove = false;
   Player p = Players.get(playerTurn - 1);
   for (int i = 0; i <= 10; i++) {
     for (int j = 0; j <= 10; j++) {
@@ -47,7 +44,6 @@ void moveTo(int distance) {
     for (int j = 0; j <= 10; j++) {
       if (grid[i][j].spaceNr == p.gridPos) {
         grid[i][j].container.add(p);
-        remove = true;
       }
     }
   }
