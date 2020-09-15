@@ -5,53 +5,125 @@
     "Drawn":false,
     "Flavortext":"Det koldeste lokale på skolen, og tilmed også selveste 3.C's stamlokale. Dette er det koldeste lokale i det altid befinder sig i skyggen, det nyder 3.c meget da det betyde de kan holde kulden ud.",
     "Owner":null,
-    "Price":300,
-    "Rent":50,
-    "Value":0.33
+    "Price":60,
+    "Rent":2,
+    "Value":30
   }, {
     "color":"#8B4513",
     "Name":"Lokale 1.102",
     "Drawn":false,
     "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":200,
-    "Rent":25,
-    "Value":0.33
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.007",
     "Drawn":false,
     "Flavortext":"0.007. Lokale 0.007",
     "Owner":null,
-    "Price":140,
-    "Rent":10,
-    "Value":0.33
+    "Price":100,
+    "Rent":6,
+    "Value":50
   }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.005",
     "Drawn":false,
     "Flavortext":"Ej hvor bliver der bare programmeret",
     "Owner":null,
-    "Price":140,
-    "Rent":10,
-    "Value":0.33
+    "Price":100,
+    "Rent":6,
+    "Value":50
   }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.009",
     "Drawn":false,
     "Flavortext":"Et magisk lokale hvor monopoly-ripoffs bliver født",
     "Owner":null,
+    "Price":120,
+    "Rent":8,
+    "Value":60
+  }, {
+    "color":"#FF33CE",
+    "Name":"Lokale K.023",
+    "Drawn":false,
+    "Flavortext":"Kælderen kan være ret træls, men i det mindste er det tæt på indgangen...",
+    "Owner":null,
+    "Price":140,
+    "Rent":10,
+    "Value":70
+  }, {
+    "color":"#FF33CE",
+    "Name":"Lokale K.025",
+    "Drawn":false,
+    "Flavortext":"Beviset for udluftningen er skræld",
+    "Owner":null,
+    "Price":140,
+    "Rent":10,
+    "Value":70
+  }, {
+    "color":"#FF33CE",
+    "Name":"Lokale K.027",
+    "Drawn":false,
+    "Flavortext":"Ikke nok med det er i kælderen, det er også lige ved siden af byg :(",
+    "Owner":null,
     "Price":160,
     "Rent":12,
-    "Value":0.33
+    "Value":80
   }, {
-    "color":"",
-    "Name":"",
-    "Drawn":"",
-    "Flavortext":"",
+    "color":"#FA6C09",
+    "Name":"Lokale 0.021",
+    "Drawn":false,
+    "Flavortext":"Et gennemsnitligt lokale, men det er der jo ikke noget galt i",
     "Owner":null,
-    "Price":,
-    "Rent":,
-    "Value":
+    "Price":180,
+    "Rent":14,
+    "Value":90
+  }, {
+    "color":"#FA6C09",
+    "Name":"Lokale 0.023",
+    "Drawn":false,
+    "Flavortext":"Solen er ret skarp tidligt på dagen, prøv at sæt dig med rykken til vinduet om morgnen",
+    "Owner":null,
+    "Price":180,
+    "Rent":14,
+    "Value":90
+  }, {
+    "color":"#FA6C09",
+    "Name":"Lokale 0.027",
+    "Drawn":false,
+    "Flavortext":"På en god dag er der god ventilation",
+    "Owner":null,
+    "Price":180,
+    "Rent":14,
+    "Value":90
+  }, {
+    "color":"#FF0000",
+    "Name":"Lokale K.013",
+    "Drawn":false,
+    "Flavortext":"Man skulle tro, at kælderen ville blive brugt mindre, men det gør den ikke",
+    "Owner":null,
+    "Price":220,
+    "Rent":18,
+    "Value":110
+  }, {
+    "color":"#FF0000",
+    "Name":"Lokale K.019",
+    "Drawn":false,
+    "Flavortext":"Hvis man har lokale i kælderen betyder det ledelsen ikke kan lide jer",
+    "Owner":null,
+    "Price":220,
+    "Rent":18,
+    "Value":110
+  }, {
+    "color":"#FF0000",
+    "Name":"Lokale K.021",
+    "Drawn":false,
+    "Flavortext":"Efter man har boet i kælderen forstår man hvorfor der bliver bygget en ny bygning",
+    "Owner":null,
+    "Price":240,
+    "Rent":20,
+    "Value":120,
   }
 ]
