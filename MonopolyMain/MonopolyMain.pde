@@ -13,6 +13,7 @@ int sCols = 11;
 int sRows = 11;
 int numPl;
 int playerTurn = 1;
+int counter  = 0;
 
 PImage Arrow;
 PImage Board;
@@ -217,7 +218,12 @@ void diceResult(Dice d) {
     }
     skip = false;
   }
-  drawCard();
+
+  if (counter >= 1) {
+    drawCard();
+    counter = 0;
+  }
+  counter++;
   roll = 0;
 }
 
@@ -226,16 +232,18 @@ void drawCard() {
     for (int j = 0; j <= 10; j++) {
       for (int k = 0; k < grid[i][j].container.size(); k++) {
         if (grid[i][j].container.get(k).name == playerTurn) {
-          for(int l = 0; l < 2; l++){
+          for (int l = 0; l < 2; l++) {
             int temp = grid[i][j].container.get(k).gridPos;
-            if (temp == ChanceFields[l]){
+            if (temp == ChanceFields[l]) {
               getChance();
-            } else if (temp == AbsenceFields[l]){
+            } else if (temp == AbsenceFields[l]) {
               getAbsence();
             }
-            if(temp != ChanceFields[l] &&grid[i][j].container.get(k).gridPos != AbsenceFields[l]){
-            getSpace(temp);
-          }}
+            if (temp != ChanceFields[l] &&grid[i][j].container.get(k).gridPos != AbsenceFields[l]) {
+              getSpace(temp);
+            }
+            counter = 0;
+          }
         }
       }
     }
