@@ -25,6 +25,7 @@ void loadJSONS() {
 }
 
 void getSpace(int index) {
+  println(index);
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
   color rgb = unhex("FF"+c.substring(1));

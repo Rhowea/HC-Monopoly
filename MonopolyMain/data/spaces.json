@@ -9,6 +9,8 @@
     "Rent":2,
     "Value":30
   }, {
+    "Name":"ABSENCECARD",
+   }, {
     "color":"#8B4513",
     "Name":"Lokale 1.102",
     "Drawn":false,
@@ -18,9 +20,23 @@
     "Rent":4,
     "Value":30
   }, {
-    "Name":"Højt Fravær"
+    "color":"#8B4513",
+    "Name":"Højt Fravær",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
-    "Name":"Proces-lab"
+    "color":"#8B4513",
+    "Name":"Proces-lab",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.007",
@@ -30,7 +46,9 @@
     "Price":100,
     "Rent":6,
     "Value":50
-  }, {
+  },  {
+    "Name":"CHANCECARD",
+   }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.005",
     "Drawn":false,
@@ -49,7 +67,14 @@
     "Rent":8,
     "Value":60
   }, {
-    "Name":"Hos Ledelsen"
+    "color":"#8B4513",
+    "Name":"Hos Ledelsen",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FF33CE",
     "Name":"Lokale K.023",
@@ -60,7 +85,14 @@
     "Rent":10,
     "Value":70
   }, {
-    "Name":"Kemi-lab"
+    "color":"#8B4513",
+    "Name":"Kemi-lab",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FF33CE",
     "Name":"Lokale K.025",
@@ -80,7 +112,14 @@
     "Rent":12,
     "Value":80
   }, {
-    "Name":"Træ-værksted"
+    "color":"#8B4513",
+    "Name":"Træ-værksted",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FA6C09",
     "Name":"Lokale 0.021",
@@ -90,7 +129,9 @@
     "Price":180,
     "Rent":14,
     "Value":90
-  }, {
+  },  {
+    "Name":"ABSENCECARD",
+   }, {
     "color":"#FA6C09",
     "Name":"Lokale 0.023",
     "Drawn":false,
@@ -109,7 +150,14 @@
     "Rent":14,
     "Value":90
   }, {
-    "Name":"Opgaveværksted"
+    "color":"#8B4513",
+    "Name":"Opgaveværksted",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FF0000",
     "Name":"Lokale K.013",
@@ -119,7 +167,9 @@
     "Price":220,
     "Rent":18,
     "Value":110
-  }, {
+  },  {
+    "Name":"CHANCECARD",
+   }, {
     "color":"#FF0000",
     "Name":"Lokale K.019",
     "Drawn":false,
@@ -138,7 +188,14 @@
     "Rent":20,
     "Value":120
   }, {
-    "Name":"Fablab"
+    "color":"#8B4513",
+    "Name":"Fablab",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FFF600",
     "Name":"UNord C3",
@@ -158,7 +215,14 @@
     "Rent":22,
     "Value":130
   }, {
-    "Name":"Fysik-lab"
+    "color":"#8B4513",
+    "Name":"Fysik-lab",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FFF600",
     "Name":"UNord C5",
@@ -169,7 +233,14 @@
     "Rent":24,
     "Value":140
   }, {
-    "Name":"Gå til ledelsen"
+    "color":"#8B4513",
+    "Name":"Gå til ledelsen",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#2DA952",
     "Name":"Lokale 0.011",
@@ -188,7 +259,9 @@
     "Price":300,
     "Rent":26,
     "Value":150
-  }, {
+  },  {
+    "Name":"ABSENCECARD",
+   }, {
     "color":"#2DA952",
     "Name":"Lokale 0.015A",
     "Drawn":false,
@@ -198,8 +271,17 @@
     "Rent":28,
     "Value":160
   }, {
-    "Name":"El-lab"
-  }, {
+    "color":"#8B4513",
+    "Name":"El-lab",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
+  },  {
+    "Name":"CHANCECARD",
+   }, {
     "color":"#2D5AA9",
     "Name":"Aula 2",
     "Drawn":false,
@@ -209,7 +291,14 @@
     "Rent":35,
     "Value":175
   }, {
-    "Name":"00"
+    "color":"#8B4513",
+    "Name":"00",
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#2D5AA9",
     "Name":"Aula 1",
@@ -220,6 +309,13 @@
     "Rent":50,
     "Value":200
   }, {
-    "Name":"GO"
+    "color":"#8B4513",
+    "Name":"GO",    
+    "Drawn":false,
+    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Owner":null,
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }
 ]

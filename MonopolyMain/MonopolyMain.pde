@@ -1,8 +1,8 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
 ArrayList <Dice> dices = new ArrayList();
-int ChanceFields [] = {7, 22, 36};
-int AbsenceFields [] = {2, 17, 33};
+int ChanceFields [] = {6, 21, 35};
+int AbsenceFields [] = {1, 16, 32};
 
 
 import controlP5.*;
@@ -58,7 +58,6 @@ void setup() {
   for (int i = 0; i < numPl; i++) {
     banks.add(new bankSystem(i)); 
     Player playerToken = new Player(i + 1, 39); 
-    println("PLAYER " + playerToken.name); 
     grid[10][10].container.add(playerToken);
   }
   if (!onMenu) {
@@ -70,8 +69,7 @@ void setup() {
   //laver to terninger
   if (!onMenu) {
     for (int i = 0; i < 2; i++) {
-      dices.add(new Dice()); 
-      println("Dice");
+      dices.add(new Dice());
     }
   }
 }
@@ -185,7 +183,6 @@ void diceResult(Dice d) {
   int roll = 0; 
   d.side = int(random(1, 7)); 
   roll += d.side; 
-  println("You rolled a " + roll); 
   boolean skip = false; 
   for (int r = 0; r < roll; r++) {
     for (int i = 10; i > 0; i--) {
@@ -232,18 +229,21 @@ void drawCard() {
     for (int j = 0; j <= 10; j++) {
       for (int k = 0; k < grid[i][j].container.size(); k++) {
         if (grid[i][j].container.get(k).name == playerTurn) {
-          for (int l = 0; l < 2; l++) {
-            int temp = grid[i][j].container.get(k).gridPos;
+          int temp = grid[i][j].container.get(k).gridPos -1;
+          boolean Specieals = false;
+          for (int l = 0; l <= 2; l++) {
             if (temp == ChanceFields[l]) {
               getChance();
+              Specieals = true;
             } else if (temp == AbsenceFields[l]) {
               getAbsence();
+              Specieals = true;
             }
-            if (temp != ChanceFields[l] &&grid[i][j].container.get(k).gridPos != AbsenceFields[l]) {
-              getSpace(temp);
-            }
-            counter = 0;
           }
+          if (!Specieals) {
+            getSpace(temp);
+          }
+          counter = 0;
         }
       }
     }
