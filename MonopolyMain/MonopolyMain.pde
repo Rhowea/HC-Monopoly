@@ -77,6 +77,7 @@ void settings() {
 }
 
 void draw() {
+
   if (!onMenu) { // Draw for alt der skal være imens der spilles
     background(0);
     bankSystem b = banks.get(playerTurn-1);
@@ -148,8 +149,8 @@ void moveXAxis(Player p, int distance, int x, int y) {
   grid[x + distance][y].container.add(p); 
   grid[x][y].container.remove(p); 
   grid[x + distance][y].display();
-  if (p.gridpos == 39) {
-    p.gridpos = 0;
+  if (p.gridPos == 39) {
+    p.gridPos = 0;
   }
   p.gridPos++;
 }
@@ -158,8 +159,8 @@ void moveYAxis(Player p, int distance, int x, int y) {
   grid[x][y + distance].container.add(p); 
   grid[x][y].container.remove(p); 
   grid[x][y + distance].display();
-  if (p.gridpos == 39) {
-    p.gridpos = 0;
+  if (p.gridPos == 39) {
+    p.gridPos = 0;
   }
   p.gridPos++;
 }
@@ -213,5 +214,18 @@ void diceResult(Dice d) {
     }
     skip = false;
   }
+  drawCard();
   roll = 0;
+}
+
+void drawCard() {
+  for (int i = 0; i <= 10; i++) {
+    for (int j = 0; j <= 10; j++) {
+      for (int k = 0; k < grid[i][j].container.size(); k++) {
+        if (grid[i][j].container.get(k).name == playerTurn) {
+          //Fetch.jsonFil(index = grid[i][j].container.get(k).gridPos)
+        }
+      }
+    }
+  }
 }
