@@ -7,7 +7,7 @@
     "Owner":null,
     "Price":300,
     "Rent":50,
-    "Value":100,
+    "Value":0.33
   }, {
     "color":"#8B4513",
     "Name":"Lokale 1.102",
@@ -16,6 +16,42 @@
     "Owner":null,
     "Price":200,
     "Rent":25,
-    "Value":75,
+    "Value":0.33
+  }, {
+    "color":"#4EC8F2",
+    "Name":"Lokale 0.007",
+    "Drawn":false,
+    "Flavortext":"0.007. Lokale 0.007",
+    "Owner":null,
+    "Price":140,
+    "Rent":10,
+    "Value":0.33
+  }, {
+    "color":"#4EC8F2",
+    "Name":"Lokale 0.005",
+    "Drawn":false,
+    "Flavortext":"Ej hvor bliver der bare programmeret",
+    "Owner":null,
+    "Price":140,
+    "Rent":10,
+    "Value":0.33
+  }, {
+    "color":"#4EC8F2",
+    "Name":"Lokale 0.009",
+    "Drawn":false,
+    "Flavortext":"Et magisk lokale hvor monopoly-ripoffs bliver født",
+    "Owner":null,
+    "Price":160,
+    "Rent":12,
+    "Value":0.33
+  }, {
+    "color":"",
+    "Name":"",
+    "Drawn":"",
+    "Flavortext":"",
+    "Owner":null,
+    "Price":,
+    "Rent":,
+    "Value":
   }
 ]
