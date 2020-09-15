@@ -155,10 +155,11 @@ void moveXAxis(Player p, int distance, int x, int y) {
   grid[x + distance][y].container.add(p); 
   grid[x][y].container.remove(p); 
   grid[x + distance][y].display();
-  if (p.gridPos == 39) {
-    p.gridPos = 0;
+  if (p.gridPos < 39) {
+    p.gridPos++;
+  } else if (p.gridPos == 39){
+  p.gridPos = 0;
   }
-  p.gridPos++;
 }
 
 void moveYAxis(Player p, int distance, int x, int y) {
@@ -232,7 +233,6 @@ void diceResult(Dice d) {
 void drawCard() {
   Player p = Players.get(playerTurn-1);
   int temp = p.gridPos;
-  temp -=1;
   boolean Specieals = false;  
   for (int l = 0; l <= 2; l++) {
     if (temp == ChanceFields[l]) {
