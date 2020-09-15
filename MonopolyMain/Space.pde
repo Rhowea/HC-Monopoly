@@ -47,4 +47,5 @@ void moveTo(int distance) {
       }
     }
   }
+  drawCard();
 }

@@ -28,6 +28,8 @@ boolean initialized = false;
 void setup() {
   background(0);
   banks.clear();
+  Players.clear();
+  dices.clear();
 
   //første gang vi er i setup laver vi de initialisere vi en masse så det senere bare kan loades
   if (onMenu && !initialized) {
@@ -41,7 +43,7 @@ void setup() {
     banks.add(new bankSystem(i)); 
     Players.add(new Player(i + 1, 39));
   }
-  
+
   //initialiser arrayet og fylder den med spaces
   if (!onMenu) {
     grid = new Space[sCols][sRows];
@@ -80,7 +82,7 @@ void settings() {
 
 void draw() {
 
-  if (!onMenu && !showingCard) { // Draw for alt der skal være imens der spilles
+  if (!onMenu) { // Draw for alt der skal være imens der spilles
     background(0);
     bankSystem b = banks.get(playerTurn-1);
     b.display();
@@ -145,15 +147,19 @@ void dropDown() {
 
 
 void diceResult(Dice d) {
+  boolean reset = false;
   d.side = int(random(1, 7)); 
   roll += d.side; 
-  if (counter >= 1) {
+  if (counter == 1) {
     moveTo(roll);
-    drawCard();
     roll = 0;
     counter = 0;
+    reset = true;
   }
   counter++;
+  if (reset) {
+    counter = 0;
+  }
 }
 
 void drawCard() {
