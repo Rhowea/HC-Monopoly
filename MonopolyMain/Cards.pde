@@ -85,7 +85,7 @@ void createCard(int t, color c, String h, String f, int p, int r, int v, int b, 
 }
 void displayCard() {
   pushMatrix();
-  translate(-80,0);
+  translate(-80, 0);
   cp5Cards.show();
   rectMode(CENTER);
   fill(#FFF3D6);
@@ -122,8 +122,16 @@ void displayCard() {
 }
 
 void dismiss() {
+  bankSystem b = banks.get(playerTurn-1); 
+  b.addToBalance(balanceUpdates);
   showingCard =false;
 }
-void dontBuy(){
+
+void dontBuy() {
   showingCard = false;
+}
+void buy(){
+  bankSystem b = banks.get(playerTurn-1); 
+  b.addToBalance(-price);
+  
 }
