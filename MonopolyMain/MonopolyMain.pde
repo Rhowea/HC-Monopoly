@@ -84,7 +84,7 @@ void settings() {
 
 void draw() {
 
-  if (!onMenu) { // Draw for alt der skal være imens der spilles
+  if (!onMenu && !showingCard) { // Draw for alt der skal være imens der spilles
     background(0);
     bankSystem b = banks.get(playerTurn-1);
     b.display();
@@ -126,10 +126,10 @@ void draw() {
       }
     }
     popMatrix();
-    if (showingCard) {
-      displayCard();
-      cp5Cards.draw();
-    }
+  }
+  if (showingCard) {
+    displayCard();
+    cp5Cards.draw();
   }
 }
 
@@ -157,8 +157,8 @@ void moveXAxis(Player p, int distance, int x, int y) {
   grid[x + distance][y].display();
   if (p.gridPos < 39) {
     p.gridPos++;
-  } else if (p.gridPos == 39){
-  p.gridPos = 0;
+  } else if (p.gridPos == 39) {
+    p.gridPos = 0;
   }
 }
 

@@ -25,7 +25,6 @@ void loadJSONS() {
 }
 
 void getSpace(int index) {
-  println(index);
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
   color rgb = unhex("FF"+c.substring(1));
@@ -85,6 +84,7 @@ void createCard(int t, color c, String h, String f, int p, int r, int v, int b, 
   getOutOfJail = GOOJ;
 }
 void displayCard() {
+  cp5Main.hide();
   pushMatrix();
   translate(-80, 0);
   cp5Cards.show();
@@ -126,13 +126,17 @@ void dismiss() {
   bankSystem b = banks.get(playerTurn-1); 
   b.addToBalance(balanceUpdates);
   showingCard =false;
+  cp5Main.show();
 }
 
 void dontBuy() {
   showingCard = false;
+  cp5Main.show();
 }
 void buy(){
   bankSystem b = banks.get(playerTurn-1); 
   b.addToBalance(-price);
+  cp5Main.show();
+  showingCard = false;
   
 }
