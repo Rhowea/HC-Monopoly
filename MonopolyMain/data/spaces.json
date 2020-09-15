@@ -143,5 +143,59 @@
     "Price":260,
     "Rent":22,
     "Value":130
+  }, {
+    "color":"#FFF600",
+    "Name":"UNord C5",
+    "Drawn":false,
+    "Flavortext":"Bro, sig ikke jeg tog til den forkerte UNord",
+    "Owner":null,
+    "Price":280,
+    "Rent":24,
+    "Value":140
+  }, {
+    "color":"#2DA952",
+    "Name":"Lokale 0.011",
+    "Drawn":false,
+    "Flavortext":"Tror ikke engang jeg har været i det lokale før...",
+    "Owner":null,
+    "Price":300,
+    "Rent":26,
+    "Value":150
+  }, {
+    "color":"#2DA952",
+    "Name":"Lokale 0.013",
+    "Drawn":false,
+    "Flavortext":"Et uheldigt tal, men ikke et uheldigt lokale",
+    "Owner":null,
+    "Price":300,
+    "Rent":26,
+    "Value":150
+  }, {
+    "color":"#2DA952",
+    "Name":"Lokale 0.015A",
+    "Drawn":false,
+    "Flavortext":"Hvorfor er der et A? Der er ikke engang et andet lokale 0.015???",
+    "Owner":null,
+    "Price":320,
+    "Rent":28,
+    "Value":160
+  }, {
+    "color":"#2D5AA9",
+    "Name":"Aula 2",
+    "Drawn":false,
+    "Flavortext":"Endten sidder man i det som  corona-klasseværelse eller til eksamen",
+    "Owner":null,
+    "Price":350,
+    "Rent":35,
+    "Value":175
+  }, {
+    "color":"#2D5AA9",
+    "Name":"Aula 1",
+    "Drawn":false,
+    "Flavortext":"Nej hvor stort og fint - det første indtryk man får på besøgsdag",
+    "Owner":null,
+    "Price":400,
+    "Rent":50,
+    "Value":200
   }
 ]
