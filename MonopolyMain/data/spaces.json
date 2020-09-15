@@ -44,14 +44,5 @@
     "Price":160,
     "Rent":12,
     "Value":0.33
-  }, {
-    "color":"",
-    "Name":"",
-    "Drawn":"",
-    "Flavortext":"",
-    "Owner":null,
-    "Price":,
-    "Rent":,
-    "Value":
-  }
+  },
 ]
