@@ -146,5 +146,4 @@ void buy() {
     cp5Main.show();
     nextTurn();
   }
-  
 }
