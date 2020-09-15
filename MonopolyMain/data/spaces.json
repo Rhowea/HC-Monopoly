@@ -18,6 +18,10 @@
     "Rent":4,
     "Value":30
   }, {
+    "Name":"Højt Fravær"
+  }, {
+    "Name":"Proces-lab"
+  }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.007",
     "Drawn":false,
@@ -45,6 +49,8 @@
     "Rent":8,
     "Value":60
   }, {
+    "Name":"Hos Ledelsen"
+  }, {
     "color":"#FF33CE",
     "Name":"Lokale K.023",
     "Drawn":false,
@@ -53,6 +59,8 @@
     "Price":140,
     "Rent":10,
     "Value":70
+  }, {
+    "Name":"Kemi-lab"
   }, {
     "color":"#FF33CE",
     "Name":"Lokale K.025",
@@ -71,6 +79,8 @@
     "Price":160,
     "Rent":12,
     "Value":80
+  }, {
+    "Name":"Træ-værksted"
   }, {
     "color":"#FA6C09",
     "Name":"Lokale 0.021",
@@ -99,6 +109,8 @@
     "Rent":14,
     "Value":90
   }, {
+    "Name":"Opgaveværksted"
+  }, {
     "color":"#FF0000",
     "Name":"Lokale K.013",
     "Drawn":false,
@@ -126,6 +138,8 @@
     "Rent":20,
     "Value":120
   }, {
+    "Name":"Fablab"
+  }, {
     "color":"#FFF600",
     "Name":"UNord C3",
     "Drawn":false,
@@ -144,6 +158,8 @@
     "Rent":22,
     "Value":130
   }, {
+    "Name":"Fysik-lab"
+  }, {
     "color":"#FFF600",
     "Name":"UNord C5",
     "Drawn":false,
@@ -152,6 +168,8 @@
     "Price":280,
     "Rent":24,
     "Value":140
+  }, {
+    "Name":"Gå til ledelsen"
   }, {
     "color":"#2DA952",
     "Name":"Lokale 0.011",
@@ -180,6 +198,8 @@
     "Rent":28,
     "Value":160
   }, {
+    "Name":"El-lab"
+  }, {
     "color":"#2D5AA9",
     "Name":"Aula 2",
     "Drawn":false,
@@ -189,6 +209,8 @@
     "Rent":35,
     "Value":175
   }, {
+    "Name":"00"
+  }, {
     "color":"#2D5AA9",
     "Name":"Aula 1",
     "Drawn":false,
@@ -197,5 +219,7 @@
     "Price":400,
     "Rent":50,
     "Value":200
+  }, {
+    "Name":"GO"
   }
 ]
