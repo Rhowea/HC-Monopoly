@@ -1,6 +1,8 @@
 ArrayList <bankSystem> banks  = new ArrayList();
 ArrayList <String> names  = new ArrayList();
 ArrayList <Dice> dices = new ArrayList();
+ArrayList <Player> Players = new ArrayList();
+
 int ChanceFields [] = {6, 21, 35};
 int AbsenceFields [] = {1, 16, 32};
 
@@ -57,13 +59,15 @@ void setup() {
   //laver banksystemer og spillebrikker
   for (int i = 0; i < numPl; i++) {
     banks.add(new bankSystem(i)); 
-    Player playerToken = new Player(i + 1, 39); 
-    grid[10][10].container.add(playerToken);
+    Players.add(new Player(i + 1, 39));
   }
+
   if (!onMenu) {
     for (int j = 0; j < banks.size(); j++) {
       bankSystem b = banks.get(j); 
       b.bankSetup();
+      Player p = Players.get(j);
+      grid[10][10].container.add(p);
     }
   }
   //laver to terninger
@@ -161,6 +165,7 @@ void moveYAxis(Player p, int distance, int x, int y) {
   grid[x][y + distance].container.add(p); 
   grid[x][y].container.remove(p); 
   grid[x][y + distance].display();
+
   if (p.gridPos == 39) {
     p.gridPos = 0;
   }
@@ -225,27 +230,21 @@ void diceResult(Dice d) {
 }
 
 void drawCard() {
-  for (int i = 0; i <= 10; i++) {
-    for (int j = 0; j <= 10; j++) {
-      for (int k = 0; k < grid[i][j].container.size(); k++) {
-        if (grid[i][j].container.get(k).name == playerTurn) {
-          int temp = grid[i][j].container.get(k).gridPos -1;
-          boolean Specieals = false;
-          for (int l = 0; l <= 2; l++) {
-            if (temp == ChanceFields[l]) {
-              getChance();
-              Specieals = true;
-            } else if (temp == AbsenceFields[l]) {
-              getAbsence();
-              Specieals = true;
-            }
-          }
-          if (!Specieals) {
-            getSpace(temp);
-          }
-          counter = 0;
-        }
-      }
+  Player p = Players.get(playerTurn-1);
+  int temp = p.gridPos;
+  temp -=1;
+  boolean Specieals = false;  
+  for (int l = 0; l <= 2; l++) {
+    if (temp == ChanceFields[l]) {
+      getChance();
+      Specieals = true;
+    } else if (temp == AbsenceFields[l]) {
+      getAbsence();
+      Specieals = true;
     }
   }
+  if (!Specieals) {
+    getSpace(temp);
+  }
+  counter = 0;
 }

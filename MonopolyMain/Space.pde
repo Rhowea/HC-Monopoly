@@ -19,7 +19,6 @@ class Space {
       translate(x + w/2, y + h/2);
       p.Pdisplay();
       popMatrix();
-      //println(p.name, p.gridPos);
     }
   }
 }

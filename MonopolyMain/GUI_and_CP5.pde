@@ -159,7 +159,6 @@ public void plSelect() {
 }
 
 public void Roll() {
-  println("rolling");
   for (Dice d : dices) {
     d.animate();
   }
