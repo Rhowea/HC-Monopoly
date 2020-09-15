@@ -124,6 +124,24 @@
     "Owner":null,
     "Price":240,
     "Rent":20,
-    "Value":120,
+    "Value":120
+  }, {
+    "color":"#FFF600",
+    "Name":"UNord C3",
+    "Drawn":false,
+    "Flavortext":"Hvor er det henne?",
+    "Owner":null,
+    "Price":260,
+    "Rent":22,
+    "Value":130
+  }, {
+    "color":"#FFF600",
+    "Name":"UNord C4",
+    "Drawn":false,
+    "Flavortext":"Er du sikker på du er på den rigtige UNord?",
+    "Owner":null,
+    "Price":260,
+    "Rent":22,
+    "Value":130
   }
 ]
