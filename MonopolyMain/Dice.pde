@@ -28,7 +28,8 @@ class Dice {
       vel.y *= -1;
     }
   }
-
+  boolean delayed = false;
+  
   void display() {
     fill(255);
     rect(pos.x, pos.y, wide, wide, wide/5);
@@ -50,9 +51,11 @@ class Dice {
       ellipse(wide/2, wide/2 + wide/4, wide/5, wide/5);
     }
     popMatrix();
+
   }
 
   void animate() {
+    delayed = false;
     acc.x = random(-50, 50);
     acc.y = random(-50, 50);
     anim = true;

@@ -13,7 +13,7 @@ class Player {
     name = playerNr;
     gridPos = gridNr;
   }
-  void setColor(int r, int g,int b) {
+  void setColor(int r, int g, int b) {
     colour[0] = r;
     colour[1] = g;
     colour[2] = b;

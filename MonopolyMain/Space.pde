@@ -59,5 +59,6 @@ void moveTo(int distance, boolean dist) {
       }
     }
   }
+  delay(1);
   drawCard();
 }

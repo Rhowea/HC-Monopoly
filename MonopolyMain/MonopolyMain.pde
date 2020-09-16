@@ -27,6 +27,7 @@ boolean showDropDown = false;
 boolean onMenu = true;
 boolean initialized = false;
 
+
 void setup() {
   background(0);
   banks.clear();
@@ -103,8 +104,8 @@ void draw() {
           counter++;
         }
       }
-    } else{
-        OwnedPlayerCards();
+    } else {
+      OwnedPlayerCards();
     }
 
     counter = 0; 
@@ -132,7 +133,7 @@ void draw() {
     popMatrix();
   }
 
-  if (showingCard) {
+  if (showingCard && !delayed) {
     displayCard();
     cp5Cards.draw();
   }
@@ -211,8 +212,8 @@ void displayPlayerCards(int i, int FNR) {
   textSize(22);
   fill(255);
   textAlign(CENTER);
-  text(Space.getString("Name"),Xpos+120, Ypos+offset+35);
-  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+250 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50){
-  getSpace(index, true);
+  text(Space.getString("Name"), Xpos+120, Ypos+offset+35);
+  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+250 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
+    getSpace(index, true);
   }
 }
