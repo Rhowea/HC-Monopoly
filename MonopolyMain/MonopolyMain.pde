@@ -130,12 +130,9 @@ void draw() {
     popMatrix();
   }
 
-<<<<<<< HEAD
-  if (showingCard && !delayed) {
-=======
+
   //Tegner kort, hvis der er et der er i gang med at blive vist
   if (showingCard) {
->>>>>>> 235a207efb758fd24c3d3651e0e0ea69c7e33d0e
     displayCard();
     cp5Cards.draw();
   }
@@ -213,13 +210,8 @@ void displayPlayerCards(int i, int FNR) {
   textSize(22);
   fill(255);
   textAlign(CENTER);
-<<<<<<< HEAD
-  text(Space.getString("Name"), Xpos+120, Ypos+offset+35);
+    text(Space.getString("Name"), Xpos+120, Ypos+offset+35);
   if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+250 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
-=======
-  text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
-  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
->>>>>>> 235a207efb758fd24c3d3651e0e0ea69c7e33d0e
     getSpace(index, true);
   }
 }

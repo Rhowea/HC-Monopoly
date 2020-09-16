@@ -186,7 +186,7 @@ void dismiss() {
 void dontBuy() {
   showingCard = false; 
   cp5Main.show();
-  if (Players.get(playerTurn - 1).inJail = true) {
+  if (Players.get(playerTurn - 1).inJail == true) {
     Players.get(playerTurn - 1).inJail = false;
     nextTurn();
   }
