@@ -5,7 +5,7 @@ int rent;
 int value;
 int moveToSpace;
 int balanceUpdates;
-int numChanceCards = 2;
+int numChanceCards = 12;
 int numSpaces = 39;
 int numAbsenceCards = 13;
 
@@ -41,7 +41,7 @@ void getSpace(int index) {
   showingCard = true;
 }
 void getChance() {
-  int cardIndex = 1;
+  int cardIndex = int(random(0, numChanceCards));
   JSONObject Chance = Chances.getJSONObject(cardIndex); 
   if (Chance.getBoolean("Drawn") == false) {
     String c = Chance.getString("color");
