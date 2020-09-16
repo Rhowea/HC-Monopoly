@@ -23,11 +23,11 @@
     "color":"#8B4513",
     "Name":"Højt Fravær",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Du har rigeligt med fravær. Betal 200",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":0,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#8B4513",
     "Name":"Proces-lab",
@@ -68,13 +68,13 @@
     "Value":60
   }, {
     "color":"#8B4513",
-    "Name":"Hos Ledelsen",
+    "Name":"På kontoret",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Betina hjælper med alt",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":0,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#FF33CE",
     "Name":"Lokale K.023",
@@ -153,11 +153,11 @@
     "color":"#8B4513",
     "Name":"Opgaveværksted",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Når man skal sænke sit skriftlige fravær",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":0,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#FF0000",
     "Name":"Lokale K.013",
@@ -236,11 +236,11 @@
     "color":"#8B4513",
     "Name":"Gå til ledelsen",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Øv",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":0,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#2DA952",
     "Name":"Lokale 0.011",
@@ -294,11 +294,11 @@
     "color":"#8B4513",
     "Name":"00",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Uha, det var en meget lav karakter. Betal 75 kr.",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":0,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#2D5AA9",
     "Name":"Aula 1",
@@ -312,10 +312,10 @@
     "color":"#8B4513",
     "Name":"GO",    
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Klar, parat, start! Når du forlader dette felt indkasserer du 200 kr.",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":0,
+    "Rent":0,
+    "Value":0
   }
 ]
