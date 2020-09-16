@@ -155,7 +155,9 @@ void diceResult(Dice d) {
   d.side = int(random(1, 7)); 
   roll += d.side; 
   if (counter == 1) {
-    moveTo(roll, true);
+    if (Players.get(playerTurn - 1).inJail == false) {
+    }
+    moveTo(30, true);
     roll = 0;
     counter = 0;
     reset = true;
@@ -210,7 +212,7 @@ void displayPlayerCards(int i, int FNR) {
   textSize(22);
   fill(255);
   textAlign(CENTER);
-    text(Space.getString("Name"), Xpos+120, Ypos+offset+35);
+  text(Space.getString("Name"), Xpos+120, Ypos+offset+35);
   if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+250 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
     getSpace(index, true);
   }
