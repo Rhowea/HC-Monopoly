@@ -174,14 +174,22 @@ void dismiss() {
   if (moveToSpace != -2) {
     moveTo(moveToSpace, false);
   }
-  cp5Main.show(); 
+  cp5Main.show();
+  if (Players.get(playerTurn - 1).inJail = true) {
+    Players.get(playerTurn - 1).inJail = false;
+    nextTurn();
+  }
   nextTurn(); 
   showingCard =false;
 }
 
 void dontBuy() {
   showingCard = false; 
-  cp5Main.show(); 
+  cp5Main.show();
+  if (Players.get(playerTurn - 1).inJail = true) {
+    Players.get(playerTurn - 1).inJail = false;
+    nextTurn();
+  }
   nextTurn();
 }
 void buy() {
@@ -193,6 +201,10 @@ void buy() {
     p.ownedSpaces.append(p.gridPos); 
     showingCard = false; 
     cp5Main.show(); 
+    if (Players.get(playerTurn - 1).inJail = true) {
+      Players.get(playerTurn - 1).inJail = false;
+      nextTurn();
+    }
     nextTurn();
   }
 }

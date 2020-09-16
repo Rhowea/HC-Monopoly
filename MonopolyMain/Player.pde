@@ -3,6 +3,7 @@ class Player {
   int gridPos;
   IntList ownedSpaces =  new IntList ();
   int[] colour = new int[3]; 
+  boolean inJail = false;
 
   void Pdisplay() {
     fill(colour[0], colour[1], colour[2]);
