@@ -38,7 +38,7 @@ void getSpace(int index, Boolean fromDropDown) {
   int moveToSpace = -2; 
   int type = 0; 
   int BalanceUpdates = 0; 
-  
+
   Boolean GOOJ = false; 
 
   for (int j  = 0; j < 4; j++) {
@@ -136,23 +136,31 @@ void displayCard() {
       buyFieldButton.show(); 
       dontBuyFieldButton.show(); 
       dismissCardButton.hide();
-      //payRentbutton.hide();
-    }else if (type == 0 && balanceUpdates != 0){
-      //payRentButton.show
+      payRentButton.hide();
+      dismissInfoCardButton.hide();
+      valueCardButton.hide();
+    } else if (type == 0 && balanceUpdates != 0) {
+      payRentButton.show();
       buyFieldButton.hide(); 
       dontBuyFieldButton.hide(); 
       dismissCardButton.hide();
-    }else if (type == 3) {
+      dismissInfoCardButton.hide();
+      valueCardButton.hide();
+    } else if (type == 3) {
       buyFieldButton.hide(); 
       dontBuyFieldButton.hide(); 
       dismissCardButton.hide();
-      //payRentbutton.hide();
+      payRentButton.hide();
+      dismissInfoCardButton.show();
+      valueCardButton.show();
     }
-  } else if (type == 1 || type == 3) {
+  } else if (type == 1 || type == 2) {
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.show();
-    //payRentbutton.hide();
+    payRentButton.hide();
+    dismissInfoCardButton.hide();
+    valueCardButton.hide();
   }
   textAlign(CORNER); 
   rectMode(CORNER); 
@@ -187,4 +195,10 @@ void buy() {
     cp5Main.show(); 
     nextTurn();
   }
+}
+void dismissInfo() {
+}
+void GetValue() {
+}
+void payRent() {
 }

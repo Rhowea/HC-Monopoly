@@ -8,6 +8,9 @@ Textarea cardTextarea;
 Button buyFieldButton;
 Button dontBuyFieldButton;
 Button dismissCardButton;
+Button dismissInfoCardButton;
+Button valueCardButton;
+Button payRentButton;
 
 void guiSetup() {
   cp5Menu = new ControlP5(this);
@@ -37,6 +40,9 @@ void guiSetup() {
     .setSize(200, 30)
     .setAutoClear(false)
     .setCaptionLabel("Elev 1's navn")
+    .setColorForeground(color(#DE0000))
+    .setColorBackground(color(#AF0000))
+    .setColorActive(color(255, 0, 0))
     .setValue("")
     ;
   cp5Menu.addTextfield("Pl2")
@@ -44,6 +50,9 @@ void guiSetup() {
     .setSize(200, 30)
     .setAutoClear(false)
     .setCaptionLabel("Elev 2's navn")
+    .setColorForeground(color(#02CE18))
+    .setColorBackground(color(#009D11))
+    .setColorActive(color(0, 255, 0))
     .setValue("")
     ;
   cp5Menu.addTextfield("Pl3")
@@ -58,6 +67,9 @@ void guiSetup() {
     .setSize(200, 30)
     .setAutoClear(false)
     .setCaptionLabel("Elev 4's navn")
+    .setColorForeground(color(200))
+    .setColorBackground(color(150))
+    .setColorActive(color(255))
     .setValue("")
     ;
   cp5Main.addButton("backToMenu")
@@ -116,6 +128,31 @@ void guiSetup() {
     .setColorBackground(color(#AF0000))
     .setColorActive(color(255, 0, 0))
     ;
+  payRentButton = cp5Cards.addButton("payRent")
+    .setPosition(width/2-5, height/2+145)
+    .setSize(350, 50)
+    .setCaptionLabel("Betal leje")
+    .setColorForeground(color(#DE0000))
+    .setColorBackground(color(#AF0000))
+    .setColorActive(color(255, 0, 0))
+    ;
+  valueCardButton = cp5Cards.addButton("GetValue")
+    .setPosition(width/2-5, height/2+90)
+    .setSize(350, 50)
+    .setCaptionLabel("Pant")
+    .setColorForeground(color(#02CE18))
+    .setColorBackground(color(#009D11))
+    .setColorActive(color(0, 255, 0))
+    ;
+  dismissInfoCardButton = cp5Cards.addButton("dismissInfo")
+    .setPosition(width/2-5, height/2+90)
+    .setSize(350, 50)
+    .setCaptionLabel("Luk")
+    .setColorForeground(color(#DE0000))
+    .setColorBackground(color(#AF0000))
+    .setColorActive(color(255, 0, 0))
+    ;
+
   cp5Cards.setAutoDraw(false);
 
   initialized = true;
