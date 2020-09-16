@@ -25,7 +25,7 @@ void loadJSONS() {
   Absences = loadJSONArray("absence.json");
 }
 
-void getSpace(int index, Boolean fromDropDown) {
+void getSpace(int index, boolean fromDropDown) {
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
   color rgb = unhex("FF"+c.substring(1));
@@ -38,8 +38,8 @@ void getSpace(int index, Boolean fromDropDown) {
   Boolean GOOJ = false;
   int moveToSpace = -2;
   int type = 0;
-  if (fromDropDown){
-  type = 3;
+  if (fromDropDown == true){
+    type = 3;
   }
   createCard(type, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace);
   showingCard = true;
@@ -118,16 +118,15 @@ void displayCard() {
     text("Leje: " + rent+" kr.", width/2+350, height/2);
     line(width/2+75, height/2+70, width/2+420, height/2+70);
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
-    if (type == 0) {
-      buyFieldButton.show();
-      dontBuyFieldButton.show();
-      dismissCardButton.hide();
-    } else if (type == 3) {
-      buyFieldButton.hide();
-      dontBuyFieldButton.hide();
-      dismissCardButton.hide();
-    }
-  } else if (type == 1 || type == 3) {
+   if (type == 0){
+    buyFieldButton.show();
+    dontBuyFieldButton.show();
+   } else if (type == 3){
+     
+   }
+    dismissCardButton.hide();
+  } else {
+
     buyFieldButton.hide();
     dontBuyFieldButton.hide();
     dismissCardButton.show();
@@ -140,9 +139,8 @@ void displayCard() {
 void dismiss() {
   bankSystem b = banks.get(playerTurn-1); 
   b.addToBalance(balanceUpdates);
-
   if (moveToSpace != -2) {
-    moveTo(moveToSpace, false);
+    moveTo(moveToSpace);
   }
   cp5Main.show();
   nextTurn();
