@@ -110,7 +110,7 @@ void draw() {
         grid[i][j].display();
       }
     }
-    
+
     //Tegner terninger
     pushMatrix(); 
     translate(460, 110); 
@@ -128,7 +128,7 @@ void draw() {
     }
     popMatrix();
   }
-  
+
   //Tegner kort, hvis der er et der er i gang med at blive vist
   if (showingCard) {
     displayCard();
