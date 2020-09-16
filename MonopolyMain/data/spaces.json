@@ -236,7 +236,7 @@
     "color":"#8B4513",
     "Name":"Gå til ledelsen",
     "Drawn":false,
-    "Flavortext":"Øv",
+    "Flavortext":"Det var ærgerligt, du sidder over næste tur",
     "Owner":null,
     "Price":0,
     "Rent":0,
@@ -316,6 +316,15 @@
     "Owner":null,
     "Price":0,
     "Rent":0,
+    "Value":00
+  },{
+    "color":"#8B4513",
+    "Name":"Hos ledelsen",    
+    "Drawn":false,
+    "Flavortext":"Du sidder denne tur over",
+    "Owner":null,
+    "Price":0,
+    "Rent":0,
     "Value":0
-  }
+  },
 ]
