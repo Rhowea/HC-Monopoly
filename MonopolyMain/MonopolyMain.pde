@@ -79,18 +79,15 @@ void setup() {
   }
 }
 
-
 void settings() {
   size (1100, 750);
 }
 
 void draw() {
-
   if (!onMenu) { // Draw for alt der skal være imens der spilles
     background(0);
     bankSystem b = banks.get(playerTurn-1);
     b.display();
-
     cp5banks.draw(); 
     image(Arrow, 260, 35, 20, 20); 
     image(Board, 350, 0); 
@@ -103,10 +100,9 @@ void draw() {
           counter++;
         }
       }
-    } else{
-        OwnedPlayerCards();
+    } else {
+      OwnedPlayerCards();
     }
-
     counter = 0; 
     //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
@@ -114,7 +110,8 @@ void draw() {
         grid[i][j].display();
       }
     }
-
+    
+    //Tegner terninger
     pushMatrix(); 
     translate(460, 110); 
     fill(255); 
@@ -131,7 +128,8 @@ void draw() {
     }
     popMatrix();
   }
-
+  
+  //Tegner kort, hvis der er et der er i gang med at blive vist
   if (showingCard) {
     displayCard();
     cp5Cards.draw();
@@ -149,7 +147,6 @@ void nextTurn() {
 void dropDown() {
   showDropDown  ^= true;
 }
-
 
 void diceResult(Dice d) {
   boolean reset = false;
@@ -211,8 +208,8 @@ void displayPlayerCards(int i, int FNR) {
   textSize(22);
   fill(255);
   textAlign(CENTER);
-  text(Space.getString("Name"),Xpos+90, Ypos+offset+35);
-  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50){
-  getSpace(index, true);
+  text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
+  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
+    getSpace(index, true);
   }
 }
