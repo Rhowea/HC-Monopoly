@@ -16,7 +16,9 @@ int sRows = 11;
 int numPl;
 int playerTurn = 1;
 int counter  = 0;
-int roll = 0; 
+int roll = 0;
+
+int[][] colors = {{255, 0, 0}, {0, 255, 0}, {0, 0, 255}, {255, 255, 255}};
 
 PImage Arrow;
 PImage Board;
@@ -42,6 +44,7 @@ void setup() {
   for (int i = 0; i < numPl; i++) {
     banks.add(new bankSystem(i)); 
     Players.add(new Player(i + 1, 39));
+    Players.get(i).setColor(colors[i][0], colors[i][1], colors[i][2]);
   }
 
   //initialiser arrayet og fylder den med spaces
@@ -75,6 +78,7 @@ void setup() {
     }
   }
 }
+
 
 void settings() {
   size (1100, 750);
@@ -193,19 +197,19 @@ void displayPlayerCards(int i, int FNR) {
   int Xpos = 10; 
   int Ypos = 100;
   int offset = 110*i;
-  
+
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
   color rgb = unhex("FF"+c.substring(1));
-  
+
   rectMode(CORNER);
   fill(rgb);
   stroke(255);
   strokeWeight(2);
-  rect(Xpos, Ypos+offset, 200, 50,6);
+  rect(Xpos, Ypos+offset, 200, 50, 6);
   textSize(22);
   fill(255);
   textAlign(CENTER);
-  text(Space.getString("Name"),Xpos+90, Ypos+offset+35);
+  text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
   //display
 }
