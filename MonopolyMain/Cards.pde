@@ -3,6 +3,7 @@ int type; // 0 = space, 1 = chance, 2 = absence
 int price;
 int rent;
 int value;
+int moveToSpace;
 int balanceUpdates;
 int numChanceCards = 2;
 int numSpaces = 39;
@@ -35,7 +36,8 @@ void getSpace(int index) {
   int value = Space.getInt("Value");
   int balanceUpdates = 0;
   Boolean GOOJ = false;
-  createCard(0, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ);
+  int moveToSpace = -2;
+  createCard(0, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace);
   showingCard = true;
 }
 void getChance() {
@@ -49,9 +51,11 @@ void getChance() {
     int price = 0;
     int rent = 0;
     int value = 0;
+    int moveToSpace = Chance.getInt("MoveToSpace");
     int balanceUpdates = Chance.getInt("balanceUpdates");
+
     boolean GOOJ = Chance.getBoolean("Jail");
-    createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ);
+    createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace);
     showingCard = true;
   }
 }
@@ -68,11 +72,12 @@ void getAbsence() {
     int value = 0;
     int balanceUpdates = Absence.getInt("balanceUpdates");
     boolean GOOJ = false;
-    createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ);
+    int moveToSpace = -2;
+    createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace);
     showingCard = true;
   }
 }
-void createCard(int t, color c, String h, String f, int p, int r, int v, int b, boolean GOOJ) {
+void createCard(int t, color c, String h, String f, int p, int r, int v, int b, boolean GOOJ, int MTS) {
   type = t;
   cardColor = c;
   header = h;
@@ -82,6 +87,7 @@ void createCard(int t, color c, String h, String f, int p, int r, int v, int b, 
   value = v;
   balanceUpdates = b;
   getOutOfJail = GOOJ;
+  moveToSpace = MTS;
 }
 void displayCard() {
   cp5Main.hide();
@@ -113,9 +119,13 @@ void displayCard() {
     dontBuyFieldButton.show();
     dismissCardButton.hide();
   } else {
+
     buyFieldButton.hide();
     dontBuyFieldButton.hide();
     dismissCardButton.show();
+    if (moveToSpace != -2) {
+      moveTo(moveToSpace);
+    }
   }
   textAlign(CORNER);
   rectMode(CORNER);
