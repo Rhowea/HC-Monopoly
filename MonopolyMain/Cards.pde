@@ -1,5 +1,5 @@
 int index;
-int type; // 0 = space, 1 = chance, 2 = absence
+int type; // 0 = space, 1 = chance, 2 = absence 3 = InfoCard 4 = got to prisonCard 5 = in prison Card 
 int price;
 int rent;
 int value;
@@ -26,21 +26,18 @@ void loadJSONS() {
 }
 
 void getSpace(int index, Boolean fromDropDown) {
-
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color"); 
   color rgb = unhex("FF"+c.substring(1)); 
   String header = Space.getString("Name"); 
-  String flavor = Space.getString("Flavortext"); 
+  String flavor = Space.getString("Flavortext");
+  int BalanceUpdates = 0;
+  int type = 0; 
+  int moveToSpace = 9; 
   int price = Space.getInt("Price"); 
   int rent = Space.getInt("Rent"); 
-  int value = Space.getInt("Value"); 
-  int moveToSpace = -2; 
-  int type = 0; 
-  int BalanceUpdates = 0; 
-
-  Boolean GOOJ = false; 
-
+  int value = Space.getInt("Value");
+  Boolean GOOJ = false;
   for (int j  = 0; j < numPl; j++) {
     if (j != playerTurn - 1) {
       Player p =  Players.get(j);
@@ -51,8 +48,14 @@ void getSpace(int index, Boolean fromDropDown) {
       }
     }
   }
-
-  if (fromDropDown) {
+  if (index == 29) {
+    type = 4;
+    moveTo(9, true);
+  } else if (index == 40 &&  Players.get(playerTurn-1).inJail == false) {
+    Players.get(playerTurn-1).inJail = true;
+  } else if (index == 40 &&  Players.get(playerTurn-1).inJail == true) {
+    type = 5;
+  } else  if (fromDropDown) {
     type = 3;
   }
   createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
@@ -161,6 +164,13 @@ void displayCard() {
     payRentButton.hide();
     dismissInfoCardButton.hide();
     valueCardButton.hide();
+  } else if (type == 4 && type == 5) {
+    dismissInfoCardButton.show();
+    buyFieldButton.hide(); 
+    dontBuyFieldButton.hide(); 
+    dismissCardButton.hide();
+    payRentButton.hide();
+    valueCardButton.hide();
   }
   textAlign(CORNER); 
   rectMode(CORNER); 
@@ -175,10 +185,6 @@ void dismiss() {
     moveTo(moveToSpace, false);
   }
   cp5Main.show();
-  if (Players.get(playerTurn - 1).inJail = true) {
-    Players.get(playerTurn - 1).inJail = false;
-    nextTurn();
-  }
   nextTurn(); 
   showingCard =false;
 }
@@ -186,10 +192,6 @@ void dismiss() {
 void dontBuy() {
   showingCard = false; 
   cp5Main.show();
-  if (Players.get(playerTurn - 1).inJail == true) {
-    Players.get(playerTurn - 1).inJail = false;
-    nextTurn();
-  }
   nextTurn();
 }
 void buy() {
@@ -200,17 +202,24 @@ void buy() {
     Player p = Players.get(playerTurn-1); 
     p.ownedSpaces.append(p.gridPos); 
     showingCard = false; 
-    cp5Main.show(); 
-    if (Players.get(playerTurn - 1).inJail = true) {
+    cp5Main.show();
+    nextTurn();
+  }
+}
+void dismissInfo() {
+  if (type != 4 && type != 5) {
+    showingCard = false; 
+    cp5Main.show();
+  } else if (type == 4) {
+    getSpace(40, false);
+    nextTurn();
+  } else if (type == 5) {
+    if (Players.get(playerTurn - 1).inJail == true) {
       Players.get(playerTurn - 1).inJail = false;
       nextTurn();
     }
     nextTurn();
   }
-}
-void dismissInfo() {
-  showingCard = false; 
-  cp5Main.show();
 }
 void GetValue() {
   showingCard = false; 
@@ -224,4 +233,5 @@ void payRent() {
     showingCard = false; 
     cp5Main.show();
   }
+  nextTurn();
 }
