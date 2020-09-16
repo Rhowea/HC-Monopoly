@@ -32,11 +32,11 @@
     "color":"#8B4513",
     "Name":"Proces-lab",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Alle kitler skal vaskes efter en time proces. Det er træls.",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":200,
+    "Rent":25,
+    "Value":100
   }, {
     "color":"#4EC8F2",
     "Name":"Lokale 0.007",
@@ -115,11 +115,11 @@
     "color":"#8B4513",
     "Name":"Træ-værksted",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Bygorhyg",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":200,
+    "Rent":25,
+    "Value":100
   }, {
     "color":"#FA6C09",
     "Name":"Lokale 0.021",
@@ -191,11 +191,11 @@
     "color":"#8B4513",
     "Name":"Fablab",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Det sådan, næsten ligesom Byg...",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":200,
+    "Rent":25,
+    "Value":100
   }, {
     "color":"#FFF600",
     "Name":"UNord C3",
@@ -274,11 +274,11 @@
     "color":"#8B4513",
     "Name":"El-lab",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Nok det sted hvor der er størst risiko for at komme til skade",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":200,
+    "Rent":25,
+    "Value":100
   }, {
     "Name":"CHANCECARD",
   }, {
