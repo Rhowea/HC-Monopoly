@@ -41,7 +41,7 @@ void getSpace(int index) {
   showingCard = true;
 }
 void getChance() {
-  int cardIndex = int(random(0, numChanceCards));
+  int cardIndex = 1;
   JSONObject Chance = Chances.getJSONObject(cardIndex); 
   if (Chance.getBoolean("Drawn") == false) {
     String c = Chance.getString("color");
@@ -53,7 +53,6 @@ void getChance() {
     int value = 0;
     int moveToSpace = Chance.getInt("MoveToSpace");
     int balanceUpdates = Chance.getInt("balanceUpdates");
-
     boolean GOOJ = Chance.getBoolean("Jail");
     createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace);
     showingCard = true;
@@ -123,9 +122,6 @@ void displayCard() {
     buyFieldButton.hide();
     dontBuyFieldButton.hide();
     dismissCardButton.show();
-    if (moveToSpace != -2) {
-      moveTo(moveToSpace);
-    }
   }
   textAlign(CORNER);
   rectMode(CORNER);
@@ -135,9 +131,13 @@ void displayCard() {
 void dismiss() {
   bankSystem b = banks.get(playerTurn-1); 
   b.addToBalance(balanceUpdates);
-  showingCard =false;
+
+  if (moveToSpace != -2) {
+    moveTo(moveToSpace);
+  }
   cp5Main.show();
   nextTurn();
+  showingCard =false;
 }
 
 void dontBuy() {
