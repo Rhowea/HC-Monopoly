@@ -90,6 +90,7 @@ void draw() {
     cp5banks.draw(); 
     image(Arrow, 260, 35, 20, 20); 
     image(Board, 350, 0); 
+  
     int counter = 1; 
     if (showDropDown) {
       for (int i = 0; i < numPl; i++) {
@@ -99,7 +100,7 @@ void draw() {
           counter++;
         }
       }
-    } else{
+    } else if (!showDropDown){
         OwnedPlayerCards();
     }
 
@@ -152,7 +153,7 @@ void diceResult(Dice d) {
   d.side = int(random(1, 7)); 
   roll += d.side; 
   if (counter == 1) {
-    moveTo(roll, true);
+    moveTo(roll);
     roll = 0;
     counter = 0;
     reset = true;
@@ -189,11 +190,10 @@ void OwnedPlayerCards() {
   }
 }
 void displayPlayerCards(int i, int FNR) {
-
   int index = FNR;
   int Xpos = 10; 
   int Ypos = 100;
-  int offset = 110*i;
+  int offset = 55*i;
   
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
@@ -203,12 +203,13 @@ void displayPlayerCards(int i, int FNR) {
   fill(rgb);
   stroke(255);
   strokeWeight(2);
-  rect(Xpos, Ypos+offset, 200, 50,6);
+  rect(Xpos, Ypos+offset, 250, 50,6);
   textSize(22);
   fill(255);
   textAlign(CENTER);
-  text(Space.getString("Name"),Xpos+90, Ypos+offset+35);
-  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50){
-  getSpace(index, true);
+  text(Space.getString("Name"),Xpos+120, Ypos+offset+35);
+  if (mousePressed && mouseY <= Ypos+offset+250 && mouseY >=Ypos+offset && mouseX >=Xpos && mouseX <= Xpos+50){
+    getSpace(index, true); 
   }
+
 }
