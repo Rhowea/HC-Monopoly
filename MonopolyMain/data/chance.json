@@ -6,7 +6,7 @@
     "Flavortext":"Du har stadig 0% fravær, tag en flødebolle, et klap på skulderen. Næste gang du skal til ledelsen kan du bruge dette kort til at komme fri.",
     "Jail":true,
     "balanceUpdates":0,
-    "MoveToSpace":null,
+    "MoveToSpace":-2,
   }, {
     "color":"#DC181C",
     "Name":"Chance?",
