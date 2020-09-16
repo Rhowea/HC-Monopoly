@@ -22,7 +22,7 @@
     "Flavortext":"Du tager til Netto for at købe frokost. Betal 50 kr.",
     "Jail":false,
     "balanceUpdates":-50,
-    "MoveToSpace":false,
+    "MoveToSpace":-2,
   }, {
     "color":"#DC181C",
     "Name":"Chance?",

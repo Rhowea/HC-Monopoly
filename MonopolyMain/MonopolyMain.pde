@@ -151,7 +151,7 @@ void diceResult(Dice d) {
   d.side = int(random(1, 7)); 
   roll += d.side; 
   if (counter == 1) {
-    moveTo(roll);
+    moveTo(roll, true);
     roll = 0;
     counter = 0;
     reset = true;

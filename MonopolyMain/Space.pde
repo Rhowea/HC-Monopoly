@@ -9,8 +9,8 @@ class Space {
     h = h_;
   }
   void display() {
-    /*fill(255);
-     rect(x, y, w, h);
+    fill(255);
+    /*rect(x, y, w, h);
      fill(0);
      text(spaceNr, x, y + h);*/
     for (int i = 0; i < container.size(); i++) {
@@ -23,8 +23,9 @@ class Space {
   }
 }
 
-void moveTo(int distance) {
+void moveTo(int distance, boolean dist) {
   Player p = Players.get(playerTurn - 1);
+
   for (int i = 0; i <= 10; i++) {
     for (int j = 0; j <= 10; j++) {
       if (grid[i][j].spaceNr == p.gridPos) {
@@ -36,10 +37,21 @@ void moveTo(int distance) {
       }
     }
   }
-  p.gridPos += distance;
+  int temp = p.gridPos + distance;
+  if (dist) {
+    p.gridPos += distance;
+  } else {
+    p.gridPos = distance;
+  }
   if (p.gridPos > 39) {
     p.gridPos -= 40;
+    banks.get(playerTurn - 1).addToBalance(200);
+    println("Passerede start" + frameCount);
+  } else if (temp > 39) {
+    banks.get(playerTurn - 1).addToBalance(200);
+    println("Passerede start" + frameCount + ":)");
   }
+
   for (int i = 0; i <= 10; i++) {
     for (int j = 0; j <= 10; j++) {
       if (grid[i][j].spaceNr == p.gridPos) {

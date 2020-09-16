@@ -133,7 +133,7 @@ void dismiss() {
   b.addToBalance(balanceUpdates);
 
   if (moveToSpace != -2) {
-    moveTo(moveToSpace);
+    moveTo(moveToSpace, false);
   }
   cp5Main.show();
   nextTurn();
