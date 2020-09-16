@@ -90,7 +90,7 @@ void draw() {
     cp5banks.draw(); 
     image(Arrow, 260, 35, 20, 20); 
     image(Board, 350, 0); 
-
+    OwnedPlayerCards();
     int counter = 1; 
     if (showDropDown) {
       for (int i = 0; i < numPl; i++) {
@@ -179,4 +179,33 @@ void drawCard() {
     getSpace(temp);
   }
   counter = 0;
+}
+void OwnedPlayerCards() {
+  Player p = Players.get(playerTurn-1);
+  for (int i = 0; i < p.ownedSpaces.size(); i++) {
+    int FieldNumber = p.ownedSpaces.get(i);
+    displayPlayerCards(i, FieldNumber);
+  }
+}
+void displayPlayerCards(int i, int FNR) {
+
+  int index = FNR;
+  int Xpos = 10; 
+  int Ypos = 100;
+  int offset = 110*i;
+  
+  JSONObject Space = Spaces.getJSONObject(index); 
+  String c = Space.getString("color");
+  color rgb = unhex("FF"+c.substring(1));
+  
+  rectMode(CORNER);
+  fill(rgb);
+  stroke(255);
+  strokeWeight(2);
+  rect(Xpos, Ypos+offset, 200, 50,6);
+  textSize(22);
+  fill(255);
+  textAlign(CENTER);
+  text(Space.getString("Name"),Xpos+90, Ypos+offset+35);
+  //display
 }

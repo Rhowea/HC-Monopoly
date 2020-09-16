@@ -5,6 +5,7 @@ class Player {
 
   void Pdisplay() {
     fill(255);
+    stroke(0);
     circle(0, 0, 50);
   }
   Player(int playerNr, int gridNr) {
