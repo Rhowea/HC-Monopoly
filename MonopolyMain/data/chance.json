@@ -7,8 +7,6 @@
     "Jail":true,
     "balanceUpdates":0,
     "MoveToSpace":null,
-
-
   }, {
     "color":"#DC181C",
     "Name":"Chance?",
@@ -16,6 +14,14 @@
     "Flavortext":"Du bliver kørt i skole, ryk til start og modtag 200 kr.",
     "Jail":false,
     "balanceUpdates":200,
-    "MoveToSpace":null,
-  },
+    "MoveToSpace":39,
+  }, {
+    "color":"#DC181C",
+    "Name":"Chance?",
+    "Drawn":false,
+    "Flavortext":"Go to jail :(",
+    "Jail":false,
+    "balanceUpdates":0,
+    "MoveToSpace":9,
+  }
 ]
