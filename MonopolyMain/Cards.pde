@@ -41,7 +41,7 @@ void getSpace(int index, Boolean fromDropDown) {
 
   Boolean GOOJ = false; 
 
-  for (int j  = 0; j < 4; j++) {
+  for (int j  = 0; j < numPl; j++) {
     if (j != playerTurn - 1) {
       Player p =  Players.get(j);
       for (int l = 0; l < p.ownedSpaces.size(); l++) {
@@ -197,8 +197,19 @@ void buy() {
   }
 }
 void dismissInfo() {
+  showingCard = false; 
+  cp5Main.show();
 }
 void GetValue() {
+  showingCard = false; 
+  cp5Main.show();
 }
 void payRent() {
+  bankSystem b = banks.get(playerTurn-1); 
+  int haveFunds = b.balance - rent; 
+  if (haveFunds >= 0) {
+    b.addToBalance(-rent);
+    showingCard = false; 
+    cp5Main.show();
+  }
 }
