@@ -194,7 +194,7 @@ void displayPlayerCards(int i, int FNR) {
   int index = FNR;
   int Xpos = 10; 
   int Ypos = 100;
-  int offset = 110*i;
+  int offset = 60*i;
 
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
@@ -204,7 +204,7 @@ void displayPlayerCards(int i, int FNR) {
   fill(rgb);
   stroke(255);
   strokeWeight(2);
-  rect(Xpos, Ypos+offset, 200, 50, 6);
+  rect(Xpos, Ypos+offset, 250, 50, 6);
   textSize(22);
   fill(255);
   textAlign(CENTER);
