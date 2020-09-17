@@ -49,6 +49,8 @@ void getSpace(int index, Boolean fromDropDown) {
           BalanceUpdates = rent;
         }
       }
+    }else{
+      
     }
   }
   if (index == 29 || index == 40) {
@@ -209,14 +211,16 @@ void dismissInfo() {
     Players.get(playerTurn-1).inJail = false;
      moveTo(29, false);
      println("player moved back && jail is now false");
+     nextTurn();
   } else if (type == 4 && Players.get(playerTurn-1).inJail == false) {
     Players.get(playerTurn-1).inJail = true;
     moveTo(9, false);
     println("player moved && jail is now true");
+    nextTurn();
   }
   showingCard = false; 
   cp5Main.show();
-  nextTurn();
+  
 }
 void GetValue() {
   showingCard = false; 
