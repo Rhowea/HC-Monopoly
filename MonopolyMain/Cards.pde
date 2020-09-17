@@ -1,5 +1,5 @@
 int index;
-int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces
+int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces 7 = ownedPlayerCard
 int price;
 int rent;
 int value;
@@ -52,26 +52,32 @@ void getSpace(int index, Boolean fromDropDown) {
           BalanceUpdates = rent;
         }
       }
-    } else {
-    }
-  }
-  for (int k = 0; k < 3; k++) {
-    if ( k < 2) {
-      if (index == dismissSpaces[k]) {
-        type = 5;
+    } else if (j == playerTurn - 1) {
+      Player p = Players.get(playerTurn -1);
+      for (int l = 0; l < p.ownedSpaces.size(); l++) {
+        if (index == p.ownedSpaces.get(l)) {
+          type = 7;
+        }
       }
     }
-    if (index ==paySpaces[k]) {
-      type =6;
+    for (int k = 0; k < 3; k++) {
+      if ( k < 2) {
+        if (index == dismissSpaces[k]) {
+          type = 5;
+        }
+      }
+      if (index ==paySpaces[k]) {
+        type =6;
+      }
     }
+    if (index == 29 || index == 40) {
+      type = 4;
+    } else if (fromDropDown) {
+      type = 3;
+    }
+    createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
+    showingCard = true;
   }
-  if (index == 29 || index == 40) {
-    type = 4;
-  } else if (fromDropDown) {
-    type = 3;
-  }
-  createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
-  showingCard = true;
 }
 void getChance() {
   int cardIndex = int(random(0, numChanceCards)); 
@@ -170,7 +176,7 @@ void displayCard() {
     payRentButton.hide();
     dismissInfoCardButton.hide();
     valueCardButton.hide();
-  } else if (type == 3) {
+  } else if (type == 3 || type == 7) {
     valueCardButton.show();
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
@@ -232,7 +238,7 @@ void dismissInfo() {
     moveTo(9, false);
     println("player moved && jail is now true");
     nextTurn();
-  } else if (type == 5) {
+  } else if (type == 5 || type == 7) {
     nextTurn();
   } else if (type  == 6) {
     banks.get(playerTurn-1).addToBalance(price); 
