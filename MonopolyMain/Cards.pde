@@ -12,6 +12,7 @@ int numSpaces = 39;
 int numAbsenceCards = 13;
 int dismissSpaces []  ={9, 19};
 int paySpaces [] = {39, 2, 37};
+int playerOwning;
 
 JSONArray Spaces;
 JSONArray Chances;
@@ -55,6 +56,7 @@ void getSpace(int id, Boolean fromDropDown) {
       for (int l = 0; l < p.ownedSpaces.size(); l++) {
         if (id == p.ownedSpaces.get(l)) {
           BalanceUpdates = rent;
+          playerOwning = j;
         }
       }
     } else if (j == playerTurn - 1) {
@@ -62,7 +64,6 @@ void getSpace(int id, Boolean fromDropDown) {
       for (int l = 0; l < p.ownedSpaces.size(); l++) {
         if (id == p.ownedSpaces.get(l) && !reBuy) {
           type = 7;
-          
         }
       }
     }
@@ -85,11 +86,9 @@ void getSpace(int id, Boolean fromDropDown) {
     if (reBuy) {
       type = 8;
       reBuyValue = int(value*1.1);
-      
     }
     createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
     showingCard = true;
-    
   }
 }
 void getChance() {
@@ -234,9 +233,9 @@ void dismiss() {
   if (moveToSpace != -2) {
     moveTo(moveToSpace, false);
   } else {
-  cp5Main.show();
-  nextTurn(); 
-  showingCard =false;
+    cp5Main.show();
+    nextTurn(); 
+    showingCard =false;
   }
 }
 
@@ -304,6 +303,7 @@ void GetValue() {
 }
 void payRent() {
   bankSystem b = banks.get(playerTurn-1);
+  bankSystem O = banks.get(playerOwning);
   if (index == 11 || index == 27) {
     println("Vi er på kemi");
     rent = 4 * roll;
@@ -311,6 +311,8 @@ void payRent() {
   int haveFunds = b.balance - rent; 
   if (haveFunds >= 0) {
     b.addToBalance(-rent);
+    O.addToBalance(rent);
+
     showingCard = false; 
     cp5Main.show();
   }
