@@ -9,10 +9,10 @@ class Space {
     h = h_;
   }
   void display() {
-    /*fill(255);
+    fill(255);
     rect(x, y, w, h);
      fill(0);
-     text(spaceNr, x, y + h);*/
+     text(spaceNr, x, y + h);
     for (int i = 0; i < container.size(); i++) {
       Player p = container.get(i);
       pushMatrix();

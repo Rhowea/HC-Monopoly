@@ -149,24 +149,22 @@ void dropDown() {
 }
 
 void diceResult(Dice d) {
-  
   boolean reset = false;
   d.side = int(random(1, 7)); 
   roll += d.side; 
+  roll = 12;
   if (counter == 1 && Players.get(playerTurn-1).inJail == false) {
     moveTo(roll, true);
     roll = 0;
     counter = 0;
     reset = true;
-      
   } else  if (counter == 1 && Players.get(playerTurn-1).inJail == true) {
-  getSpace(40, false);
+    getSpace(40, false);
   }
   counter++;
   if (reset) {
     counter = 0;
   }
-
 }
 
 void drawCard() {
@@ -203,9 +201,8 @@ void displayPlayerCards(int i, int FNR) {
   String c;
   JSONObject Space = Spaces.getJSONObject(index); 
   Player p = Players.get(playerTurn-1);
-  if (p.ownedSpacesValued.get(i) == 0){
-  c = Space.getString("color");
-   
+  if (p.ownedSpacesValued.get(i) == 0) {
+    c = Space.getString("color");
   } else {
     c ="#000000";
   }

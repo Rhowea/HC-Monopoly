@@ -298,7 +298,11 @@ void GetValue() {
   cp5Main.show();
 }
 void payRent() {
-  bankSystem b = banks.get(playerTurn-1); 
+  bankSystem b = banks.get(playerTurn-1);
+  if (index == 11 || index == 27) {
+    println("Vi er på kemi");
+    rent = 4 * roll;
+  }
   int haveFunds = b.balance - rent; 
   if (haveFunds >= 0) {
     b.addToBalance(-rent);
