@@ -185,7 +185,7 @@ void drawCard() {
   if (!Specieals) {
     getSpace(temp, false);
   }
-  counter = 0;
+
 }
 void OwnedPlayerCards() {
   Player p = Players.get(playerTurn-1);
@@ -221,6 +221,15 @@ void displayPlayerCards(int i, int FNR) {
   textAlign(CENTER);
   text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
   if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
+    if (p.ownedSpacesValued.get(i) == 1){
+      reBuy = true;
+      getSpace(index, false);
+      drawnCardIndex = i;
+      print(p.ownedSpaces);
+    } else {
     getSpace(index, true);
+    drawnCardIndex = i;
+    }
+    
   }
 }

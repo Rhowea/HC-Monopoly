@@ -1,10 +1,12 @@
 int index;
-int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces 7 = ownedPlayerCard
+int drawnCardIndex;
+int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces 7 = ownedPlayerCard 8= pantsat
 int price;
 int rent;
 int value;
 int moveToSpace;
 int balanceUpdates;
+int reBuyValue;
 int numChanceCards = 12;
 int numSpaces = 39;
 int numAbsenceCards = 13;
@@ -17,10 +19,12 @@ JSONArray Absences;
 
 boolean showingCard = false;
 boolean getOutOfJail;
+boolean reBuy = false;
 
 color cardColor;
 String header;
 String flavorText;
+
 
 void loadJSONS() {
   Spaces = loadJSONArray("spaces.json");
@@ -28,9 +32,9 @@ void loadJSONS() {
   Absences = loadJSONArray("absence.json");
 }
 
-void getSpace(int index, Boolean fromDropDown) {
+void getSpace(int id, Boolean fromDropDown) {
 
-  JSONObject Space = Spaces.getJSONObject(index); 
+  JSONObject Space = Spaces.getJSONObject(id); 
   String c = Space.getString("color"); 
   color rgb = unhex("FF"+c.substring(1)); 
   String header = Space.getString("Name"); 
@@ -41,6 +45,7 @@ void getSpace(int index, Boolean fromDropDown) {
   int moveToSpace = -2; 
   int type = 0; 
   int BalanceUpdates = 0; 
+  index = id;
 
   Boolean GOOJ = false; 
 
@@ -48,32 +53,38 @@ void getSpace(int index, Boolean fromDropDown) {
     if (j != playerTurn - 1) {
       Player p =  Players.get(j);
       for (int l = 0; l < p.ownedSpaces.size(); l++) {
-        if (index == p.ownedSpaces.get(l)) {
+        if (id == p.ownedSpaces.get(l)) {
           BalanceUpdates = rent;
         }
       }
     } else if (j == playerTurn - 1) {
       Player p = Players.get(playerTurn -1);
       for (int l = 0; l < p.ownedSpaces.size(); l++) {
-        if (index == p.ownedSpaces.get(l)) {
+        if (id == p.ownedSpaces.get(l)) {
           type = 7;
         }
       }
     }
     for (int k = 0; k < 3; k++) {
       if ( k < 2) {
-        if (index == dismissSpaces[k]) {
+        if (id == dismissSpaces[k]) {
           type = 5;
         }
       }
-      if (index ==paySpaces[k]) {
+      if (id ==paySpaces[k]) {
         type =6;
       }
     }
-    if (index == 29 || index == 40) {
+    if (id == 29 || id == 40) {
       type = 4;
-    } else if (fromDropDown) {
+    } 
+    if (fromDropDown) {
       type = 3;
+    } 
+    if (reBuy) {
+      type = 8;
+      reBuyValue = int(value*1.1);
+      reBuy = false;
     }
     createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
     showingCard = true;
@@ -154,7 +165,15 @@ void displayCard() {
     text("Leje: " + rent+" kr.", width/2+350, height/2); 
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
-  } 
+  } else if (type == 8) {
+    textSize(20); 
+    textAlign(CENTER); 
+    line(width/2+75, height/2+5, width/2+420, height/2+5); 
+    text("Genkøbsværdi: " + reBuyValue+" kr.", width/2+140, height/2); 
+    text("Leje: " + rent+" kr.", width/2+350, height/2); 
+    line(width/2+75, height/2+70, width/2+420, height/2+70); 
+    text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
+  }
   if (type == 0 && balanceUpdates == 0) {
     buyFieldButton.show(); 
     dontBuyFieldButton.show(); 
@@ -183,13 +202,19 @@ void displayCard() {
     dismissCardButton.hide();
     payRentButton.hide();
     dismissInfoCardButton.show();
-    println("hit");
   } else if (type == 4 || type == 5 || type == 6) {
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.hide();
     payRentButton.hide();
     dismissInfoCardButton.show();
+    valueCardButton.hide();
+  } else if (type == 8) {
+    buyFieldButton.show(); 
+    dontBuyFieldButton.show(); 
+    dismissCardButton.hide();
+    payRentButton.hide();
+    dismissInfoCardButton.hide();
     valueCardButton.hide();
   }
   textAlign(CORNER); 
@@ -203,30 +228,48 @@ void dismiss() {
 
   if (moveToSpace != -2) {
     moveTo(moveToSpace, false);
-  }
+  } else {
   cp5Main.show();
   nextTurn(); 
   showingCard =false;
+  }
 }
 
 void dontBuy() {
   showingCard = false; 
   cp5Main.show();
-  nextTurn();
-}
-void buy() {
-  bankSystem b = banks.get(playerTurn-1); 
-  int haveFunds = b.balance - price; 
-  if (haveFunds >= 0) {
-    b.addToBalance(-price); 
-    Player p = Players.get(playerTurn-1); 
-    p.ownedSpaces.append(p.gridPos); 
-    p.ownedSpacesValued.append(0);
-    showingCard = false; 
-    cp5Main.show();
+  if (type != 8) {
     nextTurn();
   }
 }
+void buy() {
+  bankSystem b = banks.get(playerTurn-1); 
+  if (type == 0) {
+    int haveFunds = b.balance - price; 
+    if (haveFunds >= 0) {
+      b.addToBalance(-price); 
+      Player p = Players.get(playerTurn-1); 
+      p.ownedSpaces.append(p.gridPos); 
+      p.ownedSpacesValued.append(0);
+      showingCard = false; 
+      cp5Main.show();
+      nextTurn();
+    }
+  } else if (type == 8) {
+    int haveFunds = b.balance - reBuyValue; 
+    if (haveFunds >= 0) {
+      b.addToBalance(-reBuyValue);   
+      Player p = Players.get(playerTurn - 1);
+      p.ownedSpacesValued.set(drawnCardIndex, 0);
+      println(p.ownedSpacesValued);
+      println(drawnCardIndex);
+      println(p.ownedSpacesValued);
+      showingCard = false; 
+      cp5Main.show();
+    }
+  }
+}
+
 void dismissInfo() {
   if (type == 4 && Players.get(playerTurn-1).inJail == true) {
     Players.get(playerTurn-1).inJail = false;
@@ -249,7 +292,7 @@ void dismissInfo() {
 }
 void GetValue() {
   Player p = Players.get(playerTurn - 1);
-  p.ownedSpacesValued.set(index, 1);
+  p.ownedSpacesValued.set(drawnCardIndex, 1);
   banks.get(playerTurn - 1).addToBalance(value);
   showingCard = false; 
   cp5Main.show();
