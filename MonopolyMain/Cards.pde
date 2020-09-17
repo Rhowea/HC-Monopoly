@@ -11,7 +11,7 @@ int numChanceCards = 12;
 int numSpaces = 39;
 int numAbsenceCards = 13;
 int dismissSpaces []  ={9, 19};
-int paySpaces [] = {39, 2, 37};
+int paySpaces [] = {39, 3, 37};
 int playerOwning;
 
 JSONArray Spaces;

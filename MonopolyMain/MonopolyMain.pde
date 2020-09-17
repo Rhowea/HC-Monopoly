@@ -152,6 +152,7 @@ void diceResult(Dice d) {
   boolean reset = false;
   d.side = int(random(1, 7)); 
   roll += d.side; 
+
   if (counter == 1 && Players.get(playerTurn-1).inJail == false) {
     moveTo(roll, true);
     roll = 0;
