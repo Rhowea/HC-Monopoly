@@ -19,6 +19,7 @@ boolean getOutOfJail;
 color cardColor;
 String header;
 String flavorText;
+
 void loadJSONS() {
   Spaces = loadJSONArray("spaces.json");
   Chances = loadJSONArray("chance.json");
@@ -49,8 +50,7 @@ void getSpace(int index, Boolean fromDropDown) {
           BalanceUpdates = rent;
         }
       }
-    }else{
-      
+    } else {
     }
   }
   if (index == 29 || index == 40) {
@@ -126,7 +126,8 @@ void displayCard() {
   textSize(32); 
   text(header, width/2+250, height/2-185); 
   fill(0); 
-  cardTextarea.setText(flavorText); 
+  cardTextarea.setText(flavorText);
+  cp5Cards.show();
   if (type == 0 || type == 3) {
     textSize(20); 
     textAlign(CENTER); 
@@ -158,12 +159,14 @@ void displayCard() {
     dismissInfoCardButton.hide();
     valueCardButton.hide();
   } else if (type == 3) {
+     valueCardButton.show();
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.hide();
     payRentButton.hide();
     dismissInfoCardButton.show();
-    valueCardButton.show();
+   println("hit");
+  
   } else if (type == 4) {
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
@@ -201,6 +204,7 @@ void buy() {
     b.addToBalance(-price); 
     Player p = Players.get(playerTurn-1); 
     p.ownedSpaces.append(p.gridPos); 
+    p.ownedSpacesValued.append(0);
     showingCard = false; 
     cp5Main.show();
     nextTurn();
@@ -209,9 +213,9 @@ void buy() {
 void dismissInfo() {
   if (type == 4 && Players.get(playerTurn-1).inJail == true) {
     Players.get(playerTurn-1).inJail = false;
-     moveTo(29, false);
-     println("player moved back && jail is now false");
-     nextTurn();
+    moveTo(29, false);
+    println("player moved back && jail is now false");
+    nextTurn();
   } else if (type == 4 && Players.get(playerTurn-1).inJail == false) {
     Players.get(playerTurn-1).inJail = true;
     moveTo(9, false);
@@ -220,9 +224,11 @@ void dismissInfo() {
   }
   showingCard = false; 
   cp5Main.show();
-  
 }
 void GetValue() {
+  Player p = Players.get(playerTurn - 1);
+  p.ownedSpacesValued.set(index,1);
+  banks.get(playerTurn - 1).addToBalance(value);
   showingCard = false; 
   cp5Main.show();
 }

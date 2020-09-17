@@ -2,6 +2,7 @@ class Player {
   int name = 0;
   int gridPos;
   IntList ownedSpaces =  new IntList ();
+  IntList ownedSpacesValued =  new IntList ();
   int[] colour = new int[3]; 
   boolean inJail = false;
 

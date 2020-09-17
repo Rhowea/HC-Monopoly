@@ -145,7 +145,7 @@ void guiSetup() {
     .setColorActive(color(0, 255, 0))
     ;
   dismissInfoCardButton = cp5Cards.addButton("dismissInfo")
-    .setPosition(width/2-5, height/2+90)
+    .setPosition(width/2-5, height/2+145)
     .setSize(350, 50)
     .setCaptionLabel("Luk")
     .setColorForeground(color(#DE0000))
