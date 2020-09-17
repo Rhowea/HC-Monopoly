@@ -88,7 +88,7 @@
     "color":"#8B4513",
     "Name":"Kemi-lab",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Lad være med at trække i det røde håndtag",
     "Owner":null,
     "Price":150,
     "Rent":-2,
@@ -153,7 +153,7 @@
     "color":"#8B4513",
     "Name":"Opgaveværksted",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Når man lige skal få sænket sit skriftlige fravær",
     "Owner":null,
     "Price":60,
     "Rent":4,
@@ -236,7 +236,7 @@
     "color":"#000000",
     "Name":"Gå til ledelsen",
     "Drawn":false,
-    "Flavortext":"Det var ærgerligt mester.",
+    "Flavortext":"Det var ærgerligt mester, du skipper næste tur.",
     "Owner":null,
     "Price":60,
     "Rent":4,
@@ -325,7 +325,7 @@
     "Owner":null,
     "Price":0,
     "Rent":0,
-    "Value":30
+    "Value":0
 
    }
 ]
