@@ -13,6 +13,8 @@ int numAbsenceCards = 13;
 int dismissSpaces []  ={9, 19};
 int paySpaces [] = {39, 3, 37};
 int playerOwning;
+int labRent[] = {25, 50, 100, 200};
+
 
 JSONArray Spaces;
 JSONArray Chances;
@@ -162,8 +164,12 @@ void displayCard() {
     textSize(20); 
     textAlign(CENTER); 
     line(width/2+75, height/2+5, width/2+420, height/2+5); 
-    text("Pris: " + price+" kr.", width/2+150, height/2); 
-    text("Leje: " + rent+" kr.", width/2+350, height/2); 
+    text("Pris: " + price+" kr.", width/2+150, height/2);
+    if (index != 11 || index != 27) {
+      text("Leje: " + rent+" kr.", width/2+350, height/2);
+    } else {
+      text("Leje: 4 gange dit terningsslag.", width/2+350, height/2);
+    }
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
   } else if (type == 8) {
@@ -306,7 +312,16 @@ void payRent() {
   bankSystem O = banks.get(playerOwning);
   if (index == 11 || index == 27) {
     println("Vi er på kemi");
-    rent = 4 * roll;
+    rent = 4 * lastPlayerRoll;
+  } else if (index == 4 || index == 14 || index == 24 || index == 34) {
+    int mult = -1;
+    Player p = Players.get(playerOwning);
+    for (int i = 0; i < p.ownedSpaces.size(); i++) {
+      if (p.ownedSpaces.get(i) == 4 || p.ownedSpaces.get(i) == 14 || p.ownedSpaces.get(i) == 24 || p.ownedSpaces.get(i) == 34) {
+        mult++;
+      }
+    }
+    rent = labRent[mult];
   }
   int haveFunds = b.balance - rent; 
   if (haveFunds >= 0) {
