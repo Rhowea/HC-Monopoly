@@ -6,7 +6,6 @@ ArrayList <Player> Players = new ArrayList();
 int ChanceFields [] = {6, 21, 35};
 int AbsenceFields [] = {1, 16, 32};
 
-
 import controlP5.*;
 
 //Laver 2D-Array med den mængde rows og collums
