@@ -165,10 +165,10 @@ void displayCard() {
     textAlign(CENTER); 
     line(width/2+75, height/2+5, width/2+420, height/2+5); 
     text("Pris: " + price+" kr.", width/2+150, height/2);
-    if (index != 11 || index != 27) {
+    if (rent != -2) {
       text("Leje: " + rent+" kr.", width/2+350, height/2);
     } else {
-      text("Leje: 4 gange dit terningsslag.", width/2+350, height/2);
+      text("Leje: 4 gange dit terningsslag.", width/2+300, height/2);
     }
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
