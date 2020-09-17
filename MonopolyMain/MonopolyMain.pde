@@ -160,6 +160,9 @@ void diceResult(Dice d) {
     reset = true;
   } else  if (counter == 1 && Players.get(playerTurn-1).inJail == true) {
     getSpace(40, false);
+    roll = 0;
+    counter = 0;
+    reset = true;
   }
   counter++;
   if (reset) {
@@ -183,7 +186,6 @@ void drawCard() {
   if (!Specieals) {
     getSpace(temp, false);
   }
-
 }
 void OwnedPlayerCards() {
   Player p = Players.get(playerTurn-1);
@@ -218,14 +220,13 @@ void displayPlayerCards(int i, int FNR) {
   textAlign(CENTER);
   text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
   if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
-    if (p.ownedSpacesValued.get(i) == 1){
+    if (p.ownedSpacesValued.get(i) == 1) {
       reBuy = true;
       getSpace(index, false);
       drawnCardIndex = i;
     } else {
-    getSpace(index, true);
-    drawnCardIndex = i;
+      getSpace(index, true);
+      drawnCardIndex = i;
     }
-    
   }
 }
