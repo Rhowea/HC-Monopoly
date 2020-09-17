@@ -203,7 +203,11 @@ void displayCard() {
     dismissInfoCardButton.hide();
     valueCardButton.hide();
   } else if (type == 3 || type == 7) {
-    valueCardButton.show();
+    if (type != 7) {
+      valueCardButton.show();
+    } else {
+      valueCardButton.hide();
+    }
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.hide();
