@@ -46,10 +46,8 @@ void moveTo(int distance, boolean dist) {
   if (p.gridPos > 39) {
     p.gridPos -= 40;
     banks.get(playerTurn - 1).addToBalance(200);
-
   } else if (temp > 39) {
     banks.get(playerTurn - 1).addToBalance(200);
-
   }
 
   for (int i = 0; i <= 10; i++) {
@@ -59,5 +57,9 @@ void moveTo(int distance, boolean dist) {
       }
     }
   }
-  drawCard();
+  if (!usedGOOJ) {
+    drawCard();
+  } else {
+    usedGOOJ = false;
+  }
 }

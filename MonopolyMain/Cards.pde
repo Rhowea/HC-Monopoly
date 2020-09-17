@@ -23,6 +23,7 @@ JSONArray Absences;
 boolean showingCard = false;
 boolean getOutOfJail;
 boolean reBuy = false;
+boolean usedGOOJ = false;
 
 color cardColor;
 String header;
@@ -94,7 +95,8 @@ void getSpace(int id, Boolean fromDropDown) {
   }
 }
 void getChance() {
-  int cardIndex = int(random(0, numChanceCards)); 
+  int cardIndex = 0;
+  //int(random(0, numChanceCards)); 
   JSONObject Chance = Chances.getJSONObject(cardIndex); 
   if (Chance.getBoolean("Drawn") == false) {
     String c = Chance.getString("color"); 
@@ -106,7 +108,10 @@ void getChance() {
     int value = 0; 
     int moveToSpace = Chance.getInt("MoveToSpace"); 
     int balanceUpdates = Chance.getInt("balanceUpdates"); 
-    boolean GOOJ = Chance.getBoolean("Jail"); 
+    boolean GOOJ = Chance.getBoolean("Jail");
+    if (GOOJ == true) {
+      Players.get(playerTurn - 1).hasGOOJ = true;
+    }
     createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace); 
     showingCard = true;
   }
@@ -168,7 +173,7 @@ void displayCard() {
     if (rent != -2) {
       text("Leje: " + rent+" kr.", width/2+350, height/2);
     } else {
-      text("Leje: 4 gange dit terningsslag.", width/2+300, height/2);
+      text("Leje: 4 gange dit terningsslag.", width/2+320, height/2);
     }
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
@@ -231,7 +236,11 @@ void displayCard() {
     print("hit");
     reBuy = false;
   }
-  hideGOOJCardButton.show();
+  if (Players.get(playerTurn -1).hasGOOJ == true) {
+    hideGOOJCardButton.show();
+  } else {
+    hideGOOJCardButton.hide();
+  }
   textAlign(CORNER); 
   rectMode(CORNER); 
   popMatrix();
@@ -286,12 +295,12 @@ void buy() {
 }
 
 void dismissInfo() {
-  if (type == 4 && Players.get(playerTurn-1).inJail == true) {
+  if (type == 4 && Players.get(playerTurn-1).inJail == true && !usedGOOJ) {
     Players.get(playerTurn-1).inJail = false;
     moveTo(29, false);
     println("player moved back && jail is now false");
     nextTurn();
-  } else if (type == 4 && Players.get(playerTurn-1).inJail == false) {
+  } else if (type == 4 && Players.get(playerTurn-1).inJail == false && !usedGOOJ) {
     Players.get(playerTurn-1).inJail = true;
     moveTo(9, false);
     println("player moved && jail is now true");
@@ -301,6 +310,9 @@ void dismissInfo() {
   } else if (type  == 6) {
     banks.get(playerTurn-1).addToBalance(price); 
     nextTurn();
+  } else if (usedGOOJ) {
+    moveTo(29, true);
+    moveTo(lastPlayerRoll, false);
   }
   showingCard = false; 
   cp5Main.show();

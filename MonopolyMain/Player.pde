@@ -5,6 +5,7 @@ class Player {
   IntList ownedSpacesValued =  new IntList ();
   int[] colour = new int[3]; 
   boolean inJail = false;
+  boolean hasGOOJ = false;
 
   void Pdisplay() {
     fill(colour[0], colour[1], colour[2]);

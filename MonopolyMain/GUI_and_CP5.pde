@@ -170,6 +170,7 @@ void guiSetup() {
 }
 public void Start() {
   cp5Main.show();
+  hideGOOJCardButton.hide();
   cp5Menu.hide();
   for (int i=0; i < numPl; i++) {
     String temp = cp5Menu.get(Textfield.class, "Pl"+(i+1)).getText();
@@ -207,5 +208,13 @@ public void plSelect() {
 public void Roll() {
   for (Dice d : dices) {
     d.animate();
+  }
+}
+
+public void HideGOOJ() {
+  if (Players.get(playerTurn - 1).inJail == true) {
+    Players.get(playerTurn - 1).inJail = false;
+    Players.get(playerTurn - 1).hasGOOJ = false;
+    usedGOOJ = true;
   }
 }

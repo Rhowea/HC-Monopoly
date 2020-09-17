@@ -158,10 +158,12 @@ void diceResult(Dice d) {
     counter = 0;
     reset = true;
   } else  if (counter == 1 && Players.get(playerTurn-1).inJail == true) {
+    lastPlayerRoll = roll;
     getSpace(40, false);
     roll = 0;
     counter = 0;
     reset = true;
+    lastPlayerRoll = roll;
   }
   counter++;
   if (reset) {
