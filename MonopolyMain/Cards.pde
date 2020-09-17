@@ -33,7 +33,7 @@ void getSpace(int index, Boolean fromDropDown) {
   String flavor = Space.getString("Flavortext");
   int BalanceUpdates = 0;
   int type = 0; 
-  int moveToSpace = 9; 
+  int moveToSpace = 0; 
   int price = Space.getInt("Price"); 
   int rent = Space.getInt("Rent"); 
   int value = Space.getInt("Value");
@@ -48,12 +48,15 @@ void getSpace(int index, Boolean fromDropDown) {
       }
     }
   }
-  if (index == 29) {
+  if (index == 29 && Players.get(playerTurn-1).inJail == false ) {
     type = 4;
-    moveTo(9, true);
-  } else if (index == 40 &&  Players.get(playerTurn-1).inJail == false) {
     Players.get(playerTurn-1).inJail = true;
-  } else if (index == 40 &&  Players.get(playerTurn-1).inJail == true) {
+    print("hit");
+  } else if (Players.get(playerTurn-1).inJail == true) {
+    Players.get(playerTurn - 1).inJail = false;
+    getSpace(40, false);
+    print("hi2t");
+  } else if  (index ==40) {
     type = 5;
   } else  if (fromDropDown) {
     type = 3;
@@ -207,19 +210,18 @@ void buy() {
   }
 }
 void dismissInfo() {
-  if (type != 4 && type != 5) {
-    showingCard = false; 
-    cp5Main.show();
-  } else if (type == 4) {
-    getSpace(40, false);
-    nextTurn();
+  if (type == 4) {
+    moveTo(9, false);
+    print("hi3t");
   } else if (type == 5) {
-    if (Players.get(playerTurn - 1).inJail == true) {
-      Players.get(playerTurn - 1).inJail = false;
-      nextTurn();
-    }
-    nextTurn();
+    moveTo(29, false);
+    Players.get(playerTurn - 1).inJail = false;
+    print("moved");
   }
+
+  showingCard = false; 
+  cp5Main.show();
+  nextTurn();
 }
 void GetValue() {
   showingCard = false; 
