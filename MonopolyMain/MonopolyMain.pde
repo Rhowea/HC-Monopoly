@@ -152,7 +152,6 @@ void diceResult(Dice d) {
   boolean reset = false;
   d.side = int(random(1, 7)); 
   roll += d.side; 
-  roll = 12;
   if (counter == 1 && Players.get(playerTurn-1).inJail == false) {
     moveTo(roll, true);
     roll = 0;
@@ -222,7 +221,6 @@ void displayPlayerCards(int i, int FNR) {
       reBuy = true;
       getSpace(index, false);
       drawnCardIndex = i;
-      print(p.ownedSpaces);
     } else {
     getSpace(index, true);
     drawnCardIndex = i;

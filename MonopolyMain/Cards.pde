@@ -60,8 +60,9 @@ void getSpace(int id, Boolean fromDropDown) {
     } else if (j == playerTurn - 1) {
       Player p = Players.get(playerTurn -1);
       for (int l = 0; l < p.ownedSpaces.size(); l++) {
-        if (id == p.ownedSpaces.get(l)) {
+        if (id == p.ownedSpaces.get(l) && !reBuy) {
           type = 7;
+          
         }
       }
     }
@@ -71,7 +72,7 @@ void getSpace(int id, Boolean fromDropDown) {
           type = 5;
         }
       }
-      if (id ==paySpaces[k]) {
+      if (id == paySpaces[k]) {
         type =6;
       }
     }
@@ -84,10 +85,11 @@ void getSpace(int id, Boolean fromDropDown) {
     if (reBuy) {
       type = 8;
       reBuyValue = int(value*1.1);
-      reBuy = false;
+      
     }
     createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
     showingCard = true;
+    
   }
 }
 void getChance() {
@@ -139,6 +141,7 @@ void createCard(int t, color c, String h, String f, int p, int r, int v, int b, 
   moveToSpace = MTS;
 }
 void displayCard() {
+  println("type : " +type);
   cp5Main.hide(); 
   pushMatrix(); 
   translate(-80, 0); 
@@ -156,7 +159,6 @@ void displayCard() {
   text(header, width/2+250, height/2-185); 
   fill(0); 
   cardTextarea.setText(flavorText);
-  cp5Cards.show();
   if (type == 0 || type == 3) {
     textSize(20); 
     textAlign(CENTER); 
@@ -209,13 +211,16 @@ void displayCard() {
     payRentButton.hide();
     dismissInfoCardButton.show();
     valueCardButton.hide();
-  } else if (type == 8) {
+  } 
+  if (type == 8) {
     buyFieldButton.show(); 
     dontBuyFieldButton.show(); 
     dismissCardButton.hide();
     payRentButton.hide();
     dismissInfoCardButton.hide();
     valueCardButton.hide();
+    print("hit");
+    reBuy = false;
   }
   textAlign(CORNER); 
   rectMode(CORNER); 
