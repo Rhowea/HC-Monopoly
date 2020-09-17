@@ -49,7 +49,6 @@ void moveTo(int distance, boolean dist) {
   } else if (temp > 39) {
     banks.get(playerTurn - 1).addToBalance(200);
   }
-
   for (int i = 0; i <= 10; i++) {
     for (int j = 0; j <= 10; j++) {
       if (grid[i][j].spaceNr == p.gridPos) {
