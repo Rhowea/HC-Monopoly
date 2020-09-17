@@ -168,9 +168,7 @@ void displayCard() {
     if (rent != -2) {
       text("Leje: " + rent+" kr.", width/2+350, height/2);
     } else {
-      textSize(20);
       text("Leje: 4 gange dit terningsslag.", width/2+300, height/2);
-      textSize(20);
     }
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
