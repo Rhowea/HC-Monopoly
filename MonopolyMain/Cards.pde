@@ -176,7 +176,7 @@ void displayCard() {
     textSize(20); 
     textAlign(CENTER); 
     line(width/2+75, height/2+5, width/2+420, height/2+5); 
-    text("Genkøbsværdi: " + reBuyValue+" kr.", width/2+140, height/2); 
+    text("Genkøbsværdi: " + reBuyValue+" kr.", width/2+170, height/2); 
     text("Leje: " + rent+" kr.", width/2+350, height/2); 
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
