@@ -23,11 +23,11 @@
     "color":"#8B4513",
     "Name":"Højt Fravær",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Uha, nu er det ved at gå galt, betal 200 kr",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":-200,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#8B4513",
     "Name":"Proces-lab",
@@ -294,11 +294,11 @@
     "color":"#8B4513",
     "Name":"00",
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Av, du fik et par briller på dit standpunkt. Betal 75 kr.",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":-75,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#2D5AA9",
     "Name":"Aula 1",
@@ -312,11 +312,11 @@
     "color":"#8B4513",
     "Name":"GO",    
     "Drawn":false,
-    "Flavortext":"Næsten det koldeste lokale på skolen",
+    "Flavortext":"Sådan, du kom hele vejen rundt. Når du forlader dette felt får du 200 kr!",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":200,
+    "Rent":0,
+    "Value":0
   }, {
     "color":"#000000",
     "Name":"Hos Ledelsen",    
