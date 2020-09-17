@@ -314,7 +314,7 @@
     "Drawn":false,
     "Flavortext":"Sådan, du kom hele vejen rundt. Når du forlader dette felt får du 200 kr!",
     "Owner":null,
-    "Price":200,
+    "Price":0,
     "Rent":0,
     "Value":0
   }, {
