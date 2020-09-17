@@ -200,9 +200,15 @@ void displayPlayerCards(int i, int FNR) {
   int Xpos = 10; 
   int Ypos = 100;
   int offset = 60*i;
-
+  String c;
   JSONObject Space = Spaces.getJSONObject(index); 
-  String c = Space.getString("color");
+  Player p = Players.get(playerTurn-1);
+  if (p.ownedSpacesValued.get(i) == 0){
+  c = Space.getString("color");
+   
+  } else {
+    c ="#000000";
+  }
   color rgb = unhex("FF"+c.substring(1));
 
   rectMode(CORNER);
