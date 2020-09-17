@@ -1,5 +1,5 @@
 int index;
-int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards
+int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces
 int price;
 int rent;
 int value;
@@ -8,6 +8,8 @@ int balanceUpdates;
 int numChanceCards = 12;
 int numSpaces = 39;
 int numAbsenceCards = 13;
+int dismissSpaces []  ={9, 19};
+int paySpaces [] = {39, 2, 37};
 
 JSONArray Spaces;
 JSONArray Chances;
@@ -51,6 +53,16 @@ void getSpace(int index, Boolean fromDropDown) {
         }
       }
     } else {
+    }
+  }
+  for (int k = 0; k < 3; k++) {
+    if ( k < 2) {
+      if (index == dismissSpaces[k]) {
+        type = 5;
+      }
+    }
+    if (index ==paySpaces[k]) {
+      type =6;
     }
   }
   if (index == 29 || index == 40) {
@@ -159,15 +171,14 @@ void displayCard() {
     dismissInfoCardButton.hide();
     valueCardButton.hide();
   } else if (type == 3) {
-     valueCardButton.show();
+    valueCardButton.show();
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.hide();
     payRentButton.hide();
     dismissInfoCardButton.show();
-   println("hit");
-  
-  } else if (type == 4) {
+    println("hit");
+  } else if (type == 4 || type == 5 || type == 6) {
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.hide();
@@ -221,13 +232,18 @@ void dismissInfo() {
     moveTo(9, false);
     println("player moved && jail is now true");
     nextTurn();
+  } else if (type == 5) {
+    nextTurn();
+  } else if (type  == 6) {
+    banks.get(playerTurn-1).addToBalance(price); 
+    nextTurn();
   }
   showingCard = false; 
   cp5Main.show();
 }
 void GetValue() {
   Player p = Players.get(playerTurn - 1);
-  p.ownedSpacesValued.set(index,1);
+  p.ownedSpacesValued.set(index, 1);
   banks.get(playerTurn - 1).addToBalance(value);
   showingCard = false; 
   cp5Main.show();
