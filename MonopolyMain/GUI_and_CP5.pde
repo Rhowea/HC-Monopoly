@@ -11,6 +11,7 @@ Button dismissCardButton;
 Button dismissInfoCardButton;
 Button valueCardButton;
 Button payRentButton;
+Button hideGOOJCardButton;
 
 void guiSetup() {
   cp5Menu = new ControlP5(this);
@@ -84,6 +85,14 @@ void guiSetup() {
     .setPosition(110, height-55)
     .setSize(100, 50)
     .setCaptionLabel("Rul med terningen")
+    ;
+  hideGOOJCardButton = cp5Main.addButton("HideGOOJ")
+    .setPosition(215, height - 55)
+    .setSize(100, 50)
+    .setCaptionLabel("Frikort!")
+    .setColorForeground(color(#02CE18))
+    .setColorBackground(color(#009D11))
+    .setColorActive(color(0, 255, 0))
     ;
   cp5banks.addButton("dropDown")
     .setPosition(260, 20)

@@ -231,6 +231,7 @@ void displayCard() {
     print("hit");
     reBuy = false;
   }
+  hideGOOJCardButton.show();
   textAlign(CORNER); 
   rectMode(CORNER); 
   popMatrix();
