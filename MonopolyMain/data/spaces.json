@@ -90,9 +90,9 @@
     "Drawn":false,
     "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":150,
+    "Rent":-2,
+    "Value":75
   }, {
     "color":"#FF33CE",
     "Name":"Lokale K.025",
@@ -146,9 +146,9 @@
     "Drawn":false,
     "Flavortext":"På en god dag er der god ventilation",
     "Owner":null,
-    "Price":180,
-    "Rent":14,
-    "Value":90
+    "Price":200,
+    "Rent":16,
+    "Value":100
   }, {
     "color":"#8B4513",
     "Name":"Opgaveværksted",
@@ -220,9 +220,9 @@
     "Drawn":false,
     "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":60,
-    "Rent":4,
-    "Value":30
+    "Price":150,
+    "Rent":-2,
+    "Value":75
   }, {
     "color":"#FFF600",
     "Name":"UNord C5",
