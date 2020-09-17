@@ -20,7 +20,7 @@
     "Rent":4,
     "Value":30
   }, {
-    "color":"#8B4513",
+    "color":"#000000",
     "Name":"Højt Fravær",
     "Drawn":false,
     "Flavortext":"Uha, nu er det ved at gå galt, betal 200 kr",
@@ -29,7 +29,7 @@
     "Rent":0,
     "Value":0
   }, {
-    "color":"#8B4513",
+    "color":"#F67280",
     "Name":"Proces-lab",
     "Drawn":false,
     "Flavortext":"Alle kitler skal vaskes efter en time proces. Det er træls.",
@@ -67,7 +67,7 @@
     "Rent":8,
     "Value":60
   }, {
-    "color":"#8B4513",
+    "color":"#6123C9",
     "Name":"Hos Betina",
     "Drawn":false,
     "Flavortext":"Der var du heldig.",
@@ -85,7 +85,7 @@
     "Rent":10,
     "Value":70
   }, {
-    "color":"#8B4513",
+    "color":"#6C5B7B",
     "Name":"Kemi-lab",
     "Drawn":false,
     "Flavortext":"Lad være med at trække i det røde håndtag",
@@ -112,7 +112,7 @@
     "Rent":12,
     "Value":80
   }, {
-    "color":"#8B4513",
+    "color":"#F67280",
     "Name":"Træ-værksted",
     "Drawn":false,
     "Flavortext":"Bygorhyg",
@@ -150,7 +150,7 @@
     "Rent":16,
     "Value":100
   }, {
-    "color":"#8B4513",
+    "color":"#6123C9",
     "Name":"Opgaveværksted",
     "Drawn":false,
     "Flavortext":"Når man lige skal få sænket sit skriftlige fravær",
@@ -188,7 +188,7 @@
     "Rent":20,
     "Value":120
   }, {
-    "color":"#8B4513",
+    "color":"#F67280",
     "Name":"Fablab",
     "Drawn":false,
     "Flavortext":"Det sådan, næsten ligesom Byg...",
@@ -215,7 +215,7 @@
     "Rent":22,
     "Value":130
   }, {
-    "color":"#8B4513",
+    "color":"#6C5B7B",
     "Name":"Fysik-lab",
     "Drawn":false,
     "Flavortext":"Næsten det koldeste lokale på skolen",
@@ -271,7 +271,7 @@
     "Rent":28,
     "Value":160
   }, {
-    "color":"#8B4513",
+    "color":"#F67280",
     "Name":"El-lab",
     "Drawn":false,
     "Flavortext":"Nok det sted hvor der er størst risiko for at komme til skade",
@@ -291,7 +291,7 @@
     "Rent":35,
     "Value":175
   }, {
-    "color":"#8B4513",
+    "color":"#000000",
     "Name":"00",
     "Drawn":false,
     "Flavortext":"Av, du fik et par briller på dit standpunkt. Betal 75 kr.",
@@ -309,7 +309,7 @@
     "Rent":50,
     "Value":200
   }, {
-    "color":"#8B4513",
+    "color":"#6123C9",
     "Name":"GO",    
     "Drawn":false,
     "Flavortext":"Sådan, du kom hele vejen rundt. Når du forlader dette felt får du 200 kr!",
