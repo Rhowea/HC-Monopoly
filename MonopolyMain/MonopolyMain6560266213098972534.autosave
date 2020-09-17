@@ -16,9 +16,7 @@ int sRows = 11;
 int numPl;
 int playerTurn = 1;
 int counter  = 0;
-int roll = 0;
-
-int[][] colors = {{255, 0, 0}, {0, 255, 0}, {0, 0, 255}, {255, 255, 255}};
+int roll = 0; 
 
 PImage Arrow;
 PImage Board;
@@ -44,7 +42,6 @@ void setup() {
   for (int i = 0; i < numPl; i++) {
     banks.add(new bankSystem(i)); 
     Players.add(new Player(i + 1, 39));
-    Players.get(i).setColor(colors[i][0], colors[i][1], colors[i][2]);
   }
 
   //initialiser arrayet og fylder den med spaces
@@ -84,13 +81,16 @@ void settings() {
 }
 
 void draw() {
+
   if (!onMenu) { // Draw for alt der skal være imens der spilles
     background(0);
     bankSystem b = banks.get(playerTurn-1);
     b.display();
+
     cp5banks.draw(); 
     image(Arrow, 260, 35, 20, 20); 
     image(Board, 350, 0); 
+  
     int counter = 1; 
     if (showDropDown) {
       for (int i = 0; i < numPl; i++) {
@@ -100,9 +100,10 @@ void draw() {
           counter++;
         }
       }
-    } else {
-      OwnedPlayerCards();
+    } else if (!showDropDown){
+        OwnedPlayerCards();
     }
+
     counter = 0; 
     //kalder display() for alle spaces i arrayet
     for (int i = 0; i < sCols; i++) {
@@ -111,7 +112,6 @@ void draw() {
       }
     }
 
-    //Tegner terninger
     pushMatrix(); 
     translate(460, 110); 
     fill(255); 
@@ -129,7 +129,6 @@ void draw() {
     popMatrix();
   }
 
-  //Tegner kort, hvis der er et der er i gang med at blive vist
   if (showingCard) {
     displayCard();
     cp5Cards.draw();
@@ -147,26 +146,22 @@ void nextTurn() {
 void dropDown() {
   showDropDown  ^= true;
 }
-int l = 0;
+
+
 void diceResult(Dice d) {
-  
   boolean reset = false;
   d.side = int(random(1, 7)); 
   roll += d.side; 
-  if (counter == 1 && Players.get(playerTurn-1).inJail == false) {
-    moveTo(29+l, false);
+  if (counter == 1) {
+    moveTo(roll);
     roll = 0;
     counter = 0;
     reset = true;
-      l++;
-  } else  if (counter == 1 && Players.get(playerTurn-1).inJail == true) {
-  getSpace(40, false);
   }
   counter++;
   if (reset) {
     counter = 0;
   }
-
 }
 
 void drawCard() {
@@ -195,26 +190,26 @@ void OwnedPlayerCards() {
   }
 }
 void displayPlayerCards(int i, int FNR) {
-
   int index = FNR;
   int Xpos = 10; 
   int Ypos = 100;
-  int offset = 60*i;
-
+  int offset = 55*i;
+  
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color");
   color rgb = unhex("FF"+c.substring(1));
-
+  
   rectMode(CORNER);
   fill(rgb);
   stroke(255);
   strokeWeight(2);
-  rect(Xpos, Ypos+offset, 200, 50, 6);
+  rect(Xpos, Ypos+offset, 250, 50,6);
   textSize(22);
   fill(255);
   textAlign(CENTER);
-  text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
-  if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
-    getSpace(index, true);
+  text(Space.getString("Name"),Xpos+120, Ypos+offset+35);
+  if (mousePressed && mouseY <= Ypos+offset+250 && mouseY >=Ypos+offset && mouseX >=Xpos && mouseX <= Xpos+50){
+    getSpace(index, true); 
   }
+
 }

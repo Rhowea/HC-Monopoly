@@ -1,6 +1,6 @@
 class bankSystem {
   int balance = 0;
-  int startBalance = 1300;
+  int startBalance = int(random(100, 400));
   int offset = 95;
   int bankNum;
 

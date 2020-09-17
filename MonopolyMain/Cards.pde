@@ -1,5 +1,5 @@
 int index;
-int type; // 0 = space, 1 = chance, 2 = absence 3 = InfoCard 4 = got to prisonCard 5 = in prison Card 
+int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards
 int price;
 int rent;
 int value;
@@ -26,18 +26,21 @@ void loadJSONS() {
 }
 
 void getSpace(int index, Boolean fromDropDown) {
+
   JSONObject Space = Spaces.getJSONObject(index); 
   String c = Space.getString("color"); 
   color rgb = unhex("FF"+c.substring(1)); 
   String header = Space.getString("Name"); 
-  String flavor = Space.getString("Flavortext");
-  int BalanceUpdates = 0;
-  int type = 0; 
-  int moveToSpace = 0; 
+  String flavor = Space.getString("Flavortext"); 
   int price = Space.getInt("Price"); 
   int rent = Space.getInt("Rent"); 
-  int value = Space.getInt("Value");
-  Boolean GOOJ = false;
+  int value = Space.getInt("Value"); 
+  int moveToSpace = -2; 
+  int type = 0; 
+  int BalanceUpdates = 0; 
+
+  Boolean GOOJ = false; 
+
   for (int j  = 0; j < numPl; j++) {
     if (j != playerTurn - 1) {
       Player p =  Players.get(j);
@@ -48,17 +51,9 @@ void getSpace(int index, Boolean fromDropDown) {
       }
     }
   }
-  if (index == 29 && Players.get(playerTurn-1).inJail == false ) {
+  if (index == 29 || index == 40) {
     type = 4;
-    Players.get(playerTurn-1).inJail = true;
-    print("hit");
-  } else if (Players.get(playerTurn-1).inJail == true) {
-    Players.get(playerTurn - 1).inJail = false;
-    getSpace(40, false);
-    print("hi2t");
-  } else if  (index ==40) {
-    type = 5;
-  } else  if (fromDropDown) {
+  } else if (fromDropDown) {
     type = 3;
   }
   createCard(type, rgb, header, flavor, price, rent, value, BalanceUpdates, GOOJ, moveToSpace); 
@@ -137,29 +132,22 @@ void displayCard() {
     text("Pris: " + price+" kr.", width/2+150, height/2); 
     text("Leje: " + rent+" kr.", width/2+350, height/2); 
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
-    text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65); 
-    if (type == 0 && balanceUpdates == 0) {
-      buyFieldButton.show(); 
-      dontBuyFieldButton.show(); 
-      dismissCardButton.hide();
-      payRentButton.hide();
-      dismissInfoCardButton.hide();
-      valueCardButton.hide();
-    } else if (type == 0 && balanceUpdates != 0) {
-      payRentButton.show();
-      buyFieldButton.hide(); 
-      dontBuyFieldButton.hide(); 
-      dismissCardButton.hide();
-      dismissInfoCardButton.hide();
-      valueCardButton.hide();
-    } else if (type == 3) {
-      buyFieldButton.hide(); 
-      dontBuyFieldButton.hide(); 
-      dismissCardButton.hide();
-      payRentButton.hide();
-      dismissInfoCardButton.show();
-      valueCardButton.show();
-    }
+    text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
+  } 
+  if (type == 0 && balanceUpdates == 0) {
+    buyFieldButton.show(); 
+    dontBuyFieldButton.show(); 
+    dismissCardButton.hide();
+    payRentButton.hide();
+    dismissInfoCardButton.hide();
+    valueCardButton.hide();
+  } else if (type == 0 && balanceUpdates != 0) {
+    payRentButton.show();
+    buyFieldButton.hide(); 
+    dontBuyFieldButton.hide(); 
+    dismissCardButton.hide();
+    dismissInfoCardButton.hide();
+    valueCardButton.hide();
   } else if (type == 1 || type == 2) {
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
@@ -167,12 +155,19 @@ void displayCard() {
     payRentButton.hide();
     dismissInfoCardButton.hide();
     valueCardButton.hide();
-  } else if (type == 4 && type == 5) {
-    dismissInfoCardButton.show();
+  } else if (type == 3) {
     buyFieldButton.hide(); 
     dontBuyFieldButton.hide(); 
     dismissCardButton.hide();
     payRentButton.hide();
+    dismissInfoCardButton.show();
+    valueCardButton.show();
+  } else if (type == 4) {
+    buyFieldButton.hide(); 
+    dontBuyFieldButton.hide(); 
+    dismissCardButton.hide();
+    payRentButton.hide();
+    dismissInfoCardButton.show();
     valueCardButton.hide();
   }
   textAlign(CORNER); 
@@ -210,15 +205,15 @@ void buy() {
   }
 }
 void dismissInfo() {
-  if (type == 4) {
+  if (type == 4 && Players.get(playerTurn-1).inJail == true) {
+    Players.get(playerTurn-1).inJail = false;
+     moveTo(29, false);
+     println("player moved back && jail is now false");
+  } else if (type == 4 && Players.get(playerTurn-1).inJail == false) {
+    Players.get(playerTurn-1).inJail = true;
     moveTo(9, false);
-    print("hi3t");
-  } else if (type == 5) {
-    moveTo(29, false);
-    Players.get(playerTurn - 1).inJail = false;
-    print("moved");
+    println("player moved && jail is now true");
   }
-
   showingCard = false; 
   cp5Main.show();
   nextTurn();

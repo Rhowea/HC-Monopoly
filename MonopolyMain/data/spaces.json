@@ -23,11 +23,11 @@
     "color":"#8B4513",
     "Name":"Højt Fravær",
     "Drawn":false,
-    "Flavortext":"Du har rigeligt med fravær. Betal 200",
+    "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":0,
-    "Rent":0,
-    "Value":0
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#8B4513",
     "Name":"Proces-lab",
@@ -68,13 +68,13 @@
     "Value":60
   }, {
     "color":"#8B4513",
-    "Name":"På kontoret",
+    "Name":"Hos Betina",
     "Drawn":false,
-    "Flavortext":"Betina hjælper med alt",
+    "Flavortext":"Der var du heldig",
     "Owner":null,
-    "Price":0,
-    "Rent":0,
-    "Value":0
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FF33CE",
     "Name":"Lokale K.023",
@@ -153,11 +153,11 @@
     "color":"#8B4513",
     "Name":"Opgaveværksted",
     "Drawn":false,
-    "Flavortext":"Når man skal sænke sit skriftlige fravær",
+    "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":0,
-    "Rent":0,
-    "Value":0
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#FF0000",
     "Name":"Lokale K.013",
@@ -233,14 +233,14 @@
     "Rent":24,
     "Value":140
   }, {
-    "color":"#8B4513",
+    "color":"#000000",
     "Name":"Gå til ledelsen",
     "Drawn":false,
-    "Flavortext":"Det var ærgerligt, du sidder over næste tur",
+    "Flavortext":"Det var ærgerligt mester.",
     "Owner":null,
-    "Price":0,
-    "Rent":0,
-    "Value":0
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#2DA952",
     "Name":"Lokale 0.011",
@@ -294,11 +294,11 @@
     "color":"#8B4513",
     "Name":"00",
     "Drawn":false,
-    "Flavortext":"Uha, det var en meget lav karakter. Betal 75 kr.",
+    "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":0,
-    "Rent":0,
-    "Value":0
+    "Price":60,
+    "Rent":4,
+    "Value":30
   }, {
     "color":"#2D5AA9",
     "Name":"Aula 1",
@@ -312,19 +312,20 @@
     "color":"#8B4513",
     "Name":"GO",    
     "Drawn":false,
-    "Flavortext":"Klar, parat, start! Når du forlader dette felt indkasserer du 200 kr.",
+    "Flavortext":"Næsten det koldeste lokale på skolen",
     "Owner":null,
-    "Price":0,
-    "Rent":0,
-    "Value":00
-  },{
-    "color":"#8B4513",
-    "Name":"Hos ledelsen",    
+    "Price":60,
+    "Rent":4,
+    "Value":30
+  }, {
+    "color":"#000000",
+    "Name":"Hos Ledelsen",    
     "Drawn":false,
-    "Flavortext":"Du sidder denne tur over",
+    "Flavortext":"Du sidder denne tur over da du er til samtale hos ledelsen, pas nu på de studieordensregler",
     "Owner":null,
     "Price":0,
     "Rent":0,
-    "Value":0
-  },
+    "Value":30
+
+   }
 ]

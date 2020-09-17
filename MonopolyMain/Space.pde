@@ -59,8 +59,5 @@ void moveTo(int distance, boolean dist) {
       }
     }
   }
-  delay(1);
-  if (!p.inJail) {
-    drawCard();
-  }
+  drawCard();
 }
