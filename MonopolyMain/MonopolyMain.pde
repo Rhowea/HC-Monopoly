@@ -147,18 +147,18 @@ void nextTurn() {
 void dropDown() {
   showDropDown  ^= true;
 }
-int l = 0;
+
 void diceResult(Dice d) {
   
   boolean reset = false;
   d.side = int(random(1, 7)); 
   roll += d.side; 
   if (counter == 1 && Players.get(playerTurn-1).inJail == false) {
-    moveTo(29+l, false);
+    moveTo(roll, true);
     roll = 0;
     counter = 0;
     reset = true;
-      l++;
+      
   } else  if (counter == 1 && Players.get(playerTurn-1).inJail == true) {
   getSpace(40, false);
   }
