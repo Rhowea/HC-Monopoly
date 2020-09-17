@@ -75,7 +75,7 @@ void guiSetup() {
   cp5Main.addButton("backToMenu")
     .setPosition(5, height-55)
     .setSize(100, 50)
-    .setCaptionLabel("Back to Menu")
+    .setCaptionLabel("Afslut spil")
     .setColorForeground(color(#DE0000))
     .setColorBackground(color(#AF0000))
     .setColorActive(color(255, 0, 0))
