@@ -35,7 +35,7 @@
     "Flavortext":"Alle kitler skal vaskes efter en time proces. Det er træls.",
     "Owner":null,
     "Price":200,
-    "Rent":25,
+    "Rent":-3,
     "Value":100
   }, {
     "color":"#4EC8F2",
@@ -118,7 +118,7 @@
     "Flavortext":"Bygorhyg",
     "Owner":null,
     "Price":200,
-    "Rent":25,
+    "Rent":-3,
     "Value":100
   }, {
     "color":"#FA6C09",
@@ -194,7 +194,7 @@
     "Flavortext":"Det sådan, næsten ligesom Byg...",
     "Owner":null,
     "Price":200,
-    "Rent":25,
+    "Rent":-3,
     "Value":100
   }, {
     "color":"#FFF600",
@@ -277,7 +277,7 @@
     "Flavortext":"Nok det sted hvor der er størst risiko for at komme til skade",
     "Owner":null,
     "Price":200,
-    "Rent":25,
+    "Rent":-3,
     "Value":100
   }, {
     "Name":"CHANCECARD",
