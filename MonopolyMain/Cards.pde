@@ -95,8 +95,7 @@ void getSpace(int id, Boolean fromDropDown) {
   }
 }
 void getChance() {
-  int cardIndex = 0;
-  //int(random(0, numChanceCards)); 
+  int cardIndex = int(random(0, numChanceCards)); 
   JSONObject Chance = Chances.getJSONObject(cardIndex); 
   if (Chance.getBoolean("Drawn") == false) {
     String c = Chance.getString("color"); 
@@ -110,6 +109,7 @@ void getChance() {
     int balanceUpdates = Chance.getInt("balanceUpdates"); 
     boolean GOOJ = Chance.getBoolean("Jail");
     if (GOOJ == true) {
+      println(GOOJ);
       Players.get(playerTurn - 1).hasGOOJ = true;
     }
     createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace); 

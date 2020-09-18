@@ -109,6 +109,12 @@ void draw() {
         grid[i][j].display();
       }
     }
+    
+    if(Players.get(playerTurn - 1).hasGOOJ == true) {
+      hideGOOJCardButton.show();
+    } else {
+      hideGOOJCardButton.hide();
+    }
 
     //Tegner terninger
     pushMatrix(); 
