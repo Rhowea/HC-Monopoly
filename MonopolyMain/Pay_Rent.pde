@@ -23,15 +23,19 @@ void payRent() {
     cp5Main.show();
   }
   if (type == 8 || type == 3) {
-    if (prevType == 0){
-    getSpace(prevCard, false);
-    } else if (prevType == 1){
-      getChance();
-    } else {
-      getAbsence();
+    if (prevType != 1 && prevType != 2) {
+      if (prevType != 3) {
+        getSpace(prevCard, false);
+      } else {
+        getSpace(prevCard, true);
+      }
+    } else if (prevType == 1) {
+      getChance(prevCard);
+    } else if (prevType == 2) {
+      getAbsence(prevCard);
     }
     m = 0;
-    println("hit2");
+    println("hit");
   } else {
     showingCard = false; 
     cp5Main.show();

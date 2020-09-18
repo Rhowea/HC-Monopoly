@@ -1,14 +1,14 @@
 int index;
 int drawnCardIndex;
 int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces 7 = ownedPlayerCard 8= pantsat
-int simpletype;
+
 int price;
 int rent;
 int value;
 int moveToSpace;
 int balanceUpdates;
 int reBuyValue;
-int numChanceCards = 12;
+int numChanceCards = 11;
 int numSpaces = 39;
 int numAbsenceCards = 13;
 int dismissSpaces []  ={9, 19};
@@ -107,9 +107,13 @@ void getSpace(int id, Boolean fromDropDown) {
   }
 }
 
-void getChance() {
-  simpletype = 1;
-  int cardIndex = int(random(0, numChanceCards)); 
+void getChance(int CID) {
+  int cardIndex;
+  if (CID ==-2) {
+    cardIndex = int(random(0, numAbsenceCards));
+  } else {
+    cardIndex = CID;
+  }
   JSONObject Chance = Chances.getJSONObject(cardIndex); 
   if (Chance.getBoolean("Drawn") == false) {
     String c = Chance.getString("color"); 
@@ -129,9 +133,13 @@ void getChance() {
     showingCard = true;
   }
 }
-void getAbsence() {
-  simpletype = 2;
-  int cardIndex = int(random(0, numAbsenceCards)); 
+void getAbsence(int CID) {
+  int cardIndex;
+  if (CID ==-2) {
+    cardIndex = int(random(0, numAbsenceCards));
+  } else {
+    cardIndex = CID;
+  }
   JSONObject Absence = Absences.getJSONObject(cardIndex); 
   if (Absence.getBoolean("Drawn") == false) {
     String c = Absence.getString("color"); 
@@ -144,7 +152,7 @@ void getAbsence() {
     int balanceUpdates = Absence.getInt("balanceUpdates"); 
     boolean GOOJ = false; 
     int moveToSpace = -2; 
-    createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace); 
+    createCard(2, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace); 
     showingCard = true;
   }
 }
@@ -273,10 +281,20 @@ void dismiss() {
 }
 
 void dontBuy() {
-  if (type == 8) {
-    getSpace(prevCard, false);
+  if (type == 3|| type==8) {
+    if (prevType != 1 && prevType != 2) {
+      if (prevType != 3) {
+        getSpace(prevCard, false);
+      } else {
+        getSpace(prevCard, true);
+      }
+    } else if (prevType == 1) {
+      getChance(prevCard);
+    } else if (prevType == 2) {
+      getAbsence(prevCard);
+    }
     m = 0;
-    println("hit2");
+    println("hit");
   } else {
     showingCard = false; 
     cp5Main.show();
@@ -304,7 +322,17 @@ void dismissInfo() {
     moveTo(lastPlayerRoll, false);
   }
   if (type == 8 || type == 3) {
-    getSpace(prevCard, false);
+    if (prevType != 1 && prevType != 2) {
+      if (prevType != 3) {
+        getSpace(prevCard, false);
+      } else {
+        getSpace(prevCard, true);
+      }
+    } else if (prevType == 1) {
+      getChance(prevCard);
+    } else if (prevType == 2) {
+      getAbsence(prevCard);
+    }
     m = 0;
     println("hit");
   } else {
@@ -320,7 +348,17 @@ void GetValue() {
   p.ownedSpacesValued.set(drawnCardIndex, 1);
   banks.get(playerTurn - 1).addToBalance(value);
   if (type == 8 || type == 3) {
-    getSpace(prevCard, false);
+    if (prevType != 1 && prevType != 2) {
+      if (prevType != 3) {
+        getSpace(prevCard, false);
+      } else {
+        getSpace(prevCard, true);
+      }
+    } else if (prevType == 1) {
+      getChance(prevCard);
+    } else if (prevType == 2) {
+      getAbsence(prevCard);
+    }
     m = 0;
     println("hit");
   } else {

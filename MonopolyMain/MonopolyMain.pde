@@ -181,10 +181,10 @@ void drawCard() {
   boolean Specieals = false;  
   for (int l = 0; l <= 2; l++) {
     if (temp == ChanceFields[l]) {
-      getChance();
+      getChance(-2);
       Specieals = true;
     } else if (temp == AbsenceFields[l]) {
-      getAbsence();
+      getAbsence(-2);
       Specieals = true;
     }
   }
@@ -228,12 +228,12 @@ void displayPlayerCards(int i, int FNR) {
     if (p.ownedSpacesValued.get(i) == 1) {
       twoCardsStacked = true;
       reBuy = true;
-      prevType = simpletype;
+      prevType = type;
       getSpace(index, false);
       drawnCardIndex = i;
     } else {
       twoCardsStacked = true;
-      prevType = simpletype;
+      prevType = type;
       getSpace(index, true);
       drawnCardIndex = i;
     }
