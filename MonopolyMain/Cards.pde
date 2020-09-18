@@ -170,10 +170,24 @@ void displayCard() {
     textAlign(CENTER); 
     line(width/2+75, height/2+5, width/2+420, height/2+5); 
     text("Pris: " + price+" kr.", width/2+150, height/2);
-    if (rent != -2) {
+    if (rent != -2 && rent != -3) {
       text("Leje: " + rent+" kr.", width/2+350, height/2);
-    } else {
+    } else if (rent == -2) {
       text("Leje: 4 gange dit terningsslag.", width/2+320, height/2);
+    } else if (rent == -3) {
+      int mult = -1;
+      Player p = Players.get(playerOwning);
+      for (int i = 0; i < p.ownedSpaces.size(); i++) {
+        if (p.ownedSpaces.get(i) == 4 || p.ownedSpaces.get(i) == 14 || p.ownedSpaces.get(i) == 24 || p.ownedSpaces.get(i) == 34) {
+          mult++;
+          println("recognized lab");
+        }
+      }
+      if (mult == -1) {
+        rent = 25;
+      } else {
+        rent = labRent[mult];
+      }
     }
     line(width/2+75, height/2+70, width/2+420, height/2+70); 
     text("Pantsættelsesværdi: " + value +" kr.", width/2+250, height/2+65);
