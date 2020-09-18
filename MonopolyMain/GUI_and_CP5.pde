@@ -104,7 +104,7 @@ void guiSetup() {
 
   cardTextarea = cp5Cards.addTextarea("txt")
     .setPosition(width/2, height/2-150)
-    .setSize(350, 100)
+    .setSize(350, 125)
     .setFont(createFont("arial", 20))
     .setLineHeight(22)
     .setColor(color(0))

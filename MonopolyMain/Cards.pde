@@ -1,6 +1,7 @@
 int index;
 int drawnCardIndex;
 int type; // 0 = space, 1 = chance, 2 = absence 3= infoCard 4 = PrisonCards 5 =  dismissSpaces 6 = paySpaces 7 = ownedPlayerCard 8= pantsat
+int simpletype;
 int price;
 int rent;
 int value;
@@ -14,6 +15,9 @@ int dismissSpaces []  ={9, 19};
 int paySpaces [] = {39, 3, 37};
 int playerOwning;
 int labRent[] = {25, 50, 100, 200};
+int prevCard;
+int m = 0;
+int prevType;
 
 
 JSONArray Spaces;
@@ -24,6 +28,8 @@ boolean showingCard = false;
 boolean getOutOfJail;
 boolean reBuy = false;
 boolean usedGOOJ = false;
+boolean twoCardsStacked = false;
+
 
 color cardColor;
 String header;
@@ -37,6 +43,12 @@ void loadJSONS() {
 }
 
 void getSpace(int id, Boolean fromDropDown) {
+  if (twoCardsStacked && m ==0) {
+    prevCard = index;
+    println(prevCard);
+    twoCardsStacked = false;
+    m++;
+  }
 
   JSONObject Space = Spaces.getJSONObject(id); 
   String c = Space.getString("color"); 
@@ -94,7 +106,9 @@ void getSpace(int id, Boolean fromDropDown) {
     showingCard = true;
   }
 }
+
 void getChance() {
+  simpletype = 1;
   int cardIndex = int(random(0, numChanceCards)); 
   JSONObject Chance = Chances.getJSONObject(cardIndex); 
   if (Chance.getBoolean("Drawn") == false) {
@@ -109,7 +123,6 @@ void getChance() {
     int balanceUpdates = Chance.getInt("balanceUpdates"); 
     boolean GOOJ = Chance.getBoolean("Jail");
     if (GOOJ == true) {
-      println(GOOJ);
       Players.get(playerTurn - 1).hasGOOJ = true;
     }
     createCard(1, rgb, header, flavor, price, rent, value, balanceUpdates, GOOJ, moveToSpace); 
@@ -117,6 +130,7 @@ void getChance() {
   }
 }
 void getAbsence() {
+  simpletype = 2;
   int cardIndex = int(random(0, numAbsenceCards)); 
   JSONObject Absence = Absences.getJSONObject(cardIndex); 
   if (Absence.getBoolean("Drawn") == false) {
@@ -147,7 +161,7 @@ void createCard(int t, color c, String h, String f, int p, int r, int v, int b, 
   moveToSpace = MTS;
 }
 void displayCard() {
-  println("type : " +type);
+  println(type);
   cp5Main.hide(); 
   pushMatrix(); 
   translate(-80, 0); 
@@ -247,7 +261,6 @@ void displayCard() {
     payRentButton.hide();
     dismissInfoCardButton.hide();
     valueCardButton.hide();
-    print("hit");
     reBuy = false;
   }
   if (Players.get(playerTurn -1).hasGOOJ == true) {
@@ -274,93 +287,58 @@ void dismiss() {
 }
 
 void dontBuy() {
-  showingCard = false; 
-  cp5Main.show();
-  if (type != 8) {
-    nextTurn();
-  }
-}
-void buy() {
-  bankSystem b = banks.get(playerTurn-1); 
-  if (type == 0) {
-    int haveFunds = b.balance - price; 
-    if (haveFunds >= 0) {
-      b.addToBalance(-price); 
-      Player p = Players.get(playerTurn-1); 
-      p.ownedSpaces.append(p.gridPos); 
-      p.ownedSpacesValued.append(0);
-      showingCard = false; 
-      cp5Main.show();
+  if (type == 8) {
+    getSpace(prevCard, false);
+    m = 0;
+    println("hit2");
+  } else {
+    showingCard = false; 
+    cp5Main.show();
+    if (type != 8) {
       nextTurn();
     }
-  } else if (type == 8) {
-    int haveFunds = b.balance - reBuyValue; 
-    if (haveFunds >= 0) {
-      b.addToBalance(-reBuyValue);   
-      Player p = Players.get(playerTurn - 1);
-      p.ownedSpacesValued.set(drawnCardIndex, 0);
-      println(p.ownedSpacesValued);
-      println(drawnCardIndex);
-      println(p.ownedSpacesValued);
-      showingCard = false; 
-      cp5Main.show();
-    }
   }
 }
+
 
 void dismissInfo() {
   if (type == 4 && Players.get(playerTurn-1).inJail == true && !usedGOOJ) {
     Players.get(playerTurn-1).inJail = false;
     moveTo(29, false);
     println("player moved back && jail is now false");
-    nextTurn();
   } else if (type == 4 && Players.get(playerTurn-1).inJail == false && !usedGOOJ) {
     Players.get(playerTurn-1).inJail = true;
     moveTo(9, false);
     println("player moved && jail is now true");
-    nextTurn();
   } else if (type == 5 || type == 7) {
-    nextTurn();
   } else if (type  == 6) {
-    banks.get(playerTurn-1).addToBalance(price); 
-    nextTurn();
+    banks.get(playerTurn-1).addToBalance(price);
   } else if (usedGOOJ) {
     moveTo(29, true);
     moveTo(lastPlayerRoll, false);
   }
-  showingCard = false; 
-  cp5Main.show();
+  if (type == 8 || type == 3) {
+    getSpace(prevCard, false);
+    m = 0;
+    println("hit");
+  } else {
+    if (!usedGOOJ) {
+      nextTurn();
+    }
+    showingCard = false; 
+    cp5Main.show();
+  }
 }
 void GetValue() {
   Player p = Players.get(playerTurn - 1);
   p.ownedSpacesValued.set(drawnCardIndex, 1);
   banks.get(playerTurn - 1).addToBalance(value);
-  showingCard = false; 
-  cp5Main.show();
-}
-void payRent() {
-  bankSystem b = banks.get(playerTurn-1);
-  bankSystem O = banks.get(playerOwning);
-  if (index == 11 || index == 27) {
-    println("Vi er på kemi");
-    rent = 4 * lastPlayerRoll;
-  } else if (index == 4 || index == 14 || index == 24 || index == 34) {
-    int mult = -1;
-    Player p = Players.get(playerOwning);
-    for (int i = 0; i < p.ownedSpaces.size(); i++) {
-      if (p.ownedSpaces.get(i) == 4 || p.ownedSpaces.get(i) == 14 || p.ownedSpaces.get(i) == 24 || p.ownedSpaces.get(i) == 34) {
-        mult++;
-      }
-    }
-    rent = labRent[mult];
-  }
-  int haveFunds = b.balance - rent; 
-  if (haveFunds >= 0) {
-    b.addToBalance(-rent);
-    O.addToBalance(rent);
-
+  if (type == 8 || type == 3) {
+    getSpace(prevCard, false);
+    m = 0;
+    println("hit");
+  } else {
     showingCard = false; 
     cp5Main.show();
   }
-  nextTurn();
 }
