@@ -115,7 +115,6 @@ void draw() {
     } else {
       hideGOOJCardButton.hide();
     }
-
     //Tegner terninger
     pushMatrix(); 
     translate(460, 110); 
@@ -227,10 +226,14 @@ void displayPlayerCards(int i, int FNR) {
   text(Space.getString("Name"), Xpos+90, Ypos+offset+35);
   if (mousePressed && mouseX >= Xpos && mouseX <=Xpos+200 && mouseY >=Ypos+offset && mouseY <= Ypos+offset+50) {
     if (p.ownedSpacesValued.get(i) == 1) {
+      twoCardsStacked = true;
       reBuy = true;
+      prevType = simpletype;
       getSpace(index, false);
       drawnCardIndex = i;
     } else {
+      twoCardsStacked = true;
+      prevType = simpletype;
       getSpace(index, true);
       drawnCardIndex = i;
     }
