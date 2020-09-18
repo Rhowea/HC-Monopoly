@@ -297,11 +297,7 @@ void dismiss() {
 void dontBuy() {
   if (type == 3|| type==8) {
     if (prevType != 1 && prevType != 2) {
-      if (prevType != 3) {
-        getSpace(prevCard, false);
-      } else {
-        getSpace(prevCard, true);
-      }
+      getSpace(prevCard, false);
     } else if (prevType == 1) {
       getChance(prevCard);
     } else if (prevType == 2) {
@@ -337,11 +333,7 @@ void dismissInfo() {
   }
   if (type == 8 || type == 3) {
     if (prevType != 1 && prevType != 2) {
-      if (prevType != 3) {
-        getSpace(prevCard, false);
-      } else {
-        getSpace(prevCard, true);
-      }
+      getSpace(prevCard, false);
     } else if (prevType == 1) {
       getChance(prevCard);
     } else if (prevType == 2) {
@@ -363,11 +355,7 @@ void GetValue() {
   banks.get(playerTurn - 1).addToBalance(value);
   if (type == 8 || type == 3) {
     if (prevType != 1 && prevType != 2) {
-      if (prevType != 3) {
-        getSpace(prevCard, false);
-      } else {
-        getSpace(prevCard, true);
-      }
+      getSpace(prevCard, false);
     } else if (prevType == 1) {
       getChance(prevCard);
     } else if (prevType == 2) {

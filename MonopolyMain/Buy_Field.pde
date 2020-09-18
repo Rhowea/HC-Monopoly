@@ -25,11 +25,7 @@ void buy() {
       println(p.ownedSpacesValued);
       if (type == 8 || type == 3) {
         if (prevType != 1 && prevType != 2) {
-          if (prevType != 3) {
-            getSpace(prevCard, false);
-          } else {
-            getSpace(prevCard, true);
-          }
+          getSpace(prevCard, false);
         } else if (prevType == 1) {
           getChance(prevCard);
         } else if (prevType == 2) {
