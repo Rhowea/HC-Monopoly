@@ -1,3 +1,4 @@
+boolean showingError = false;
 void buy() {
   bankSystem b = banks.get(playerTurn-1); 
   if (type == 0) {
@@ -10,9 +11,10 @@ void buy() {
       showingCard = false; 
       cp5Main.show();
       nextTurn();
-    } else {
+    } else if (!showingError) {
       flavorText = flavorText + "\n"+"Du har ikke råd til at investerer i denne egendom";
       cardTextarea.setText(flavorText);
+      showingError = true;
     }
   } else if (type == 8) {
     int haveFunds = b.balance - reBuyValue; 
